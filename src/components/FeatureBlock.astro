@@ -1,0 +1,187 @@
+---
+// Feature block with text and animation/image
+interface Props {
+  title: string;
+  description: string;
+  ctaText?: string;
+  ctaLink?: string;
+  imagePosition?: 'left' | 'right';
+  tag?: string;
+}
+
+const { 
+  title, 
+  description, 
+  ctaText = "Learn more",
+  ctaLink = "#",
+  imagePosition = 'right',
+  tag
+} = Astro.props;
+---
+
+<section class={`feature-block ${imagePosition === 'left' ? 'image-left' : 'image-right'}`}>
+  <div class="feature-container">
+    <div class="feature-content">
+      {tag && <span class="feature-tag">{tag}</span>}
+      <h2 class="feature-title">{title}</h2>
+      <p class="feature-description">{description}</p>
+      <a href={ctaLink} class="feature-cta">
+        {ctaText}
+        <svg width="20" height="20" viewBox="0 0 49 44" fill="none">
+          <path d="M29.9175 3.10659C28.2041 1.39326 25.4214 1.3895 23.7043 3.10659L20.609 6.20189L35.6976 21.2905C35.9537 21.5466 35.9574 21.9646 35.6976 22.2244L20.609 37.313L23.7043 40.4083C25.4176 42.1217 28.2004 42.1254 29.9137 40.4121L47.0131 23.3126C47.8717 22.4541 47.8679 21.0646 47.0131 20.2098L29.9137 3.11036L29.9175 3.10659Z" fill="currentColor"/>
+          <path d="M17.4911 10.4795C15.7777 8.76618 12.995 8.76242 11.2779 10.4795L9.00724 12.7502L17.5475 21.2905C17.8036 21.5465 17.8074 21.9645 17.5475 22.2243L9.00724 30.7646L11.2779 33.0353C12.9912 34.7486 15.774 34.7524 17.4911 33.0353L27.2138 23.3126C28.0723 22.454 28.0685 21.0645 27.2138 20.2097L17.4911 10.4871V10.4795Z" fill="currentColor"/>
+        </svg>
+      </a>
+    </div>
+    
+    <div class="feature-media">
+      <div class="lottie-placeholder">
+        <!-- Placeholder for Lottie animation -->
+        <div class="animation-placeholder">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+            <rect width="120" height="120" rx="16" fill="#F5F7FA"/>
+            <circle cx="60" cy="60" r="30" stroke="#E0E4E8" stroke-width="4" stroke-dasharray="8 8"/>
+            <circle cx="60" cy="60" r="8" fill="#E0E4E8"/>
+          </svg>
+          <span>Animation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .feature-block {
+    padding: 80px 0;
+  }
+  
+  .feature-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  
+  .image-left .feature-container {
+    direction: rtl;
+  }
+  
+  .image-left .feature-content,
+  .image-left .feature-media {
+    direction: ltr;
+  }
+  
+  .feature-content {
+    max-width: 480px;
+  }
+  
+  .feature-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(234, 31, 103, 0.1);
+    color: var(--color-pink);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .feature-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-navy);
+    margin-bottom: 20px;
+  }
+  
+  .feature-description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 28px;
+  }
+  
+  .feature-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-pink);
+    transition: gap var(--transition-fast);
+  }
+  
+  .feature-cta:hover {
+    gap: 12px;
+  }
+  
+  .feature-cta svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .feature-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .lottie-placeholder {
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 60px rgba(30, 26, 92, 0.08);
+  }
+  
+  .animation-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .animation-placeholder span {
+    font-size: 14px;
+    color: var(--color-muted);
+  }
+  
+  @media (max-width: 1024px) {
+    .feature-container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .image-left .feature-container {
+      direction: ltr;
+    }
+    
+    .feature-content {
+      max-width: 100%;
+      text-align: center;
+    }
+    
+    .feature-media {
+      order: -1;
+    }
+    
+    .lottie-placeholder {
+      max-width: 400px;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .feature-block {
+      padding: 60px 0;
+    }
+  }
+</style>

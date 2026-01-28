@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import LogoSlider from '../components/LogoSlider.astro';
+import FeatureBlock from '../components/FeatureBlock.astro';
+import FeaturesAccordion from '../components/FeaturesAccordion.astro';
+import CTASection from '../components/CTASection.astro';
+import Footer from '../components/Footer.astro';
+
+// Features for accordion sections
+const adminFeatures = [
+  {
+    title: "AI Course Builder",
+    description: "Design smarter courses in minutes with AI assistance. Simply describe what you want to teach, and our AI will help you create engaging learning content complete with assessments and activities."
+  },
+  {
+    title: "Pathways",
+    description: "Build structured learning programmes for compliance, onboarding, and upskilling. Create sequential or flexible learning paths that guide employees through their development journey."
+  },
+  {
+    title: "Content Library",
+    description: "Access ready-to-deploy training content from our extensive library. Choose from thousands of courses covering compliance, soft skills, technical training, and more."
+  },
+  {
+    title: "Forms & Quizzes",
+    description: "Validate learnings or gather insights from your teams with customizable forms and quizzes. Track completion and analyze results with detailed reporting."
+  },
+  {
+    title: "Workflows",
+    description: "Automate repetitive tasks and notifications. Set up triggers based on user actions, dates, or completion status to keep training on track without manual intervention."
+  }
+];
+
+const hrFeatures = [
+  {
+    title: "Analytics & Reporting",
+    description: "Generate training reports and track completion across your organisation. Get insights into learning engagement, skill gaps, and compliance status with customizable dashboards."
+  },
+  {
+    title: "Skills-based Learning",
+    description: "Track competencies across your workforce and learning activities. Map skills to roles, identify development needs, and recommend relevant training automatically."
+  },
+  {
+    title: "Career Roadmaps",
+    description: "Map career progression and skills requirements for each role level. Help employees visualize their growth path and the learning needed to advance."
+  },
+  {
+    title: "Events Management",
+    description: "Add and track face-to-face training, conferences, and workshops. Manage registrations, attendance, and integrate with your calendar systems."
+  },
+  {
+    title: "Knowledge Base",
+    description: "Centralise and share your company's internal knowledge. Create searchable documentation, policies, and procedures that employees can access anytime."
+  }
+];
+---
+
+<Layout title="SuperPath - Learning made simple">
+  <Header />
+  
+  <main>
+    <Hero />
+    
+    <!-- Logo Slider Section -->
+    <section class="logos-section">
+      <div class="logos-container">
+        <LogoSlider title="Trusted by leading companies worldwide" direction="forward" />
+        <LogoSlider direction="reverse" />
+      </div>
+    </section>
+    
+    <!-- Feature Blocks -->
+    <FeatureBlock 
+      tag="Create"
+      title="Build engaging learning experiences in minutes"
+      description="Our AI-powered course builder helps you create professional training content without the complexity. Just describe your learning objectives, and watch your course come to life."
+      ctaText="Explore course builder"
+      ctaLink="/features/ai-course-builder"
+      imagePosition="right"
+    />
+    
+    <FeatureBlock 
+      tag="Deploy"
+      title="Deliver training to the right people, at the right time"
+      description="Automatically assign learning based on role, department, location, or custom rules. Set up onboarding sequences, compliance deadlines, and development programs that run themselves."
+      ctaText="See how it works"
+      ctaLink="/features/pathways"
+      imagePosition="left"
+    />
+    
+    <FeatureBlock 
+      tag="Track"
+      title="Get complete visibility into your learning programs"
+      description="Real-time dashboards and detailed reports give you insights into completion rates, engagement levels, and skill development across your entire organization."
+      ctaText="View reporting features"
+      ctaLink="/features/reporting"
+      imagePosition="right"
+    />
+    
+    <!-- Features Accordion - Admins -->
+    <FeaturesAccordion 
+      id="admin-features"
+      sectionTitle="Built for L&D Admins"
+      sectionDescription="Everything you need to create, manage, and scale your learning programs"
+      features={adminFeatures}
+    />
+    
+    <!-- Features Accordion - HR -->
+    <FeaturesAccordion 
+      id="hr-features"
+      sectionTitle="Built for HR Leaders"
+      sectionDescription="Drive employee development and track skills across your organization"
+      features={hrFeatures}
+    />
+    
+    <!-- CTA Section -->
+    <CTASection 
+      title="Ready to transform your learning?"
+      description="Join thousands of organizations that trust SuperPath to deliver exceptional learning experiences. Start your free trial today."
+      ctaText="Start free trial"
+      ctaLink="#"
+    />
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+  
+  .logos-section {
+    padding: 60px 0;
+    background: var(--color-white);
+  }
+  
+  .logos-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+</style>

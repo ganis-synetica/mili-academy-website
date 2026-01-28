@@ -1,0 +1,294 @@
+---
+// Features accordion with expandable items
+interface Feature {
+  title: string;
+  description: string;
+  icon?: string;
+}
+
+interface Props {
+  sectionTitle: string;
+  sectionDescription?: string;
+  features: Feature[];
+  id?: string;
+}
+
+const { sectionTitle, sectionDescription, features, id = 'features' } = Astro.props;
+---
+
+<section class="features-accordion" id={id}>
+  <div class="accordion-container">
+    <div class="accordion-header">
+      <h2 class="accordion-title">{sectionTitle}</h2>
+      {sectionDescription && <p class="accordion-description">{sectionDescription}</p>}
+    </div>
+    
+    <div class="accordion-content">
+      <div class="accordion-list">
+        {features.map((feature, index) => (
+          <div class="accordion-item" data-index={index}>
+            <button 
+              class={`accordion-trigger ${index === 0 ? 'active' : ''}`}
+              aria-expanded={index === 0 ? 'true' : 'false'}
+              aria-controls={`panel-${id}-${index}`}
+            >
+              <div class="trigger-content">
+                <span class="trigger-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 8V16M8 12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="trigger-title">{feature.title}</span>
+              </div>
+              <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div 
+              class={`accordion-panel ${index === 0 ? 'open' : ''}`}
+              id={`panel-${id}-${index}`}
+              role="region"
+            >
+              <p class="panel-content">{feature.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div class="accordion-media">
+        <div class="media-placeholder">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+            <rect width="120" height="120" rx="16" fill="#F5F7FA"/>
+            <circle cx="60" cy="60" r="30" stroke="#E0E4E8" stroke-width="4" stroke-dasharray="8 8"/>
+            <circle cx="60" cy="60" r="8" fill="#E0E4E8"/>
+          </svg>
+          <span>Feature Animation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('.accordion-item');
+      const panel = item?.querySelector('.accordion-panel');
+      const isActive = trigger.classList.contains('active');
+      
+      // Close all panels in this accordion
+      const accordion = trigger.closest('.features-accordion');
+      accordion?.querySelectorAll('.accordion-trigger').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-expanded', 'false');
+      });
+      accordion?.querySelectorAll('.accordion-panel').forEach(p => {
+        p.classList.remove('open');
+      });
+      
+      // Open clicked panel if it wasn't already active
+      if (!isActive) {
+        trigger.classList.add('active');
+        trigger.setAttribute('aria-expanded', 'true');
+        panel?.classList.add('open');
+      }
+    });
+  });
+</script>
+
+<style>
+  .features-accordion {
+    padding: 80px 0;
+    background: #FAFBFC;
+  }
+  
+  .accordion-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .accordion-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .accordion-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-navy);
+    margin-bottom: 16px;
+  }
+  
+  .accordion-description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .accordion-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  
+  .accordion-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .accordion-item {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+  
+  .accordion-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background var(--transition-fast);
+  }
+  
+  .accordion-trigger:hover {
+    background: rgba(0, 0, 0, 0.02);
+  }
+  
+  .accordion-trigger.active {
+    background: rgba(234, 31, 103, 0.04);
+  }
+  
+  .trigger-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .trigger-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--color-navy);
+    color: white;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  
+  .trigger-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .trigger-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+  
+  .chevron {
+    width: 20px;
+    height: 20px;
+    color: var(--color-muted);
+    transition: transform var(--transition-fast);
+    flex-shrink: 0;
+  }
+  
+  .accordion-trigger.active .chevron {
+    transform: rotate(180deg);
+    color: var(--color-pink);
+  }
+  
+  .accordion-panel {
+    display: none;
+    padding: 0 24px 20px;
+  }
+  
+  .accordion-panel.open {
+    display: block;
+  }
+  
+  .panel-content {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-text);
+    padding-left: 56px;
+  }
+  
+  .accordion-media {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .media-placeholder {
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    box-shadow: 0 20px 60px rgba(30, 26, 92, 0.08);
+  }
+  
+  .media-placeholder span {
+    font-size: 14px;
+    color: var(--color-muted);
+  }
+  
+  @media (max-width: 1024px) {
+    .accordion-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .accordion-media {
+      position: static;
+      order: -1;
+    }
+    
+    .media-placeholder {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .features-accordion {
+      padding: 60px 0;
+    }
+    
+    .accordion-trigger {
+      padding: 16px 20px;
+    }
+    
+    .trigger-icon {
+      width: 36px;
+      height: 36px;
+    }
+    
+    .panel-content {
+      padding-left: 52px;
+    }
+  }
+</style>
