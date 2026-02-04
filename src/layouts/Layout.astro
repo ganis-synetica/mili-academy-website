@@ -4,11 +4,14 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "Unlock learning without limits. SuperPath connects your HR systems, tools, eLearning libraries, and your own content - all in one intuitive platform." } = Astro.props;
+const { 
+  title, 
+  description = "Platform pelatihan terpadu untuk perusahaan Indonesia. Hubungkan sistem HR, konten pembelajaran, dan lacak progress tim Anda dalam satu platform." 
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,6 +27,7 @@ const { title, description = "Unlock learning without limits. SuperPath connects
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:locale" content="id_ID" />
     
     <!-- Preconnect to fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

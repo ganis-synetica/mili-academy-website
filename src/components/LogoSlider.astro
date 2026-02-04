@@ -5,20 +5,20 @@ interface Props {
   direction?: 'forward' | 'reverse';
 }
 
-const { title = "Trusted by leading companies", direction = 'forward' } = Astro.props;
+const { title, direction = 'forward' } = Astro.props;
 
-// Placeholder company logos (mimicking real company names)
+// Placeholder company logos (Indonesian companies)
 const logos = [
-  { name: "Acme Corp", width: 100 },
-  { name: "TechFlow", width: 90 },
-  { name: "DataSync", width: 100 },
-  { name: "CloudBase", width: 95 },
-  { name: "Innovate", width: 85 },
-  { name: "NextGen", width: 90 },
-  { name: "Stellar", width: 80 },
-  { name: "Momentum", width: 105 },
-  { name: "Apex Inc", width: 95 },
-  { name: "Zenith", width: 80 },
+  { name: "Bank Mandiri", width: 110 },
+  { name: "Telkom", width: 90 },
+  { name: "Pertamina", width: 100 },
+  { name: "Astra", width: 80 },
+  { name: "BCA", width: 70 },
+  { name: "Indofood", width: 95 },
+  { name: "Unilever ID", width: 100 },
+  { name: "Gojek", width: 80 },
+  { name: "Tokopedia", width: 100 },
+  { name: "Bank BRI", width: 90 },
 ];
 ---
 

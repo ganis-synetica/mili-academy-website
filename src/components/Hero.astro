@@ -7,66 +7,53 @@
     <div class="hero-content">
       <!-- Social proof -->
       <div class="hero-social-proof">
-        <div class="capterra-badge">
-          <svg width="84" height="19" viewBox="0 0 84 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11.5564 2.14094V6.40892H0L11.5564 2.14094Z" fill="#ADADAD"/>
-            <path d="M17.3699 0L11.8387 17.3082V2.04362L17.3699 0Z" fill="#ADADAD"/>
-            <path d="M11.5564 6.68696V17.4751L8.43804 9.75935L7.21043 6.74257L7.19632 6.68696H11.5564Z" fill="#ADADAD"/>
-            <text x="22" y="14" font-family="Plus Jakarta Sans" font-size="10" fill="#ADADAD">Capterra</text>
-          </svg>
-          <div class="rating">
-            <div class="stars">
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star half">★</span>
-            </div>
-            <span class="rating-text">4.8/5</span>
-          </div>
+        <div class="trust-badge">
+          <span class="trust-text">🇦🇺 Powered by Superpath Australia</span>
         </div>
         
         <div class="avatar-stack">
           <div class="avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-            <span>J</span>
+            <span>T</span>
           </div>
           <div class="avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-            <span>S</span>
+            <span>B</span>
           </div>
           <div class="avatar" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-            <span>M</span>
+            <span>P</span>
           </div>
           <div class="avatar" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-            <span>A</span>
+            <span>S</span>
           </div>
-          <span class="avatar-text">Loved by 10,000+ users</span>
+          <span class="avatar-text">Dipercaya 50+ enterprise</span>
         </div>
       </div>
       
       <!-- Headline with animated pills -->
       <h1 class="hero-title">
-        <span class="pill pill-create">Create</span>
-        <span class="pill pill-deploy">deploy</span>
-        <span class="pill pill-automate">automate</span>
+        <span class="pill pill-create">Buat</span>
+        <span class="pill pill-deploy">kelola</span>
+        <span class="pill pill-automate">otomatiskan</span>
         <span class="word-and">&</span>
-        <span class="pill pill-track">track</span>
+        <span class="pill pill-track">lacak</span>
         <br />
-        <span class="title-rest">learning, easily</span>
+        <span class="title-rest">pelatihan tim Anda</span>
       </h1>
       
       <p class="hero-description">
-        Unlock learning without limits. SuperPath connects your HR systems, tools, eLearning libraries, and your own content – all in one intuitive platform. No silos.
+        Satu platform untuk semua kebutuhan learning & development. Hubungkan sistem HR, 
+        konten pelatihan, dan pantau progress karyawan — tanpa ribet, tanpa silo.
       </p>
       
       <!-- CTA Button -->
       <div class="hero-cta">
-        <a href="#" class="btn btn-primary btn-lg">
-          Get started free
+        <a href="/contact" class="btn btn-primary btn-lg">
+          Jadwalkan Demo
           <svg width="24" height="24" viewBox="0 0 49 44" fill="none">
             <path d="M29.9175 3.10659C28.2041 1.39326 25.4214 1.3895 23.7043 3.10659L20.609 6.20189L35.6976 21.2905C35.9537 21.5466 35.9574 21.9646 35.6976 22.2244L20.609 37.313L23.7043 40.4083C25.4176 42.1217 28.2004 42.1254 29.9137 40.4121L47.0131 23.3126C47.8717 22.4541 47.8679 21.0646 47.0131 20.2098L29.9137 3.11036L29.9175 3.10659Z" fill="currentColor"/>
             <path d="M17.4911 10.4795C15.7777 8.76618 12.995 8.76242 11.2779 10.4795L9.00724 12.7502L17.5475 21.2905C17.8036 21.5465 17.8074 21.9645 17.5475 22.2243L9.00724 30.7646L11.2779 33.0353C12.9912 34.7486 15.774 34.7524 17.4911 33.0353L27.2138 23.3126C28.0723 22.454 28.0685 21.0645 27.2138 20.2097L17.4911 10.4871V10.4795Z" fill="currentColor"/>
           </svg>
         </a>
+        <span class="cta-note">15 menit demo • Tanpa komitmen</span>
       </div>
     </div>
     
@@ -78,7 +65,7 @@
             <circle cx="40" cy="40" r="38" stroke="#E5E5E5" stroke-width="4"/>
             <path d="M32 25L55 40L32 55V25Z" fill="#E5E5E5"/>
           </svg>
-          <span>Product Demo Video</span>
+          <span>Demo Platform</span>
         </div>
       </div>
     </div>
@@ -115,35 +102,19 @@
     flex-wrap: wrap;
   }
   
-  .capterra-badge {
+  .trust-badge {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(30, 26, 92, 0.05);
+    border-radius: 50px;
   }
   
-  .rating {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  
-  .stars {
-    display: flex;
-    gap: 2px;
-    color: #FFB800;
-    font-size: 14px;
-  }
-  
-  .star.half {
-    background: linear-gradient(to right, #FFB800 50%, #D4D4D4 50%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .rating-text {
-    font-size: 14px;
+  .trust-text {
+    font-size: 13px;
     font-weight: 600;
-    color: var(--color-text);
+    color: var(--color-navy);
   }
   
   .avatar-stack {
@@ -232,12 +203,19 @@
   
   .hero-cta {
     display: flex;
-    gap: 16px;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .cta-note {
+    font-size: 14px;
+    color: var(--color-muted);
   }
   
   .btn-lg {
     padding: 16px 32px;
     font-size: 16px;
+    width: fit-content;
   }
   
   .hero-media {
@@ -293,7 +271,7 @@
     }
     
     .hero-cta {
-      justify-content: center;
+      align-items: center;
     }
     
     .hero-media {

@@ -1,0 +1,437 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Contact methods
+const contactMethods = [
+  {
+    icon: "📧",
+    title: "Email",
+    description: "Tim kami akan membalas dalam 24 jam kerja",
+    action: "hello@mili.academy",
+    href: "mailto:hello@mili.academy"
+  },
+  {
+    icon: "💬",
+    title: "WhatsApp",
+    description: "Chat langsung dengan tim sales kami",
+    action: "+62 812-8888-MILI",
+    href: "https://wa.me/6281288880000?text=Halo,%20saya%20tertarik%20dengan%20Mili%20Academy"
+  }
+];
+---
+
+<Layout 
+  title="Kontak - Mili Academy" 
+  description="Hubungi tim Mili Academy untuk jadwalkan demo atau diskusikan kebutuhan L&D perusahaan Anda."
+>
+  <Header />
+  
+  <main>
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+      <div class="hero-container">
+        <span class="section-tag">Hubungi Kami</span>
+        <h1>Mari bicara tentang kebutuhan L&D Anda</h1>
+        <p>
+          Jadwalkan demo 15 menit atau langsung diskusikan kebutuhan spesifik Anda. 
+          Tim kami siap membantu.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Contact Content -->
+    <section class="contact-section">
+      <div class="contact-container">
+        <div class="contact-grid">
+          <!-- Contact Form -->
+          <div class="contact-form-wrapper">
+            <h2>Jadwalkan Demo</h2>
+            <p>Isi form di bawah dan tim kami akan menghubungi Anda dalam 24 jam.</p>
+            
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+              <div class="form-group">
+                <label for="name">Nama Lengkap *</label>
+                <input type="text" id="name" name="name" required placeholder="John Doe" />
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email Kerja *</label>
+                <input type="email" id="email" name="email" required placeholder="john@company.com" />
+              </div>
+              
+              <div class="form-group">
+                <label for="company">Perusahaan *</label>
+                <input type="text" id="company" name="company" required placeholder="PT Company Indonesia" />
+              </div>
+              
+              <div class="form-group">
+                <label for="phone">Nomor WhatsApp</label>
+                <input type="tel" id="phone" name="phone" placeholder="0812-XXXX-XXXX" />
+              </div>
+              
+              <div class="form-group">
+                <label for="employees">Jumlah Karyawan</label>
+                <select id="employees" name="employees">
+                  <option value="">Pilih range</option>
+                  <option value="200-500">200-500</option>
+                  <option value="501-1000">501-1.000</option>
+                  <option value="1001-5000">1.001-5.000</option>
+                  <option value="5001+">5.001+</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Apa yang ingin Anda capai dengan LMS?</label>
+                <textarea id="message" name="message" rows="4" placeholder="Ceritakan kebutuhan L&D Anda..."></textarea>
+              </div>
+              
+              <button type="submit" class="btn btn-primary btn-lg">
+                Kirim & Jadwalkan Demo
+                <svg width="20" height="20" viewBox="0 0 49 44" fill="none">
+                  <path d="M29.9175 3.10659C28.2041 1.39326 25.4214 1.3895 23.7043 3.10659L20.609 6.20189L35.6976 21.2905C35.9537 21.5466 35.9574 21.9646 35.6976 22.2244L20.609 37.313L23.7043 40.4083C25.4176 42.1217 28.2004 42.1254 29.9137 40.4121L47.0131 23.3126C47.8717 22.4541 47.8679 21.0646 47.0131 20.2098L29.9137 3.11036L29.9175 3.10659Z" fill="currentColor"/>
+                  <path d="M17.4911 10.4795C15.7777 8.76618 12.995 8.76242 11.2779 10.4795L9.00724 12.7502L17.5475 21.2905C17.8036 21.5465 17.8074 21.9645 17.5475 22.2243L9.00724 30.7646L11.2779 33.0353C12.9912 34.7486 15.774 34.7524 17.4911 33.0353L27.2138 23.3126C28.0723 22.454 28.0685 21.0645 27.2138 20.2097L17.4911 10.4871V10.4795Z" fill="currentColor"/>
+                </svg>
+              </button>
+            </form>
+          </div>
+          
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <div class="contact-methods">
+              {contactMethods.map((method) => (
+                <a href={method.href} class="contact-method">
+                  <span class="method-icon">{method.icon}</span>
+                  <div class="method-content">
+                    <h3>{method.title}</h3>
+                    <p>{method.description}</p>
+                    <span class="method-action">{method.action}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+            
+            <div class="partnership-info">
+              <h3>Tentang Mili Academy</h3>
+              <p>
+                Mili Academy adalah partnership antara <a href="https://synetica.co" target="_blank">Synetica</a> 
+                (Indonesia) dan <a href="https://superpath.io" target="_blank">Superpath</a> (Australia).
+              </p>
+              <p>
+                Kami membawa teknologi LMS enterprise kelas dunia ke pasar Indonesia dengan 
+                support lokal dan harga yang kompetitif.
+              </p>
+              
+              <div class="partner-logos">
+                <div class="partner-logo">
+                  <span>Synetica</span>
+                  <small>Indonesia</small>
+                </div>
+                <span class="partner-separator">×</span>
+                <div class="partner-logo">
+                  <span>Superpath</span>
+                  <small>Australia</small>
+                </div>
+              </div>
+            </div>
+            
+            <div class="demo-info">
+              <h3>Apa yang akan Anda dapat di demo?</h3>
+              <ul>
+                <li>✓ Walkthrough lengkap platform (15 menit)</li>
+                <li>✓ Diskusi kebutuhan spesifik Anda</li>
+                <li>✓ Jawaban semua pertanyaan Anda</li>
+                <li>✓ Proposal custom jika tertarik</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+  
+  .contact-hero {
+    padding: 160px 0 60px;
+    background: linear-gradient(135deg, #f8f9fb 0%, #eef1f5 100%);
+    text-align: center;
+  }
+  
+  .hero-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .section-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(234, 31, 103, 0.1);
+    color: var(--color-pink);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .contact-hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-navy);
+    margin-bottom: 16px;
+  }
+  
+  .contact-hero p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+  
+  .contact-section {
+    padding: 80px 0;
+  }
+  
+  .contact-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  
+  .contact-form-wrapper {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(30, 26, 92, 0.08);
+  }
+  
+  .contact-form-wrapper h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 8px;
+  }
+  
+  .contact-form-wrapper > p {
+    font-size: 1rem;
+    color: var(--color-text);
+    margin-bottom: 32px;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .form-group label {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 14px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    transition: border-color var(--transition-fast);
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-pink);
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .contact-form .btn-lg {
+    width: 100%;
+    padding: 16px 24px;
+    margin-top: 12px;
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .contact-method {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    background: #FAFBFC;
+    border-radius: 16px;
+    transition: all var(--transition-fast);
+  }
+  
+  .contact-method:hover {
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+  
+  .method-icon {
+    font-size: 2rem;
+  }
+  
+  .method-content h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 4px;
+  }
+  
+  .method-content p {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    margin-bottom: 8px;
+  }
+  
+  .method-action {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-pink);
+  }
+  
+  .partnership-info,
+  .demo-info {
+    background: #FAFBFC;
+    padding: 24px;
+    border-radius: 16px;
+  }
+  
+  .partnership-info h3,
+  .demo-info h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 12px;
+  }
+  
+  .partnership-info p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin-bottom: 12px;
+  }
+  
+  .partnership-info a {
+    color: var(--color-pink);
+    text-decoration: underline;
+  }
+  
+  .partner-logos {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  
+  .partner-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .partner-logo span {
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: var(--color-navy);
+  }
+  
+  .partner-logo small {
+    font-size: 0.75rem;
+    color: var(--color-muted);
+  }
+  
+  .partner-separator {
+    font-size: 1.25rem;
+    color: var(--color-muted);
+  }
+  
+  .demo-info ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .demo-info li {
+    font-size: 0.9375rem;
+    color: var(--color-text);
+  }
+  
+  @media (max-width: 1024px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .contact-info {
+      order: -1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .contact-hero {
+      padding: 140px 0 40px;
+    }
+    
+    .contact-section {
+      padding: 60px 0;
+    }
+    
+    .contact-form-wrapper {
+      padding: 24px;
+    }
+    
+    .partner-logos {
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .partner-separator {
+      display: none;
+    }
+  }
+</style>

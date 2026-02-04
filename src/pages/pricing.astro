@@ -1,0 +1,458 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import CTASection from '../components/CTASection.astro';
+import Footer from '../components/Footer.astro';
+
+// Pricing tiers
+const pricingFeatures = [
+  "Unlimited courses & content",
+  "AI Course Builder",
+  "Learning Pathways",
+  "Skills Mapping & Reporting",
+  "Certificate Management",
+  "Events Management",
+  "Gamification (points, badges, leaderboards)",
+  "Knowledge Base",
+  "White Label Branding",
+  "Custom Domain",
+  "SSO Integration",
+  "API Access",
+  "Dedicated Support",
+  "Onboarding & Training",
+];
+
+// FAQ items
+const faqs = [
+  {
+    question: "Berapa minimum user yang harus dilanggan?",
+    answer: "Minimum 200 users. Ini memastikan ROI yang optimal untuk implementasi enterprise LMS."
+  },
+  {
+    question: "Apakah ada setup fee atau biaya tersembunyi?",
+    answer: "Tidak ada biaya tersembunyi. Harga yang tertera sudah mencakup semua fitur, onboarding, dan dedicated support. Setup fee bisa didiskusikan tergantung kompleksitas integrasi."
+  },
+  {
+    question: "Bagaimana proses onboarding-nya?",
+    answer: "Tim kami akan membantu Anda dari awal: setup platform, konfigurasi branding, migrasi konten (jika ada), training admin, hingga launch. Biasanya memakan waktu 2-4 minggu."
+  },
+  {
+    question: "Bisa integrasikan dengan HRIS yang sudah ada?",
+    answer: "Ya, Mili Academy dibangun API-first dan bisa integrasikan dengan berbagai HRIS populer seperti SAP, Workday, BambooHR, dan lainnya. Kami juga support custom integration."
+  },
+  {
+    question: "Bagaimana dengan keamanan data?",
+    answer: "Data Anda dihosting di infrastruktur yang secure dengan enkripsi end-to-end. Kami comply dengan standar keamanan enterprise dan bisa di-deploy di region Indonesia sesuai kebutuhan compliance."
+  },
+  {
+    question: "Ada trial period?",
+    answer: "Kami menawarkan pilot program 30 hari untuk enterprise yang ingin memvalidasi platform sebelum full deployment. Hubungi kami untuk mendiskusikan detailnya."
+  }
+];
+---
+
+<Layout 
+  title="Harga - Mili Academy" 
+  description="Harga transparan untuk platform LMS enterprise. Mulai dari Rp 125.000/user/bulan dengan minimum 200 users."
+>
+  <Header />
+  
+  <main>
+    <!-- Pricing Hero -->
+    <section class="pricing-hero">
+      <div class="hero-container">
+        <span class="section-tag">Harga Transparan</span>
+        <h1>Satu harga, semua fitur</h1>
+        <p>Tidak ada tier yang membingungkan. Semua fitur tersedia untuk semua pelanggan.</p>
+      </div>
+    </section>
+    
+    <!-- Pricing Card -->
+    <section class="pricing-section">
+      <div class="pricing-container">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h2>Enterprise</h2>
+            <p class="pricing-description">Untuk perusahaan yang serius dengan L&D</p>
+          </div>
+          
+          <div class="pricing-price">
+            <div class="price-main">
+              <span class="currency">Rp</span>
+              <span class="amount">125.000</span>
+            </div>
+            <span class="price-unit">/user/bulan</span>
+            <p class="price-note">Minimum 200 users • Billed annually</p>
+          </div>
+          
+          <div class="pricing-total">
+            <p>Mulai dari <strong>Rp 25.000.000</strong>/bulan</p>
+            <span class="total-note">(200 users × Rp 125.000)</span>
+          </div>
+          
+          <a href="/contact" class="btn btn-primary btn-lg">
+            Jadwalkan Demo
+            <svg width="20" height="20" viewBox="0 0 49 44" fill="none">
+              <path d="M29.9175 3.10659C28.2041 1.39326 25.4214 1.3895 23.7043 3.10659L20.609 6.20189L35.6976 21.2905C35.9537 21.5466 35.9574 21.9646 35.6976 22.2244L20.609 37.313L23.7043 40.4083C25.4176 42.1217 28.2004 42.1254 29.9137 40.4121L47.0131 23.3126C47.8717 22.4541 47.8679 21.0646 47.0131 20.2098L29.9137 3.11036L29.9175 3.10659Z" fill="currentColor"/>
+              <path d="M17.4911 10.4795C15.7777 8.76618 12.995 8.76242 11.2779 10.4795L9.00724 12.7502L17.5475 21.2905C17.8036 21.5465 17.8074 21.9645 17.5475 22.2243L9.00724 30.7646L11.2779 33.0353C12.9912 34.7486 15.774 34.7524 17.4911 33.0353L27.2138 23.3126C28.0723 22.454 28.0685 21.0645 27.2138 20.2097L17.4911 10.4871V10.4795Z" fill="currentColor"/>
+            </svg>
+          </a>
+          
+          <div class="pricing-features">
+            <h3>Termasuk semua fitur:</h3>
+            <ul>
+              {pricingFeatures.map((feature) => (
+                <li>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6L9 17L4 12" stroke="#43e97b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Volume Discount Note -->
+        <div class="volume-note">
+          <div class="volume-icon">💡</div>
+          <div class="volume-content">
+            <h3>Butuh lebih dari 500 users?</h3>
+            <p>Hubungi kami untuk volume discount. Semakin banyak user, semakin hemat per user.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="faq-container">
+        <div class="faq-header">
+          <h2>Pertanyaan yang Sering Diajukan</h2>
+        </div>
+        
+        <div class="faq-list">
+          {faqs.map((faq) => (
+            <details class="faq-item">
+              <summary class="faq-question">
+                {faq.question}
+                <svg class="faq-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </summary>
+              <p class="faq-answer">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <CTASection 
+      title="Siap mulai?"
+      description="Jadwalkan demo 15 menit untuk lihat bagaimana Mili Academy bisa transformasi L&D di perusahaan Anda."
+    />
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+  
+  .pricing-hero {
+    padding: 160px 0 60px;
+    background: linear-gradient(135deg, #f8f9fb 0%, #eef1f5 100%);
+    text-align: center;
+  }
+  
+  .hero-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .section-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(234, 31, 103, 0.1);
+    color: var(--color-pink);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .pricing-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-navy);
+    margin-bottom: 16px;
+  }
+  
+  .pricing-hero p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+  
+  .pricing-section {
+    padding: 60px 0 80px;
+    background: linear-gradient(135deg, #f8f9fb 0%, #eef1f5 100%);
+  }
+  
+  .pricing-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .pricing-card {
+    background: white;
+    border-radius: 24px;
+    padding: 48px;
+    box-shadow: 0 20px 60px rgba(30, 26, 92, 0.1);
+    text-align: center;
+  }
+  
+  .pricing-header h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 8px;
+  }
+  
+  .pricing-description {
+    font-size: 1rem;
+    color: var(--color-text);
+    margin-bottom: 32px;
+  }
+  
+  .pricing-price {
+    margin-bottom: 24px;
+  }
+  
+  .price-main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+  
+  .currency {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-top: 8px;
+  }
+  
+  .amount {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--color-navy);
+    line-height: 1;
+  }
+  
+  .price-unit {
+    font-size: 1rem;
+    color: var(--color-text);
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .price-note {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  
+  .pricing-total {
+    background: rgba(67, 233, 123, 0.1);
+    padding: 16px 24px;
+    border-radius: 12px;
+    margin-bottom: 32px;
+  }
+  
+  .pricing-total p {
+    font-size: 1.125rem;
+    color: var(--color-navy);
+    margin: 0;
+  }
+  
+  .pricing-total strong {
+    font-weight: 800;
+  }
+  
+  .total-note {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  
+  .pricing-card .btn-lg {
+    width: 100%;
+    padding: 18px 32px;
+    font-size: 1.125rem;
+    margin-bottom: 40px;
+  }
+  
+  .pricing-features {
+    text-align: left;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 32px;
+  }
+  
+  .pricing-features h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 20px;
+  }
+  
+  .pricing-features ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  
+  .pricing-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9375rem;
+    color: var(--color-text);
+  }
+  
+  .pricing-features li svg {
+    flex-shrink: 0;
+  }
+  
+  .volume-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    margin-top: 24px;
+  }
+  
+  .volume-icon {
+    font-size: 2rem;
+  }
+  
+  .volume-content h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 4px;
+  }
+  
+  .volume-content p {
+    font-size: 0.9375rem;
+    color: var(--color-text);
+    margin: 0;
+  }
+  
+  .faq-section {
+    padding: 80px 0;
+  }
+  
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .faq-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  
+  .faq-header h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-navy);
+  }
+  
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .faq-item {
+    background: #FAFBFC;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-navy);
+    cursor: pointer;
+    list-style: none;
+  }
+  
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+  
+  .faq-chevron {
+    flex-shrink: 0;
+    color: var(--color-muted);
+    transition: transform var(--transition-fast);
+  }
+  
+  .faq-item[open] .faq-chevron {
+    transform: rotate(180deg);
+    color: var(--color-pink);
+  }
+  
+  .faq-answer {
+    padding: 0 24px 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+  
+  @media (max-width: 768px) {
+    .pricing-hero {
+      padding: 140px 0 40px;
+    }
+    
+    .pricing-card {
+      padding: 32px 24px;
+    }
+    
+    .amount {
+      font-size: 3rem;
+    }
+    
+    .pricing-features ul {
+      grid-template-columns: 1fr;
+    }
+    
+    .faq-section {
+      padding: 60px 0;
+    }
+    
+    .faq-question {
+      padding: 16px 20px;
+      font-size: 1rem;
+    }
+    
+    .faq-answer {
+      padding: 0 20px 16px;
+    }
+  }
+</style>
