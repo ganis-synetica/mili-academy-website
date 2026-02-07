@@ -1,0 +1,501 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+
+const contentTypes = [
+  {
+    icon: "🤖",
+    title: "AI Course Creation",
+    description: "Build kursus yang beautiful, compliant, dan instructionally sound dalam hitungan menit dengan AI."
+  },
+  {
+    icon: "📁",
+    title: "BYO Content",
+    description: "Bring your own content dalam bentuk, ukuran, atau format apapun dengan smart scraper kami."
+  },
+  {
+    icon: "📚",
+    title: "Free Compliance Library",
+    description: "Award-winning Compliance Library yang dikembangkan oleh experts, siap deploy."
+  },
+  {
+    icon: "🎓",
+    title: "Off-the-Shelf Content",
+    description: "Butuh additional subject matter experts? Pilih dari verified content partners kami."
+  }
+];
+
+const capabilities = [
+  {
+    tag: "USE YOURS",
+    title: "Bring Your Own Content (BYO)",
+    description: "Upload dan organisasi tipe konten apapun dalam hitungan detik — videos, PDFs, SCORM files, slide decks, dan links. Platform menyentralisasi existing materials Anda, menerapkan skill tagging, dan membuatnya mudah di-deploy dalam learning journey apapun."
+  },
+  {
+    tag: "BUILD LIKE A PRO",
+    title: "Create Your Own (AI Course Builder)",
+    description: "Ketika konten baru dibutuhkan, platform membantu Anda build high-quality courses dengan cepat. AI Course Builder membuat structured, editable training yang merefleksikan tone organisasi Anda, learning goals, dan kedalaman yang dibutuhkan."
+  },
+  {
+    tag: "COMPLIANCE THAT MATTERS",
+    title: "Compliance Training Library",
+    description: "Akses pre-built library award-winning compliance courses yang mencakup area essential seperti cybersecurity, equality, dan harassment prevention. Content dijaga up-to-date dan simple untuk assign, monitor, dan report."
+  },
+  {
+    tag: "CHOOSE YOUR OWN ADVENTURE",
+    title: "Purchase content yang tepat untuk Anda.",
+    description: "Jika Anda butuh additional content, platform menghubungkan Anda langsung dengan leading global learning providers. Browse, select, dan deploy courses dari trusted libraries — semuanya fully integrated dalam platform."
+  },
+  {
+    tag: "TRANSLATE",
+    title: "Pecahkan language barriers secara instan.",
+    description: "Transform kursus Anda ke bahasa apapun dengan AI-powered translation yang menjaga context, formatting, dan learning objectives sambil maintain cultural relevance di global teams."
+  }
+];
+---
+
+<Layout 
+  title="Content Library - Mili Academy" 
+  description="Redefinisi content management. BYO content, AI course creation, compliance library, dan premium third-party content — semua dalam satu platform."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="feature-hero">
+      <div class="hero-container">
+        <span class="section-tag">Content Library</span>
+        <h1>Mendefinisikan ulang content management.</h1>
+        <p>
+          Platform merombak cara organisasi mengelola learning content dengan menghilangkan kompleksitas 
+          di setiap tahap. Satukan semua content sources dalam satu tempat — existing materials Anda, 
+          AI-created courses, ready-made compliance training, atau premium third-party libraries. 
+          Tidak ada integrasi rumit, tidak ada scattered files — hanya cara simple dan intelligent 
+          untuk create, organise, dan deliver learning content dalam skala besar.
+        </p>
+        <a href="/contact" class="btn btn-primary btn-lg">
+          Jadwalkan Demo
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+    
+    <!-- Modern Learning Section -->
+    <section class="modern-section">
+      <div class="modern-container">
+        <h2>Modern Learning, Terintegrasi Seamless</h2>
+        
+        <div class="content-types-grid">
+          {contentTypes.map((type) => (
+            <div class="content-type-card">
+              <span class="content-icon">{type.icon}</span>
+              <h3>{type.title}</h3>
+              <p>{type.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Capabilities -->
+    {capabilities.map((cap, index) => (
+      <section class={`capability-section ${index % 2 === 0 ? 'alt-bg' : ''}`}>
+        <div class="capability-container">
+          <div class={`capability-content ${index % 2 === 1 ? 'reverse' : ''}`}>
+            <div class="capability-text">
+              <span class="capability-tag">{cap.tag}</span>
+              <h2>{cap.title}</h2>
+              <p>{cap.description}</p>
+            </div>
+            <div class="capability-visual">
+              <div class="visual-placeholder">
+                <div class="library-mockup">
+                  <div class="library-search">
+                    <div class="search-bar"></div>
+                    <div class="search-filters">
+                      <span></span><span></span><span></span>
+                    </div>
+                  </div>
+                  <div class="library-grid">
+                    <div class="content-item">
+                      <div class="item-thumb"></div>
+                      <div class="item-title"></div>
+                    </div>
+                    <div class="content-item">
+                      <div class="item-thumb"></div>
+                      <div class="item-title"></div>
+                    </div>
+                    <div class="content-item">
+                      <div class="item-thumb"></div>
+                      <div class="item-title"></div>
+                    </div>
+                    <div class="content-item">
+                      <div class="item-thumb"></div>
+                      <div class="item-title"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+    
+    <!-- Supported Formats Section -->
+    <section class="formats-section">
+      <div class="formats-container">
+        <span class="section-tag">Format Support</span>
+        <h2>Upload content dalam format apapun</h2>
+        
+        <div class="formats-grid">
+          <div class="format-item">📄 PDF</div>
+          <div class="format-item">🎬 Video</div>
+          <div class="format-item">🎧 Audio</div>
+          <div class="format-item">📊 PowerPoint</div>
+          <div class="format-item">📝 Word</div>
+          <div class="format-item">📈 Excel</div>
+          <div class="format-item">📦 SCORM 1.2</div>
+          <div class="format-item">📦 SCORM 2004</div>
+          <div class="format-item">🔗 Web Links</div>
+          <div class="format-item">📰 Articles</div>
+          <div class="format-item">🎙️ Podcasts</div>
+          <div class="format-item">💻 Webinars</div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <CTASection 
+      title="Siap menyatukan semua learning content?"
+      description="Jadwalkan demo 15 menit untuk lihat Content Library in action."
+    />
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+  
+  .section-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(234, 31, 103, 0.1);
+    color: var(--color-pink);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Hero */
+  .feature-hero {
+    padding: 160px 0 100px;
+    background: linear-gradient(135deg, #f8f9fb 0%, #eef1f5 100%);
+    text-align: center;
+  }
+  
+  .hero-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .feature-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-navy);
+    margin-bottom: 24px;
+  }
+  
+  .feature-hero p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 32px;
+  }
+  
+  /* Modern Learning Section */
+  .modern-section {
+    padding: 100px 0;
+    background: white;
+  }
+  
+  .modern-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+  }
+  
+  .modern-section h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-navy);
+    margin-bottom: 60px;
+  }
+  
+  .content-types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+  }
+  
+  .content-type-card {
+    background: #FAFBFC;
+    padding: 32px;
+    border-radius: 20px;
+    text-align: left;
+    transition: all 0.3s ease;
+  }
+  
+  .content-type-card:hover {
+    background: white;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+  }
+  
+  .content-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 16px;
+  }
+  
+  .content-type-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 12px;
+  }
+  
+  .content-type-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+  
+  /* Capabilities */
+  .capability-section {
+    padding: 100px 0;
+  }
+  
+  .capability-section.alt-bg {
+    background: #FAFBFC;
+  }
+  
+  .capability-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .capability-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  
+  .capability-content.reverse {
+    direction: rtl;
+  }
+  
+  .capability-content.reverse > * {
+    direction: ltr;
+  }
+  
+  .capability-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--color-navy);
+    color: white;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .capability-text h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-navy);
+    margin-bottom: 20px;
+  }
+  
+  .capability-text p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+  
+  .capability-visual {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .visual-placeholder {
+    width: 100%;
+    max-width: 480px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 30px 60px rgba(102, 126, 234, 0.3);
+  }
+  
+  .library-mockup {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 20px;
+  }
+  
+  .library-search {
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    height: 40px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  
+  .search-filters {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .search-filters span {
+    height: 28px;
+    width: 60px;
+    background: #eee;
+    border-radius: 6px;
+  }
+  
+  .library-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .content-item {
+    background: #FAFBFC;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .item-thumb {
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, #e0e5ec 0%, #d0d5dc 100%);
+  }
+  
+  .item-title {
+    height: 12px;
+    width: 70%;
+    background: #ddd;
+    margin: 12px;
+    border-radius: 4px;
+  }
+  
+  /* Formats Section */
+  .formats-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--color-navy) 0%, #2d2875 100%);
+    text-align: center;
+  }
+  
+  .formats-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .formats-section .section-tag {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+  }
+  
+  .formats-section h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: white;
+    margin-bottom: 60px;
+  }
+  
+  .formats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .format-item {
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    transition: all 0.2s ease;
+  }
+  
+  .format-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 1024px) {
+    .capability-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .capability-content.reverse {
+      direction: ltr;
+    }
+    
+    .capability-visual {
+      order: -1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .feature-hero {
+      padding: 140px 0 80px;
+    }
+    
+    .modern-section,
+    .capability-section,
+    .formats-section {
+      padding: 80px 0;
+    }
+    
+    .content-types-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .formats-grid {
+      gap: 8px;
+    }
+    
+    .format-item {
+      padding: 10px 18px;
+      font-size: 14px;
+    }
+  }
+</style>

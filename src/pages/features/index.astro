@@ -1,0 +1,598 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+
+// Feature categories matching Superpath structure
+const featureCategories = [
+  {
+    id: "content-creation",
+    title: "Pembuatan Konten",
+    description: "Buat dan kelola konten pembelajaran dengan kecepatan AI",
+    features: [
+      {
+        name: "AI Course Builder",
+        slug: "ai-course-builder",
+        description: "Gunakan AI generatif untuk membuat dan deploy kursus pelatihan dalam hitungan menit. Deskripsikan kebutuhan pembelajaran dalam bahasa natural — AI menyusun outline, konten, dan quiz.",
+        icon: "🤖",
+        highlight: true
+      },
+      {
+        name: "Content Library",
+        slug: "content",
+        description: "Upload konten apapun ke library privat — video, podcast, website, dokumen, kursus. Akses ribuan konten gratis siap pakai dan konten premium dari partner.",
+        icon: "📚",
+        subFeatures: [
+          "Upload ANY content",
+          "1000+ free content pieces", 
+          "Curated premium content",
+          "Custom library organization"
+        ]
+      },
+      {
+        name: "SCORM Support",
+        description: "Full support untuk SCORM 1.2 dan 2004. Import existing e-learning content dan lacak progress dengan standar industri.",
+        icon: "📦",
+        subFeatures: ["SCORM 1.2", "SCORM 2004", "xAPI/Tin Can support"]
+      },
+      {
+        name: "Knowledge Base",
+        description: "Sentralisasi pengetahuan tim dan perusahaan dalam satu platform. AI text generation, bulk import, dan integrasi dengan learning pathways.",
+        icon: "📖",
+        subFeatures: [
+          "AI Text Generation",
+          "Bulk Import Articles",
+          "Use in Learning Pathways"
+        ]
+      }
+    ]
+  },
+  {
+    id: "learning-delivery",
+    title: "Delivery Pembelajaran",
+    description: "Sampaikan pelatihan ke orang yang tepat di waktu yang tepat",
+    features: [
+      {
+        name: "Learning Pathways",
+        slug: "pathways",
+        description: "Builder pathway intuitif untuk membangun pengalaman belajar engaging. Buat pathways untuk onboarding, upskilling, atau compliance yang disukai tim.",
+        icon: "🛤️",
+        highlight: true,
+        subFeatures: [
+          "Assign ke individu & tim",
+          "Build dengan konten apapun",
+          "Approval workflows",
+          "Evidence submission"
+        ]
+      },
+      {
+        name: "Events & Scheduling",
+        description: "Jadwalkan learning calendar di muka. Setup recurring schedule untuk training days, konferensi, mentoring sessions.",
+        icon: "📅",
+        subFeatures: [
+          "Schedule in advance",
+          "Recurring schedules",
+          "Track internal & external events"
+        ]
+      },
+      {
+        name: "Approval Workflows",
+        description: "Guide learners dan pastikan mereka mencapai outcome yang tepat. Require request access untuk konten spesifik.",
+        icon: "✅",
+        subFeatures: [
+          "Request access control",
+          "Evidence submission",
+          "Manager approvals"
+        ]
+      }
+    ]
+  },
+  {
+    id: "assessment",
+    title: "Assessment & Validasi",
+    description: "Validasi pemahaman dan ukur efektivitas pembelajaran",
+    features: [
+      {
+        name: "Forms & Quizzes",
+        slug: "forms",
+        description: "Form builder lengkap untuk kuis dan survei. AI Form Generator untuk percepat pembuatan. Validate learning outcomes dengan mudah.",
+        icon: "📝",
+        highlight: true,
+        subFeatures: [
+          "AI Form Generator",
+          "Multiple question types",
+          "Embed dalam pathways",
+          "Response analytics"
+        ]
+      },
+      {
+        name: "Assessments",
+        description: "Setup assessments dalam learning pathways dimana assessors bisa submit feedback real-time.",
+        icon: "✍️"
+      },
+      {
+        name: "Certificates",
+        description: "Kelola sertifikat di dalam platform. Earn certificates melalui learnings dan set reminders untuk renewal.",
+        icon: "🏆",
+        subFeatures: ["Custom Certificates", "Auto-renewal reminders", "Expiry tracking"]
+      }
+    ]
+  },
+  {
+    id: "skills-careers",
+    title: "Skills & Career Development",
+    description: "Petakan skills dan dorong pertumbuhan karir",
+    features: [
+      {
+        name: "Skills Matrix",
+        description: "Petakan skills ke learnings dan laporkan skills matrix untuk single view dari skill map organisasi.",
+        icon: "🗺️"
+      },
+      {
+        name: "Career Roadmaps",
+        slug: "roadmaps",
+        description: "Bangun dan visualisasikan career roadmaps dengan key behaviors dan skills untuk setiap level. AI Roadmaps Generator tersedia.",
+        icon: "🚀",
+        highlight: true,
+        subFeatures: [
+          "AI Roadmaps Generator",
+          "Map skills to levels",
+          "Visualize career growth"
+        ]
+      },
+      {
+        name: "Notes & Annotations",
+        description: "Izinkan learners membuat catatan saat mengerjakan learnings. Personal notes yang bisa diakses kapan saja.",
+        icon: "✏️"
+      }
+    ]
+  },
+  {
+    id: "engagement",
+    title: "Gamification & Engagement",
+    description: "Buat pembelajaran jadi menarik dan memotivasi",
+    features: [
+      {
+        name: "Points System",
+        description: "Ciptakan kompetisi sehat dengan earning points melalui learning actions. Motivasi tim untuk terus belajar.",
+        icon: "🎯"
+      },
+      {
+        name: "Badges",
+        description: "Award learners dengan custom badges untuk encourage dan reward learning actions.",
+        icon: "🏅"
+      },
+      {
+        name: "Leaderboards",
+        description: "Updates tentang learning achievements organisasi atau tim untuk semua lihat dan recognize.",
+        icon: "📢"
+      }
+    ]
+  },
+  {
+    id: "reporting",
+    title: "Reporting & Analytics",
+    description: "Visibilitas penuh atas learning activities",
+    features: [
+      {
+        name: "Dashboards",
+        slug: "reporting",
+        description: "Single view learning activity seluruh organisasi. Quick view reports untuk learnings, skills, atau certifications.",
+        icon: "📊",
+        highlight: true,
+        subFeatures: [
+          "Company & Team Dashboards",
+          "Quick-View Reports",
+          "Learner Progress Tracking",
+          "Learning Hours Analytics"
+        ]
+      },
+      {
+        name: "Scheduled Reports",
+        description: "Generate dan save reports untuk dikirim otomatis via email kapan pun dibutuhkan.",
+        icon: "📧"
+      },
+      {
+        name: "CPD Tracking",
+        description: "Track CPD points untuk learnings dan aktivitas lain. Easy reporting untuk compliance.",
+        icon: "📋"
+      },
+      {
+        name: "Data Export",
+        description: "Export ALL data. Apapun yang ada di platform bisa di-export untuk analysis lebih lanjut.",
+        icon: "📤"
+      }
+    ]
+  },
+  {
+    id: "branding",
+    title: "Branding & White Label",
+    description: "Jadikan platform ini milik Anda sepenuhnya",
+    features: [
+      {
+        name: "Custom Branding",
+        description: "Buat Mili terlihat dan terasa seperti brand Anda. Custom colors, logos, dan messaging.",
+        icon: "🎨"
+      },
+      {
+        name: "Custom Domain",
+        description: "BYO domain untuk integrasi seamless dengan sistem internal Anda.",
+        icon: "🌐"
+      },
+      {
+        name: "Feature Toggle",
+        description: "Switch on hanya fitur yang dibutuhkan. Simplifikasi experience untuk users.",
+        icon: "⚙️"
+      }
+    ]
+  },
+  {
+    id: "automation",
+    title: "Automation",
+    description: "Hemat waktu dengan automated workflows",
+    features: [
+      {
+        name: "Automated Actions",
+        description: "Setup automated actions untuk assign learning berdasarkan user actions. Karyawan baru? Auto-assign onboarding.",
+        icon: "⚡",
+        highlight: true
+      },
+      {
+        name: "Notifications",
+        description: "Automated reminders untuk deadlines, renewals, dan milestones.",
+        icon: "🔔"
+      }
+    ]
+  },
+  {
+    id: "user-management",
+    title: "User Management",
+    description: "Kelola users dan teams dengan fleksibel",
+    features: [
+      {
+        name: "User Import",
+        description: "Invite users, manual add, atau bulk add. Pilih cara yang paling sesuai untuk organisasi Anda.",
+        icon: "👥",
+        subFeatures: ["Invite Users", "Manual Add", "Bulk Add"]
+      },
+      {
+        name: "Team Structures",
+        description: "Buat struktur tim simple atau kompleks untuk easy assignment dan reporting.",
+        icon: "🏢",
+        subFeatures: ["Multi-manager teams", "Dynamic Teams", "Hierarchies"]
+      }
+    ]
+  },
+  {
+    id: "authentication",
+    title: "SSO & Authentication",
+    description: "Integrasikan dengan identity providers Anda",
+    features: [
+      {
+        name: "Microsoft SSO",
+        description: "Single sign-on dengan Microsoft/Azure AD untuk enterprise authentication.",
+        icon: "🔐"
+      },
+      {
+        name: "Google SSO",
+        description: "Login dengan Google Workspace accounts.",
+        icon: "🔑"
+      },
+      {
+        name: "SAML/OIDC",
+        description: "Support untuk SAML dan OIDC untuk custom identity providers.",
+        icon: "🛡️"
+      },
+      {
+        name: "Access Control",
+        description: "Email domain sign-up, restricted links, auto login, dan launch links.",
+        icon: "🚪",
+        subFeatures: ["Domain Sign-up", "Restricted Link", "Auto Login", "Launch Links"]
+      }
+    ]
+  },
+  {
+    id: "mobile-api",
+    title: "Mobile & Integrations",
+    description: "Akses dari mana saja dan integrasikan dengan tools Anda",
+    features: [
+      {
+        name: "Mobile Optimized",
+        description: "Platform dibangun mobile-first sehingga works di any device. Tidak perlu app terpisah.",
+        icon: "📱"
+      },
+      {
+        name: "API Access",
+        description: "API-first architecture — apapun yang bisa dilakukan di app, bisa dilakukan via API.",
+        icon: "🔌"
+      },
+      {
+        name: "HRIS Integration",
+        description: "Integrasikan dengan HRIS platforms untuk sync user data otomatis.",
+        icon: "🔗"
+      },
+      {
+        name: "Webhooks",
+        description: "Send data dari platform ke applications lain. Real-time notifications.",
+        icon: "📡"
+      }
+    ]
+  }
+];
+---
+
+<Layout 
+  title="Fitur - Mili Academy" 
+  description="Semua fitur yang Anda butuhkan untuk membangun, mengelola, dan men-scale program pelatihan enterprise."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="features-hero">
+      <div class="hero-container">
+        <span class="section-tag">Fitur Lengkap</span>
+        <h1>Semua yang Anda butuhkan untuk L&D enterprise</h1>
+        <p>
+          Dari pembuatan konten dengan AI hingga analytics mendalam — 
+          satu platform untuk seluruh siklus learning & development.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Feature Categories -->
+    {featureCategories.map((category, index) => (
+      <section class={`feature-category ${index % 2 === 1 ? 'alt-bg' : ''}`} id={category.id}>
+        <div class="category-container">
+          <div class="category-header">
+            <h2>{category.title}</h2>
+            <p>{category.description}</p>
+          </div>
+          
+          <div class="features-grid">
+            {category.features.map((feature) => (
+              <div class={`feature-card ${feature.highlight ? 'highlighted' : ''}`}>
+                <span class="feature-icon">{feature.icon}</span>
+                <h3>{feature.name}</h3>
+                <p>{feature.description}</p>
+                
+                {feature.subFeatures && (
+                  <ul class="sub-features">
+                    {feature.subFeatures.map((sub) => (
+                      <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                          <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        {sub}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                
+                {feature.slug && (
+                  <a href={`/features/${feature.slug}`} class="feature-link">
+                    Pelajari lebih lanjut
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+    
+    <!-- CTA Section -->
+    <CTASection 
+      title="Ingin lihat semua fitur in action?"
+      description="Jadwalkan demo 15 menit. Tim kami akan tunjukkan bagaimana fitur-fitur ini bisa solve kebutuhan spesifik Anda."
+    />
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+  
+  .features-hero {
+    padding: 160px 0 80px;
+    background: linear-gradient(135deg, #f8f9fb 0%, #eef1f5 100%);
+    text-align: center;
+  }
+  
+  .hero-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .section-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(234, 31, 103, 0.1);
+    color: var(--color-pink);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .features-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-navy);
+    margin-bottom: 20px;
+  }
+  
+  .features-hero p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+  
+  .feature-category {
+    padding: 80px 0;
+  }
+  
+  .feature-category.alt-bg {
+    background: #FAFBFC;
+  }
+  
+  .category-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .category-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .category-header h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 12px;
+  }
+  
+  .category-header p {
+    font-size: 1.125rem;
+    color: var(--color-text);
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  
+  .feature-card {
+    background: white;
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: all var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .feature-category.alt-bg .feature-card {
+    background: white;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  }
+  
+  .feature-card.highlighted {
+    border: 2px solid var(--color-pink);
+    position: relative;
+  }
+  
+  .feature-card.highlighted::before {
+    content: "Popular";
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--color-pink);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .feature-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 16px;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 12px;
+  }
+  
+  .feature-card > p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin-bottom: 16px;
+    flex-grow: 1;
+  }
+  
+  .sub-features {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  
+  .sub-features li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--color-text);
+  }
+  
+  .sub-features li svg {
+    color: #43e97b;
+    flex-shrink: 0;
+  }
+  
+  .feature-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-pink);
+    text-decoration: none;
+    margin-top: auto;
+    transition: gap 0.2s ease;
+  }
+  
+  .feature-link:hover {
+    gap: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .features-hero {
+      padding: 140px 0 60px;
+    }
+    
+    .feature-category {
+      padding: 60px 0;
+    }
+    
+    .category-header {
+      margin-bottom: 40px;
+    }
+    
+    .features-grid {
+      gap: 16px;
+    }
+    
+    .feature-card {
+      padding: 24px;
+    }
+  }
+</style>

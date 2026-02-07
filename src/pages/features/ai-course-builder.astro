@@ -1,0 +1,531 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+
+const capabilities = [
+  {
+    tag: "BUAT KURSUS",
+    title: "Pembuatan konten instan di ujung jari Anda.",
+    description: "Transformasi konsep pembelajaran apapun menjadi kursus yang komprehensif dan engaging melalui AI-powered prompts, upload dokumen, atau import halaman web."
+  },
+  {
+    tag: "EDIT KURSUS",
+    title: "Author konten dengan sempurna tanpa effort.",
+    description: "Ambil kontrol untuk edit dan format kursus Anda dengan mudah bersama AI assistant untuk development pembelajaran yang cepat dan berkualitas tinggi."
+  },
+  {
+    tag: "DEPLOY",
+    title: "Assign kursus dengan seamless ke seluruh tim.",
+    description: "Distribusikan materi pembelajaran ke individu atau grup hanya dengan beberapa klik, integrasikan dengan workplace apps populer, dan implementasikan approval workflows untuk verifikasi completion."
+  },
+  {
+    tag: "TRANSLATE",
+    title: "Pecahkan language barriers secara instan.",
+    description: "Transformasi kursus Anda ke bahasa apapun dengan AI-powered translation yang menjaga konteks, formatting, dan learning objectives sambil mempertahankan cultural relevance di tim global."
+  }
+];
+---
+
+<Layout 
+  title="AI Course Builder - Mili Academy" 
+  description="Buat kursus pelatihan dalam hitungan menit dengan AI. Deskripsikan kebutuhan pembelajaran, upload dokumen, atau import web content."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="feature-hero">
+      <div class="hero-container">
+        <span class="section-tag">AI Course Builder</span>
+        <h1>Masa depan learning development.</h1>
+        <p>
+          Bayangkan punya asisten learning and development yang dedicated, tersedia 24/7, 
+          mampu generate course outlines, saran konten, bahkan elemen interaktif. 
+          Itu kekuatan AI Course Builder kami. Bukan sekadar upgrade; ini revolusi.
+        </p>
+        <a href="/contact" class="btn btn-primary btn-lg">
+          Jadwalkan Demo
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+    
+    <!-- Capabilities -->
+    {capabilities.map((cap, index) => (
+      <section class={`capability-section ${index % 2 === 1 ? 'alt-bg' : ''}`}>
+        <div class="capability-container">
+          <div class={`capability-content ${index % 2 === 1 ? 'reverse' : ''}`}>
+            <div class="capability-text">
+              <span class="capability-tag">{cap.tag}</span>
+              <h2>{cap.title}</h2>
+              <p>{cap.description}</p>
+            </div>
+            <div class="capability-visual">
+              <div class="visual-placeholder">
+                <div class="visual-mockup">
+                  <div class="mockup-header">
+                    <div class="mockup-dots">
+                      <span></span><span></span><span></span>
+                    </div>
+                  </div>
+                  <div class="mockup-body">
+                    <div class="ai-indicator">
+                      <div class="ai-pulse"></div>
+                      <span>AI Processing</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+    
+    <!-- Cost Savings Section -->
+    <section class="savings-section">
+      <div class="savings-container">
+        <span class="section-tag">Hemat Biaya, Tanpa Kompromi</span>
+        <h2>Bangun Lebih Smart dengan AI.</h2>
+        <p>
+          Berdayakan tim Anda dengan knowledge yang mereka butuhkan tanpa membebani budget. 
+          Platform AI-driven kami menawarkan solusi cost-effective untuk membuat kursus 
+          berkualitas tinggi dan engaging dalam skala besar.
+        </p>
+        
+        <div class="savings-stats">
+          <div class="stat">
+            <span class="stat-number">90%</span>
+            <span class="stat-label">Lebih cepat dari manual</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">10x</span>
+            <span class="stat-label">Lebih banyak kursus per bulan</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">0</span>
+            <span class="stat-label">Instructional designer needed</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Instant Learning Section -->
+    <section class="instant-section">
+      <div class="instant-container">
+        <div class="instant-content">
+          <span class="section-tag">INSTANT LEARNING</span>
+          <h2>Jangan Tunggu Pembelajaran Luar Biasa. Buat Sekarang.</h2>
+          <p>
+            Berhenti kompromi antara kecepatan, kualitas, atau budget. Platform AI-driven kami 
+            memberdayakan Anda untuk membuat konten pembelajaran exceptional dengan cepat dan 
+            affordable, mentransformasi cara organisasi Anda approach training.
+          </p>
+          <p>
+            Buat kursus dengan AI, lalu langsung assign ke individu, tim, atau seluruh organisasi.
+          </p>
+          <a href="/contact" class="btn btn-primary">
+            Mulai Sekarang
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        <div class="instant-visual">
+          <div class="flow-diagram">
+            <div class="flow-step">
+              <div class="step-icon">💡</div>
+              <span>Describe</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <div class="step-icon">🤖</div>
+              <span>Generate</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <div class="step-icon">✏️</div>
+              <span>Edit</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <div class="step-icon">🚀</div>
+              <span>Deploy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <CTASection 
+      title="Siap revolusi cara Anda membuat training content?"
+      description="Jadwalkan demo 15 menit untuk lihat AI Course Builder in action."
+    />
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+  
+  .section-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(234, 31, 103, 0.1);
+    color: var(--color-pink);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Hero */
+  .feature-hero {
+    padding: 160px 0 100px;
+    background: linear-gradient(135deg, #f8f9fb 0%, #eef1f5 100%);
+    text-align: center;
+  }
+  
+  .hero-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .feature-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-navy);
+    margin-bottom: 24px;
+  }
+  
+  .feature-hero p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 32px;
+  }
+  
+  /* Capabilities */
+  .capability-section {
+    padding: 100px 0;
+  }
+  
+  .capability-section.alt-bg {
+    background: #FAFBFC;
+  }
+  
+  .capability-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .capability-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  
+  .capability-content.reverse {
+    direction: rtl;
+  }
+  
+  .capability-content.reverse > * {
+    direction: ltr;
+  }
+  
+  .capability-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--color-navy);
+    color: white;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .capability-text h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-navy);
+    margin-bottom: 20px;
+  }
+  
+  .capability-text p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+  
+  .capability-visual {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .visual-placeholder {
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 30px 60px rgba(102, 126, 234, 0.3);
+  }
+  
+  .visual-mockup {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .mockup-header {
+    padding: 12px 16px;
+    background: #f5f5f5;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .mockup-dots {
+    display: flex;
+    gap: 6px;
+  }
+  
+  .mockup-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  
+  .mockup-dots span:first-child { background: #ff5f57; }
+  .mockup-dots span:nth-child(2) { background: #ffbd2e; }
+  .mockup-dots span:last-child { background: #27ca40; }
+  
+  .mockup-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 40px);
+    padding: 20px;
+  }
+  
+  .ai-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .ai-pulse {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-pink) 0%, #764ba2 100%);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+  }
+  
+  .ai-indicator span {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+  
+  /* Savings Section */
+  .savings-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--color-navy) 0%, #2d2875 100%);
+    text-align: center;
+  }
+  
+  .savings-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .savings-section .section-tag {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+  }
+  
+  .savings-section h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .savings-section > .savings-container > p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 60px;
+  }
+  
+  .savings-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .stat-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: white;
+  }
+  
+  .stat-label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Instant Section */
+  .instant-section {
+    padding: 100px 0;
+    background: #FAFBFC;
+  }
+  
+  .instant-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  
+  .instant-content h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-navy);
+    margin-bottom: 20px;
+  }
+  
+  .instant-content p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 16px;
+  }
+  
+  .instant-content .btn {
+    margin-top: 16px;
+  }
+  
+  .flow-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  
+  .flow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 20px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    min-width: 100px;
+  }
+  
+  .step-icon {
+    font-size: 2rem;
+  }
+  
+  .flow-step span {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+  
+  .flow-arrow {
+    font-size: 1.5rem;
+    color: var(--color-pink);
+    font-weight: bold;
+  }
+  
+  @media (max-width: 1024px) {
+    .capability-content,
+    .instant-container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .capability-content.reverse {
+      direction: ltr;
+    }
+    
+    .capability-visual {
+      order: -1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .feature-hero {
+      padding: 140px 0 80px;
+    }
+    
+    .capability-section,
+    .savings-section,
+    .instant-section {
+      padding: 80px 0;
+    }
+    
+    .savings-stats {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+    }
+    
+    .flow-diagram {
+      gap: 12px;
+    }
+    
+    .flow-step {
+      padding: 16px;
+      min-width: 80px;
+    }
+    
+    .flow-arrow {
+      display: none;
+    }
+  }
+</style>

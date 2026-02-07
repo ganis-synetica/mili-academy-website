@@ -1,0 +1,449 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+
+const capabilities = [
+  {
+    tag: "EASY TO USE",
+    title: "Buat structured learning journeys dalam menit, bukan jam!",
+    description: "Build pathways dalam hitungan menit dengan visual builder yang simple, dirancang untuk admins dan managers. Tidak perlu setup kompleks atau technical knowledge — cukup drag, drop, dan publish. Pathways ditampilkan sebagai clean, step-by-step journey yang delightful untuk learners dan effortless untuk creators."
+  },
+  {
+    tag: "FLEXIBLE CONTENT",
+    title: "Build pathways menggunakan learning content apapun.",
+    description: "Gunakan apapun yang Anda butuhkan untuk mengajar secara efektif. Tambahkan text, videos, articles, images, podcasts, courses, embedded tools, forms, events, atau bahkan pathways lain. Mix and match content types untuk membangun experiences yang terasa modern, personalised, dan engaging."
+  },
+  {
+    tag: "ADVANCED OPTIONS",
+    title: "Configure pathways sesuai real learning outcomes.",
+    description: "Level up pathways Anda dengan due dates, prerequisites, instructors, learning evidence dan masih banyak lagi. Mili Academy — fully-fledged LMS tanpa kompromi."
+  },
+  {
+    tag: "ASSIGN & TRACK",
+    title: "Assign pathways dan track progress secara otomatis.",
+    description: "Assign pathways ke individu atau seluruh tim, baik secara manual maupun melalui automated workflows. Setiap langkah learner journey dilacak dalam reporting, memberikan visibilitas jelas tentang completion, progress, dan impact."
+  },
+  {
+    tag: "ASSIGNMENT & REPORTING",
+    title: "Deploy instan ke seluruh organisasi.",
+    description: "Tambahkan pathway ke tim atau person dalam single click dan track progress mereka secara real-time. Pathways menyampaikan learnings dengan pace yang works untuk Anda dan tim Anda."
+  }
+];
+---
+
+<Layout 
+  title="Learning Pathways - Mili Academy" 
+  description="Build powerful learning pathways untuk onboarding, upskilling & compliance. Visual builder yang intuitif, content flexibility, dan automated tracking."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="feature-hero">
+      <div class="hero-container">
+        <span class="section-tag">Learning Pathways</span>
+        <h1>Build powerful learning pathways untuk onboarding, upskilling & compliance.</h1>
+        <p>
+          Pathway builder intuitif yang memberdayakan tim Anda untuk membuat rich, engaging learning experiences 
+          menggunakan tipe konten apapun. Deliver onboarding, compliance training, atau upskilling journeys 
+          yang akan benar-benar enjoyed oleh orang-orang Anda. Semuanya fully trackable dan beautifully presented.
+        </p>
+        <a href="/contact" class="btn btn-primary btn-lg">
+          Jadwalkan Demo
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+    
+    <!-- Capabilities -->
+    {capabilities.map((cap, index) => (
+      <section class={`capability-section ${index % 2 === 1 ? 'alt-bg' : ''}`}>
+        <div class="capability-container">
+          <div class={`capability-content ${index % 2 === 1 ? 'reverse' : ''}`}>
+            <div class="capability-text">
+              <span class="capability-tag">{cap.tag}</span>
+              <h2>{cap.title}</h2>
+              <p>{cap.description}</p>
+            </div>
+            <div class="capability-visual">
+              <div class="visual-placeholder">
+                <div class="pathway-mockup">
+                  <div class="pathway-step completed">
+                    <div class="step-indicator">✓</div>
+                    <div class="step-content">
+                      <div class="step-title"></div>
+                      <div class="step-desc"></div>
+                    </div>
+                  </div>
+                  <div class="pathway-connector"></div>
+                  <div class="pathway-step completed">
+                    <div class="step-indicator">✓</div>
+                    <div class="step-content">
+                      <div class="step-title"></div>
+                      <div class="step-desc"></div>
+                    </div>
+                  </div>
+                  <div class="pathway-connector"></div>
+                  <div class="pathway-step active">
+                    <div class="step-indicator">3</div>
+                    <div class="step-content">
+                      <div class="step-title"></div>
+                      <div class="step-desc"></div>
+                    </div>
+                  </div>
+                  <div class="pathway-connector inactive"></div>
+                  <div class="pathway-step">
+                    <div class="step-indicator">4</div>
+                    <div class="step-content">
+                      <div class="step-title"></div>
+                      <div class="step-desc"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+    
+    <!-- Use Cases Section -->
+    <section class="usecases-section">
+      <div class="usecases-container">
+        <span class="section-tag">Use Cases</span>
+        <h2>Pathways untuk setiap kebutuhan</h2>
+        
+        <div class="usecases-grid">
+          <div class="usecase-card">
+            <span class="usecase-icon">🚀</span>
+            <h3>Onboarding</h3>
+            <p>Welcome karyawan baru dengan structured journey yang mencakup policies, tools, culture, dan role-specific training.</p>
+          </div>
+          <div class="usecase-card">
+            <span class="usecase-icon">📋</span>
+            <h3>Compliance</h3>
+            <p>Pastikan semua karyawan complete mandatory training dengan tracking, reminders, dan certifications.</p>
+          </div>
+          <div class="usecase-card">
+            <span class="usecase-icon">📈</span>
+            <h3>Upskilling</h3>
+            <p>Develop skills tim dengan curated learning paths yang progress dari beginner ke advanced.</p>
+          </div>
+          <div class="usecase-card">
+            <span class="usecase-icon">🎯</span>
+            <h3>Role-Based</h3>
+            <p>Buat pathways spesifik untuk roles berbeda — sales, engineering, leadership, customer success.</p>
+          </div>
+          <div class="usecase-card">
+            <span class="usecase-icon">🏆</span>
+            <h3>Certification</h3>
+            <p>Build certification programs dengan assessments, evidence collection, dan certificate issuance.</p>
+          </div>
+          <div class="usecase-card">
+            <span class="usecase-icon">🔄</span>
+            <h3>Continuous Learning</h3>
+            <p>Encourage ongoing development dengan recurring pathways dan learning recommendations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <CTASection 
+      title="Siap membangun learning experiences yang engaging?"
+      description="Jadwalkan demo 15 menit untuk lihat Learning Pathways in action."
+    />
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+  
+  .section-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(234, 31, 103, 0.1);
+    color: var(--color-pink);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Hero */
+  .feature-hero {
+    padding: 160px 0 100px;
+    background: linear-gradient(135deg, #f8f9fb 0%, #eef1f5 100%);
+    text-align: center;
+  }
+  
+  .hero-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .feature-hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-navy);
+    margin-bottom: 24px;
+  }
+  
+  .feature-hero p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 32px;
+  }
+  
+  /* Capabilities */
+  .capability-section {
+    padding: 100px 0;
+  }
+  
+  .capability-section.alt-bg {
+    background: #FAFBFC;
+  }
+  
+  .capability-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .capability-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  
+  .capability-content.reverse {
+    direction: rtl;
+  }
+  
+  .capability-content.reverse > * {
+    direction: ltr;
+  }
+  
+  .capability-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--color-navy);
+    color: white;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .capability-text h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-navy);
+    margin-bottom: 20px;
+  }
+  
+  .capability-text p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+  
+  .capability-visual {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .visual-placeholder {
+    width: 100%;
+    max-width: 420px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 30px 60px rgba(240, 147, 251, 0.3);
+  }
+  
+  .pathway-mockup {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .pathway-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 12px 0;
+  }
+  
+  .step-indicator {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #999;
+    flex-shrink: 0;
+  }
+  
+  .pathway-step.completed .step-indicator {
+    background: #43e97b;
+    color: white;
+  }
+  
+  .pathway-step.active .step-indicator {
+    background: var(--color-pink);
+    color: white;
+  }
+  
+  .step-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 4px;
+  }
+  
+  .step-title {
+    height: 14px;
+    width: 70%;
+    background: #eee;
+    border-radius: 4px;
+  }
+  
+  .step-desc {
+    height: 10px;
+    width: 50%;
+    background: #f5f5f5;
+    border-radius: 4px;
+  }
+  
+  .pathway-connector {
+    width: 2px;
+    height: 20px;
+    background: #43e97b;
+    margin-left: 17px;
+  }
+  
+  .pathway-connector.inactive {
+    background: #eee;
+  }
+  
+  /* Use Cases Section */
+  .usecases-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--color-navy) 0%, #2d2875 100%);
+    text-align: center;
+  }
+  
+  .usecases-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .usecases-section .section-tag {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+  }
+  
+  .usecases-section h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: white;
+    margin-bottom: 60px;
+  }
+  
+  .usecases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    text-align: left;
+  }
+  
+  .usecase-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 32px;
+    transition: all 0.3s ease;
+  }
+  
+  .usecase-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-4px);
+  }
+  
+  .usecase-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 16px;
+  }
+  
+  .usecase-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 12px;
+  }
+  
+  .usecase-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+  }
+  
+  @media (max-width: 1024px) {
+    .capability-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .capability-content.reverse {
+      direction: ltr;
+    }
+    
+    .capability-visual {
+      order: -1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .feature-hero {
+      padding: 140px 0 80px;
+    }
+    
+    .capability-section,
+    .usecases-section {
+      padding: 80px 0;
+    }
+    
+    .usecases-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

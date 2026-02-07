@@ -1,0 +1,475 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+
+const capabilities = [
+  {
+    tag: "COMPETENCIES & LEVELS",
+    title: "Build clear, structured roadmaps untuk real progression.",
+    description: "Create role atau career frameworks dengan mendefinisikan competencies dan mapping ke levels. Tambahkan behaviours, skills, dan learnings ke setiap level sehingga employees selalu tahu seperti apa 'good' dan apa yang diharapkan untuk naik level. Tidak ada ambiguity, tidak ada guesswork, tidak ada spreadsheet archaeology."
+  },
+  {
+    tag: "EMPLOYEE GROWTH",
+    title: "Berikan employees clarity tentang apa yang possible, dan apa yang next.",
+    description: "Assign employee ke level dan mereka akan langsung lihat current expectations dan level di atasnya. Transparansi ini menghilangkan misunderstandings dan memberdayakan orang untuk take ownership of their growth. Jika learnings di-attach, mereka automatically assigned — zero admin required."
+  },
+  {
+    tag: "AI ROADMAPS GENERATOR",
+    title: "Build career frameworks dalam menit, bukan bulan.",
+    description: "Create polished, professional roadmaps lebih cepat dari sebelumnya. Build from scratch, start from template, atau biarkan AI generate complete roadmap untuk Anda. Jawab beberapa pertanyaan dan saksikan jam kerja muncul dalam menit. Employees Anda akan think Anda worked all weekend — kami tidak akan tell."
+  },
+  {
+    tag: "GAMIFIED DEVELOPMENT",
+    title: "Bantu people level up (literally).",
+    description: "Roadmaps membuat development terasa exciting, bukan overwhelming. Employees bisa track progress, earn skills, dan lihat exactly bagaimana mereka advancing toward next career milestone. Clear steps, visual progress, dan feeling of momentum — ini development with purpose."
+  }
+];
+---
+
+<Layout 
+  title="Career Roadmaps - Mili Academy" 
+  description="Transform career frameworks jadi clear, visual learning journeys. AI-powered roadmap generation, competency mapping, dan gamified development."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="feature-hero">
+      <div class="hero-container">
+        <span class="section-tag">Career Roadmaps</span>
+        <h1>Transform career frameworks jadi clear, visual learning journeys.</h1>
+        <p>
+          Say goodbye ke messy spreadsheets dan hello ke beautifully structured, human-friendly 
+          development pathways. Roadmaps membantu Anda define competencies, map out levels, dan 
+          guide employees on exactly how to grow — semua sambil automating learning yang support 
+          career progression mereka.
+        </p>
+        <a href="/contact" class="btn btn-primary btn-lg">
+          Jadwalkan Demo
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+    
+    <!-- Capabilities -->
+    {capabilities.map((cap, index) => (
+      <section class={`capability-section ${index % 2 === 1 ? 'alt-bg' : ''}`}>
+        <div class="capability-container">
+          <div class={`capability-content ${index % 2 === 1 ? 'reverse' : ''}`}>
+            <div class="capability-text">
+              <span class="capability-tag">{cap.tag}</span>
+              <h2>{cap.title}</h2>
+              <p>{cap.description}</p>
+            </div>
+            <div class="capability-visual">
+              <div class="visual-placeholder">
+                <div class="roadmap-mockup">
+                  <div class="roadmap-title">
+                    <div class="title-bar"></div>
+                  </div>
+                  <div class="roadmap-levels">
+                    <div class="level level-1">
+                      <div class="level-header">
+                        <span class="level-badge">L1</span>
+                        <div class="level-name"></div>
+                      </div>
+                      <div class="level-skills">
+                        <div class="skill"></div>
+                        <div class="skill"></div>
+                      </div>
+                    </div>
+                    <div class="level-connector">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="#ddd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                    <div class="level level-2 current">
+                      <div class="level-header">
+                        <span class="level-badge">L2</span>
+                        <div class="level-name"></div>
+                      </div>
+                      <div class="level-skills">
+                        <div class="skill"></div>
+                        <div class="skill"></div>
+                        <div class="skill"></div>
+                      </div>
+                    </div>
+                    <div class="level-connector">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="#ddd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                    <div class="level level-3">
+                      <div class="level-header">
+                        <span class="level-badge">L3</span>
+                        <div class="level-name"></div>
+                      </div>
+                      <div class="level-skills">
+                        <div class="skill"></div>
+                        <div class="skill"></div>
+                        <div class="skill"></div>
+                        <div class="skill"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+    
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+      <div class="benefits-container">
+        <span class="section-tag">Manfaat</span>
+        <h2>Kenapa Career Roadmaps?</h2>
+        
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <span class="benefit-icon">🎯</span>
+            <h3>Clarity untuk Employees</h3>
+            <p>Tidak ada lagi ambiguity tentang apa yang dibutuhkan untuk promotion. Clear expectations di setiap level.</p>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-icon">📈</span>
+            <h3>Retention & Engagement</h3>
+            <p>Employees yang lihat clear growth path lebih engaged dan likely to stay. Show them the future.</p>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-icon">🤖</span>
+            <h3>Auto-Assigned Learning</h3>
+            <p>Attach learnings ke levels dan mereka automatically assigned saat employee di-promote atau join team.</p>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-icon">⚡</span>
+            <h3>Fast Setup dengan AI</h3>
+            <p>Generate complete roadmaps dalam menit. AI understand your role requirements dan suggests competencies.</p>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-icon">📊</span>
+            <h3>Skills Gap Analysis</h3>
+            <p>Instantly see where employees are vs where they need to be. Plan development effectively.</p>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-icon">🏆</span>
+            <h3>Gamified Progress</h3>
+            <p>Level up, earn skills, track progress. Make career development feel like achievement, bukan obligation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <CTASection 
+      title="Siap membuat career development jadi clear dan actionable?"
+      description="Jadwalkan demo 15 menit untuk lihat Career Roadmaps in action."
+    />
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+  
+  .section-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(234, 31, 103, 0.1);
+    color: var(--color-pink);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Hero */
+  .feature-hero {
+    padding: 160px 0 100px;
+    background: linear-gradient(135deg, #f8f9fb 0%, #eef1f5 100%);
+    text-align: center;
+  }
+  
+  .hero-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .feature-hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-navy);
+    margin-bottom: 24px;
+  }
+  
+  .feature-hero p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 32px;
+  }
+  
+  /* Capabilities */
+  .capability-section {
+    padding: 100px 0;
+  }
+  
+  .capability-section.alt-bg {
+    background: #FAFBFC;
+  }
+  
+  .capability-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .capability-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  
+  .capability-content.reverse {
+    direction: rtl;
+  }
+  
+  .capability-content.reverse > * {
+    direction: ltr;
+  }
+  
+  .capability-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--color-navy);
+    color: white;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .capability-text h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-navy);
+    margin-bottom: 20px;
+  }
+  
+  .capability-text p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+  
+  .capability-visual {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .visual-placeholder {
+    width: 100%;
+    max-width: 420px;
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 30px 60px rgba(67, 233, 123, 0.3);
+  }
+  
+  .roadmap-mockup {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+  }
+  
+  .roadmap-title {
+    margin-bottom: 24px;
+  }
+  
+  .title-bar {
+    height: 20px;
+    width: 60%;
+    background: #eee;
+    border-radius: 4px;
+  }
+  
+  .roadmap-levels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .level {
+    width: 100%;
+    background: #FAFBFC;
+    border-radius: 12px;
+    padding: 16px;
+    border: 2px solid transparent;
+  }
+  
+  .level.current {
+    border-color: var(--color-pink);
+    background: rgba(234, 31, 103, 0.05);
+  }
+  
+  .level-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .level-badge {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-navy);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  
+  .level.current .level-badge {
+    background: var(--color-pink);
+  }
+  
+  .level-name {
+    height: 14px;
+    flex: 1;
+    background: #ddd;
+    border-radius: 4px;
+  }
+  
+  .level-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .skill {
+    height: 24px;
+    width: 60px;
+    background: #e5e5e5;
+    border-radius: 12px;
+  }
+  
+  .level-connector {
+    padding: 4px 0;
+    color: #ddd;
+  }
+  
+  /* Benefits Section */
+  .benefits-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--color-navy) 0%, #2d2875 100%);
+    text-align: center;
+  }
+  
+  .benefits-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .benefits-section .section-tag {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+  }
+  
+  .benefits-section h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: white;
+    margin-bottom: 60px;
+  }
+  
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    text-align: left;
+  }
+  
+  .benefit-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 32px;
+    transition: all 0.3s ease;
+  }
+  
+  .benefit-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-4px);
+  }
+  
+  .benefit-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 16px;
+  }
+  
+  .benefit-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 12px;
+  }
+  
+  .benefit-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+  }
+  
+  @media (max-width: 1024px) {
+    .capability-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .capability-content.reverse {
+      direction: ltr;
+    }
+    
+    .capability-visual {
+      order: -1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .feature-hero {
+      padding: 140px 0 80px;
+    }
+    
+    .capability-section,
+    .benefits-section {
+      padding: 80px 0;
+    }
+    
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

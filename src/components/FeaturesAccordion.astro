@@ -4,6 +4,7 @@ interface Feature {
   title: string;
   description: string;
   icon?: string;
+  link?: string;
 }
 
 interface Props {
@@ -11,14 +12,24 @@ interface Props {
   sectionDescription?: string;
   features: Feature[];
   id?: string;
+  tagText?: string;
+  altBackground?: boolean;
 }
 
-const { sectionTitle, sectionDescription, features, id = 'features' } = Astro.props;
+const { 
+  sectionTitle, 
+  sectionDescription, 
+  features, 
+  id = 'features',
+  tagText = 'FITUR',
+  altBackground = false
+} = Astro.props;
 ---
 
-<section class="features-accordion" id={id}>
+<section class={`features-accordion ${altBackground ? 'alt-bg' : ''}`} id={id}>
   <div class="accordion-container">
     <div class="accordion-header">
+      <span class="section-tag">{tagText}</span>
       <h2 class="accordion-title">{sectionTitle}</h2>
       {sectionDescription && <p class="accordion-description">{sectionDescription}</p>}
     </div>
@@ -51,6 +62,14 @@ const { sectionTitle, sectionDescription, features, id = 'features' } = Astro.pr
               role="region"
             >
               <p class="panel-content">{feature.description}</p>
+              {feature.link && (
+                <a href={feature.link} class="panel-link">
+                  Pelajari lebih lanjut
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              )}
             </div>
           </div>
         ))}
@@ -58,12 +77,30 @@ const { sectionTitle, sectionDescription, features, id = 'features' } = Astro.pr
       
       <div class="accordion-media">
         <div class="media-placeholder">
-          <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-            <rect width="120" height="120" rx="16" fill="#F5F7FA"/>
-            <circle cx="60" cy="60" r="30" stroke="#E0E4E8" stroke-width="4" stroke-dasharray="8 8"/>
-            <circle cx="60" cy="60" r="8" fill="#E0E4E8"/>
-          </svg>
-          <span>Feature Animation</span>
+          <div class="media-inner">
+            <div class="media-mockup">
+              <div class="mockup-header">
+                <div class="mockup-dots">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div class="mockup-content">
+                <div class="mockup-sidebar">
+                  <div class="mockup-nav-item active"></div>
+                  <div class="mockup-nav-item"></div>
+                  <div class="mockup-nav-item"></div>
+                  <div class="mockup-nav-item"></div>
+                </div>
+                <div class="mockup-main">
+                  <div class="mockup-card"></div>
+                  <div class="mockup-card small"></div>
+                  <div class="mockup-card small"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -99,7 +136,11 @@ const { sectionTitle, sectionDescription, features, id = 'features' } = Astro.pr
 
 <style>
   .features-accordion {
-    padding: 80px 0;
+    padding: 100px 0;
+    background: white;
+  }
+  
+  .features-accordion.alt-bg {
     background: #FAFBFC;
   }
   
@@ -112,6 +153,19 @@ const { sectionTitle, sectionDescription, features, id = 'features' } = Astro.pr
   .accordion-header {
     text-align: center;
     margin-bottom: 60px;
+  }
+  
+  .section-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(234, 31, 103, 0.1);
+    color: var(--color-pink);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
   
   .accordion-title {
@@ -144,10 +198,18 @@ const { sectionTitle, sectionDescription, features, id = 'features' } = Astro.pr
   }
   
   .accordion-item {
-    background: white;
-    border-radius: 12px;
+    background: #FAFBFC;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+  }
+  
+  .features-accordion.alt-bg .accordion-item {
+    background: white;
+  }
+  
+  .accordion-item:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   }
   
   .accordion-trigger {
@@ -168,7 +230,7 @@ const { sectionTitle, sectionDescription, features, id = 'features' } = Astro.pr
   }
   
   .accordion-trigger.active {
-    background: rgba(234, 31, 103, 0.04);
+    background: rgba(234, 31, 103, 0.05);
   }
   
   .trigger-content {
@@ -181,12 +243,17 @@ const { sectionTitle, sectionDescription, features, id = 'features' } = Astro.pr
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     background: var(--color-navy);
     color: white;
-    border-radius: 10px;
+    border-radius: 12px;
     flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .accordion-trigger.active .trigger-icon {
+    background: var(--color-pink);
   }
   
   .trigger-icon svg {
@@ -196,7 +263,7 @@ const { sectionTitle, sectionDescription, features, id = 'features' } = Astro.pr
   
   .trigger-title {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--color-navy);
   }
   
@@ -215,7 +282,7 @@ const { sectionTitle, sectionDescription, features, id = 'features' } = Astro.pr
   
   .accordion-panel {
     display: none;
-    padding: 0 24px 20px;
+    padding: 0 24px 24px;
   }
   
   .accordion-panel.open {
@@ -226,7 +293,24 @@ const { sectionTitle, sectionDescription, features, id = 'features' } = Astro.pr
     font-size: 15px;
     line-height: 1.7;
     color: var(--color-text);
-    padding-left: 56px;
+    padding-left: 60px;
+    margin-bottom: 12px;
+  }
+  
+  .panel-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding-left: 60px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-pink);
+    text-decoration: none;
+    transition: gap 0.2s ease;
+  }
+  
+  .panel-link:hover {
+    gap: 10px;
   }
   
   .accordion-media {
@@ -239,21 +323,105 @@ const { sectionTitle, sectionDescription, features, id = 'features' } = Astro.pr
   
   .media-placeholder {
     width: 100%;
-    max-width: 480px;
+    max-width: 500px;
     aspect-ratio: 1;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 24px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 16px;
-    box-shadow: 0 20px 60px rgba(30, 26, 92, 0.08);
+    padding: 32px;
+    box-shadow: 0 30px 80px rgba(102, 126, 234, 0.3);
   }
   
-  .media-placeholder span {
-    font-size: 14px;
-    color: var(--color-muted);
+  .media-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .media-mockup {
+    width: 100%;
+    max-width: 380px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+  
+  .mockup-header {
+    padding: 12px 16px;
+    background: #f5f5f5;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .mockup-dots {
+    display: flex;
+    gap: 6px;
+  }
+  
+  .mockup-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ddd;
+  }
+  
+  .mockup-dots span:first-child {
+    background: #ff5f57;
+  }
+  
+  .mockup-dots span:nth-child(2) {
+    background: #ffbd2e;
+  }
+  
+  .mockup-dots span:last-child {
+    background: #27ca40;
+  }
+  
+  .mockup-content {
+    display: flex;
+    min-height: 250px;
+  }
+  
+  .mockup-sidebar {
+    width: 60px;
+    background: #fafafa;
+    padding: 16px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-right: 1px solid #eee;
+  }
+  
+  .mockup-nav-item {
+    height: 32px;
+    border-radius: 6px;
+    background: #eee;
+  }
+  
+  .mockup-nav-item.active {
+    background: var(--color-pink);
+  }
+  
+  .mockup-main {
+    flex: 1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .mockup-card {
+    height: 80px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+  }
+  
+  .mockup-card.small {
+    height: 40px;
   }
   
   @media (max-width: 1024px) {
@@ -275,7 +443,7 @@ const { sectionTitle, sectionDescription, features, id = 'features' } = Astro.pr
   
   @media (max-width: 640px) {
     .features-accordion {
-      padding: 60px 0;
+      padding: 80px 0;
     }
     
     .accordion-trigger {
@@ -283,12 +451,17 @@ const { sectionTitle, sectionDescription, features, id = 'features' } = Astro.pr
     }
     
     .trigger-icon {
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
     }
     
-    .panel-content {
-      padding-left: 52px;
+    .panel-content,
+    .panel-link {
+      padding-left: 56px;
+    }
+    
+    .media-placeholder {
+      padding: 20px;
     }
   }
 </style>

@@ -1,0 +1,484 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+
+const capabilities = [
+  {
+    tag: "COMPANY & TEAM DASHBOARDS",
+    title: "High-level visibility tanpa pusing.",
+    description: "Lihat bagaimana learning perform di seluruh organisasi atau drill down ke individual teams dengan single click. Engagement levels, progress, completions — semuanya ada, beautifully presented dan mudah diinterpretasi. Tidak perlu lagi hunting insights di lima tools berbeda."
+  },
+  {
+    tag: "QUICK-VIEW REPORTS",
+    title: "Instant clarity tentang learning status.",
+    description: "Butuh jawaban cepat? Quick-view reports memberikan immediate snapshot tentang di mana learning berdiri — apa yang overdue, apa yang in progress, dan apa yang done. Perfect untuk managers yang ingin jawaban sekarang, bukan setelah export spreadsheet."
+  },
+  {
+    tag: "LEARNER PROGRESS",
+    title: "Track individu dalam satu clean, detailed view.",
+    description: "Lihat seluruh learning journey seseorang secara real time. Lihat progress mereka, completed content, learning evidence, comments, dan activity — semua dalam satu layar yang rapi. Tidak perlu lagi detective work untuk understand siapa yang on track dan siapa yang butuh support."
+  },
+  {
+    tag: "LEARNING HOURS",
+    title: "Track yang benar-benar matter — real learning effort.",
+    description: "Learning hours menunjukkan real investment yang tim Anda buat. Compare hours across months, across teams, atau by individual, dan pastikan semua orang meeting learning goals mereka. Ini metric yang managers selalu wanted tapi tidak pernah punya."
+  },
+  {
+    tag: "SCHEDULED REPORTS",
+    title: "Save reports dan dapatkan delivered automatically.",
+    description: "Stop buang waktu rebuild report yang sama setiap bulan. Save report apapun, schedule, dan dapatkan langsung di inbox exactly when you need it. Automation yang save hours dan mungkin sedikit sanity."
+  },
+  {
+    tag: "EXPORT YOUR DATA",
+    title: "Bawa data Anda ke mana saja — seriously, ke mana saja.",
+    description: "Prefer Excel? Building dashboards di BI tool Anda? Need to share insights dengan leadership? Export report atau dataset apapun dari platform dengan single click. Data Anda adalah milik Anda untuk use, slice, analyse, atau obsess over sesuka Anda."
+  }
+];
+---
+
+<Layout 
+  title="Analytics & Reporting - Mili Academy" 
+  description="Visibilitas penuh atas learning activities. Dashboards, quick-view reports, scheduled reports, dan data export untuk keputusan yang data-driven."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="feature-hero">
+      <div class="hero-container">
+        <span class="section-tag">Analytics & Reporting</span>
+        <h1>Semua yang Anda butuhkan untuk mengukur learning, dalam satu tempat.</h1>
+        <p>
+          Dapatkan crystal-clear visibility di seluruh organisasi. Track engagement, learning hours, 
+          completions, progress, evidence dan lebih banyak lagi dengan dashboards dan reports yang 
+          akhirnya membuat learning terukur (dan sebenarnya enjoyable untuk dilihat).
+        </p>
+        <a href="/contact" class="btn btn-primary btn-lg">
+          Jadwalkan Demo
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+    
+    <!-- Capabilities -->
+    {capabilities.map((cap, index) => (
+      <section class={`capability-section ${index % 2 === 1 ? 'alt-bg' : ''}`}>
+        <div class="capability-container">
+          <div class={`capability-content ${index % 2 === 1 ? 'reverse' : ''}`}>
+            <div class="capability-text">
+              <span class="capability-tag">{cap.tag}</span>
+              <h2>{cap.title}</h2>
+              <p>{cap.description}</p>
+            </div>
+            <div class="capability-visual">
+              <div class="visual-placeholder">
+                <div class="dashboard-mockup">
+                  <div class="dashboard-header">
+                    <div class="dashboard-title"></div>
+                    <div class="dashboard-filters">
+                      <div class="filter"></div>
+                      <div class="filter"></div>
+                    </div>
+                  </div>
+                  <div class="dashboard-body">
+                    <div class="stat-cards">
+                      <div class="stat-card">
+                        <div class="stat-value"></div>
+                        <div class="stat-label"></div>
+                      </div>
+                      <div class="stat-card">
+                        <div class="stat-value"></div>
+                        <div class="stat-label"></div>
+                      </div>
+                      <div class="stat-card">
+                        <div class="stat-value"></div>
+                        <div class="stat-label"></div>
+                      </div>
+                    </div>
+                    <div class="chart-area">
+                      <div class="chart-bars">
+                        <div class="bar" style="height: 60%"></div>
+                        <div class="bar" style="height: 80%"></div>
+                        <div class="bar" style="height: 45%"></div>
+                        <div class="bar" style="height: 90%"></div>
+                        <div class="bar" style="height: 70%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+    
+    <!-- Report Types Section -->
+    <section class="reports-section">
+      <div class="reports-container">
+        <span class="section-tag">Jenis Reports</span>
+        <h2>Reports untuk setiap kebutuhan</h2>
+        
+        <div class="reports-grid">
+          <div class="report-card">
+            <span class="report-icon">🏢</span>
+            <h3>Organisation Overview</h3>
+            <p>High-level metrics di seluruh organisasi — total learners, completion rates, engagement scores.</p>
+          </div>
+          <div class="report-card">
+            <span class="report-icon">👥</span>
+            <h3>Team Performance</h3>
+            <p>Drill down per tim. Compare progress, identify lagging teams, celebrate top performers.</p>
+          </div>
+          <div class="report-card">
+            <span class="report-icon">👤</span>
+            <h3>Individual Progress</h3>
+            <p>Detailed view per learner. All activities, completions, evidence, dan comments.</p>
+          </div>
+          <div class="report-card">
+            <span class="report-icon">📚</span>
+            <h3>Content Performance</h3>
+            <p>Mana content yang paling engaging? Mana yang sering di-skip? Optimize library Anda.</p>
+          </div>
+          <div class="report-card">
+            <span class="report-icon">🛤️</span>
+            <h3>Pathway Analytics</h3>
+            <p>Track completion rates, average time, drop-off points untuk setiap pathway.</p>
+          </div>
+          <div class="report-card">
+            <span class="report-icon">📋</span>
+            <h3>Compliance Status</h3>
+            <p>Siapa yang compliant, siapa yang belum? Expiring certifications, overdue training.</p>
+          </div>
+          <div class="report-card">
+            <span class="report-icon">🗺️</span>
+            <h3>Skills Matrix</h3>
+            <p>Visualisasi skills di seluruh organisasi. Identify gaps, plan development.</p>
+          </div>
+          <div class="report-card">
+            <span class="report-icon">⏱️</span>
+            <h3>Learning Hours</h3>
+            <p>Total hours invested dalam learning. Per person, per team, per time period.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <CTASection 
+      title="Siap mendapat visibility penuh atas learning?"
+      description="Jadwalkan demo 15 menit untuk lihat Analytics & Reporting in action."
+    />
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+  
+  .section-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(234, 31, 103, 0.1);
+    color: var(--color-pink);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Hero */
+  .feature-hero {
+    padding: 160px 0 100px;
+    background: linear-gradient(135deg, #f8f9fb 0%, #eef1f5 100%);
+    text-align: center;
+  }
+  
+  .hero-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .feature-hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-navy);
+    margin-bottom: 24px;
+  }
+  
+  .feature-hero p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 32px;
+  }
+  
+  /* Capabilities */
+  .capability-section {
+    padding: 100px 0;
+  }
+  
+  .capability-section.alt-bg {
+    background: #FAFBFC;
+  }
+  
+  .capability-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .capability-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  
+  .capability-content.reverse {
+    direction: rtl;
+  }
+  
+  .capability-content.reverse > * {
+    direction: ltr;
+  }
+  
+  .capability-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--color-navy);
+    color: white;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .capability-text h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-navy);
+    margin-bottom: 20px;
+  }
+  
+  .capability-text p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+  
+  .capability-visual {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .visual-placeholder {
+    width: 100%;
+    max-width: 500px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 30px 60px rgba(79, 172, 254, 0.3);
+  }
+  
+  .dashboard-mockup {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .dashboard-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .dashboard-title {
+    height: 16px;
+    width: 120px;
+    background: #eee;
+    border-radius: 4px;
+  }
+  
+  .dashboard-filters {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .filter {
+    height: 28px;
+    width: 80px;
+    background: #f5f5f5;
+    border-radius: 6px;
+  }
+  
+  .dashboard-body {
+    padding: 20px;
+  }
+  
+  .stat-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .stat-card {
+    background: #FAFBFC;
+    padding: 16px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .stat-value {
+    height: 24px;
+    width: 60%;
+    background: #ddd;
+    border-radius: 4px;
+  }
+  
+  .stat-label {
+    height: 12px;
+    width: 80%;
+    background: #eee;
+    border-radius: 4px;
+  }
+  
+  .chart-area {
+    background: #FAFBFC;
+    border-radius: 10px;
+    padding: 20px;
+    height: 120px;
+  }
+  
+  .chart-bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    height: 100%;
+    gap: 16px;
+  }
+  
+  .bar {
+    flex: 1;
+    background: linear-gradient(180deg, var(--color-pink) 0%, #764ba2 100%);
+    border-radius: 4px 4px 0 0;
+  }
+  
+  /* Reports Section */
+  .reports-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--color-navy) 0%, #2d2875 100%);
+    text-align: center;
+  }
+  
+  .reports-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .reports-section .section-tag {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+  }
+  
+  .reports-section h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: white;
+    margin-bottom: 60px;
+  }
+  
+  .reports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    text-align: left;
+  }
+  
+  .report-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s ease;
+  }
+  
+  .report-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-4px);
+  }
+  
+  .report-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 12px;
+  }
+  
+  .report-card h3 {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+  }
+  
+  .report-card p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  @media (max-width: 1024px) {
+    .capability-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .capability-content.reverse {
+      direction: ltr;
+    }
+    
+    .capability-visual {
+      order: -1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .feature-hero {
+      padding: 140px 0 80px;
+    }
+    
+    .capability-section,
+    .reports-section {
+      padding: 80px 0;
+    }
+    
+    .stat-cards {
+      grid-template-columns: 1fr;
+    }
+    
+    .reports-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

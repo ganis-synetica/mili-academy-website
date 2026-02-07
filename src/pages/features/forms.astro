@@ -1,0 +1,445 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+
+const capabilities = [
+  {
+    tag: "AI FORMS BUILDER",
+    title: "Convert dokumen Anda jadi kuis dalam hitungan menit.",
+    description: "Ini trik ajaibnya. Upload artikel, PDF, kebijakan, atau konten pembelajaran apapun dari library Anda dan AI akan mengubahnya jadi kuis siap pakai. Tidak perlu menulis pertanyaan manual. Tidak perlu formatting yang menyakitkan. Hanya instant assessments, dibangun dengan kecepatan kilat."
+  },
+  {
+    tag: "FULLY FEATURED BUILDER",
+    title: "Buat forms fleksibel untuk skenario pembelajaran apapun.",
+    description: "Bangun forms dengan semua yang Anda butuhkan: open text, file uploads, multiple choice, multi-select, dates, times — lengkap. Gunakan sebagai standalone surveys atau attach ke pathways untuk validasi learning outcomes, capture feedback, atau collect evidence. Form builder Anda, cara Anda."
+  },
+  {
+    tag: "EMBEDDED IN LEARNING",
+    title: "Attach forms langsung ke pathways.",
+    description: "Jadikan forms sebagai checkpoints yang benar-benar berarti. Tambahkan assessments, feedback steps, atau evidence collection langsung di dalam pathway. Berikan learners retries, enrich questions dengan images atau videos, dan embed konten apapun yang dibutuhkan untuk membuat pembelajaran jelas dan terukur."
+  },
+  {
+    tag: "REPORTS & INSIGHTS",
+    title: "Semua responses, terorganisir rapi dan mudah dipahami.",
+    description: "Platform mengumpulkan setiap form dan quiz response ke satu tempat yang clean dan terpusat. Review individual answers, revisit past submissions, dan spot trends secara instant dengan summary reporting. Baik itu feedback, assessments, atau compliance checks, Anda mendapat insights jelas tanpa spreadsheet chaos."
+  }
+];
+---
+
+<Layout 
+  title="Forms & Quizzes - Mili Academy" 
+  description="Form builder lengkap dengan AI. Buat kuis dari dokumen dalam hitungan menit, embed dalam learning pathways, dan dapatkan insights dari responses."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="feature-hero">
+      <div class="hero-container">
+        <span class="section-tag">Forms & Quizzes</span>
+        <h1>Bangun forms, kuis dan assessments tanpa pusing.</h1>
+        <p>
+          Form dan quiz builder lengkap — bayangkan Google Forms, tapi actually useful untuk learning. 
+          Buat surveys, assessments, feedback forms, dan kuis yang masuk sempurna ke pathways Anda. 
+          Dan dengan AI yang melakukan heavy lifting, Anda akan build dalam menit, bukan jam.
+        </p>
+        <a href="/contact" class="btn btn-primary btn-lg">
+          Jadwalkan Demo
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+    
+    <!-- Capabilities -->
+    {capabilities.map((cap, index) => (
+      <section class={`capability-section ${index % 2 === 1 ? 'alt-bg' : ''}`}>
+        <div class="capability-container">
+          <div class={`capability-content ${index % 2 === 1 ? 'reverse' : ''}`}>
+            <div class="capability-text">
+              <span class="capability-tag">{cap.tag}</span>
+              <h2>{cap.title}</h2>
+              <p>{cap.description}</p>
+            </div>
+            <div class="capability-visual">
+              <div class="visual-placeholder">
+                <div class="form-mockup">
+                  <div class="form-header">
+                    <div class="form-title-bar"></div>
+                    <div class="form-subtitle-bar"></div>
+                  </div>
+                  <div class="form-body">
+                    <div class="form-question">
+                      <div class="question-text"></div>
+                      <div class="question-options">
+                        <div class="option"><span class="radio"></span><div class="option-text"></div></div>
+                        <div class="option"><span class="radio"></span><div class="option-text"></div></div>
+                        <div class="option"><span class="radio active"></span><div class="option-text"></div></div>
+                        <div class="option"><span class="radio"></span><div class="option-text"></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+    
+    <!-- Question Types Section -->
+    <section class="types-section">
+      <div class="types-container">
+        <span class="section-tag">Question Types</span>
+        <h2>Semua tipe pertanyaan yang Anda butuhkan</h2>
+        
+        <div class="types-grid">
+          <div class="type-card">
+            <span class="type-icon">📝</span>
+            <h3>Open Text</h3>
+            <p>Short answer atau long-form responses</p>
+          </div>
+          <div class="type-card">
+            <span class="type-icon">🔘</span>
+            <h3>Multiple Choice</h3>
+            <p>Single answer dari pilihan</p>
+          </div>
+          <div class="type-card">
+            <span class="type-icon">☑️</span>
+            <h3>Multi-Select</h3>
+            <p>Pilih multiple answers</p>
+          </div>
+          <div class="type-card">
+            <span class="type-icon">📅</span>
+            <h3>Date & Time</h3>
+            <p>Capture dates dan timestamps</p>
+          </div>
+          <div class="type-card">
+            <span class="type-icon">📎</span>
+            <h3>File Upload</h3>
+            <p>Collect documents dan evidence</p>
+          </div>
+          <div class="type-card">
+            <span class="type-icon">⭐</span>
+            <h3>Rating Scale</h3>
+            <p>1-5 stars atau custom scales</p>
+          </div>
+          <div class="type-card">
+            <span class="type-icon">🖼️</span>
+            <h3>Image Questions</h3>
+            <p>Enrich dengan visual content</p>
+          </div>
+          <div class="type-card">
+            <span class="type-icon">🎥</span>
+            <h3>Video Questions</h3>
+            <p>Embed video dalam questions</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <CTASection 
+      title="Siap membuat assessments yang benar-benar berarti?"
+      description="Jadwalkan demo 15 menit untuk lihat Forms & Quizzes builder in action."
+    />
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+  
+  .section-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(234, 31, 103, 0.1);
+    color: var(--color-pink);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Hero */
+  .feature-hero {
+    padding: 160px 0 100px;
+    background: linear-gradient(135deg, #f8f9fb 0%, #eef1f5 100%);
+    text-align: center;
+  }
+  
+  .hero-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .feature-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-navy);
+    margin-bottom: 24px;
+  }
+  
+  .feature-hero p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 32px;
+  }
+  
+  /* Capabilities */
+  .capability-section {
+    padding: 100px 0;
+  }
+  
+  .capability-section.alt-bg {
+    background: #FAFBFC;
+  }
+  
+  .capability-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .capability-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  
+  .capability-content.reverse {
+    direction: rtl;
+  }
+  
+  .capability-content.reverse > * {
+    direction: ltr;
+  }
+  
+  .capability-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--color-navy);
+    color: white;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .capability-text h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-navy);
+    margin-bottom: 20px;
+  }
+  
+  .capability-text p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+  
+  .capability-visual {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .visual-placeholder {
+    width: 100%;
+    max-width: 480px;
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 30px 60px rgba(67, 233, 123, 0.3);
+  }
+  
+  .form-mockup {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .form-header {
+    padding: 24px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .form-title-bar {
+    height: 20px;
+    width: 60%;
+    background: #eee;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  
+  .form-subtitle-bar {
+    height: 12px;
+    width: 40%;
+    background: #f5f5f5;
+    border-radius: 4px;
+  }
+  
+  .form-body {
+    padding: 24px;
+  }
+  
+  .form-question {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .question-text {
+    height: 16px;
+    width: 80%;
+    background: #eee;
+    border-radius: 4px;
+  }
+  
+  .question-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .radio {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    flex-shrink: 0;
+  }
+  
+  .radio.active {
+    border-color: var(--color-pink);
+    background: var(--color-pink);
+  }
+  
+  .option-text {
+    height: 12px;
+    width: 60%;
+    background: #f5f5f5;
+    border-radius: 4px;
+  }
+  
+  /* Types Section */
+  .types-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--color-navy) 0%, #2d2875 100%);
+    text-align: center;
+  }
+  
+  .types-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .types-section .section-tag {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+  }
+  
+  .types-section h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: white;
+    margin-bottom: 60px;
+  }
+  
+  .types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .type-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .type-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-4px);
+  }
+  
+  .type-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 12px;
+  }
+  
+  .type-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+  }
+  
+  .type-card p {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  @media (max-width: 1024px) {
+    .capability-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .capability-content.reverse {
+      direction: ltr;
+    }
+    
+    .capability-visual {
+      order: -1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .feature-hero {
+      padding: 140px 0 80px;
+    }
+    
+    .capability-section,
+    .types-section {
+      padding: 80px 0;
+    }
+    
+    .types-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .types-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

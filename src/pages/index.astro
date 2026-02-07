@@ -8,50 +8,75 @@ import FeaturesAccordion from '../components/FeaturesAccordion.astro';
 import CTASection from '../components/CTASection.astro';
 import Footer from '../components/Footer.astro';
 
-// Features for accordion sections - Indonesian
+// Features for accordion sections - Indonesian (Synetica builder voice)
 const adminFeatures = [
   {
     title: "AI Course Builder",
-    description: "Buat kursus dalam hitungan menit dengan bantuan AI. Cukup deskripsikan apa yang ingin Anda ajarkan, AI akan membantu menyusun konten pembelajaran lengkap dengan assessment dan aktivitas."
-  },
-  {
-    title: "Learning Pathways",
-    description: "Bangun jalur pembelajaran terstruktur untuk onboarding, compliance, atau upskilling. Buat alur belajar sekuensial atau fleksibel yang memandu karyawan dalam perjalanan pengembangan mereka."
-  },
-  {
-    title: "Content Library",
-    description: "Akses ribuan konten pelatihan siap pakai dari library kami. Tersedia materi untuk compliance, soft skills, technical training, dan banyak lagi — tinggal deploy."
+    description: "Bayangkan punya asisten L&D yang siap 24/7 — bisa generate outline kursus, saran konten, bahkan elemen interaktif. Itu kekuatan AI Course Builder kami. Bukan sekadar upgrade; ini revolusi dalam pembuatan konten pelatihan."
   },
   {
     title: "Forms & Quizzes",
-    description: "Validasi pemahaman tim dengan kuis dan survei yang bisa dikustomisasi. Lacak completion dan analisis hasil dengan laporan mendetail."
+    description: "Form builder yang mudah digunakan untuk membuat kuis dan survei dengan cepat. Validasi pembelajaran untuk compliance atau sekadar mengukur pemahaman tim. Upload dokumen apapun, AI akan mengubahnya jadi kuis dalam hitungan menit."
+  },
+  {
+    title: "Content Library",
+    description: "Konten siap pakai untuk people development. Library built-in dengan pelatihan online dalam branding Anda, siap di-edit sesuai kebutuhan organisasi. Akses ribuan konten gratis plus konten premium dari partner terkurasi."
+  },
+  {
+    title: "Learning Pathways",
+    description: "Pathway builder yang intuitif untuk membangun pengalaman belajar yang engaging. Buat learning pathways untuk onboarding, upskilling, atau compliance yang disukai tim Anda. Gunakan konten apapun — video, artikel, kursus, podcast, SCORM."
   },
   {
     title: "Workflow Automation",
-    description: "Otomatiskan tugas repetitif dan notifikasi. Atur trigger berdasarkan aksi user, tanggal, atau status completion — pelatihan berjalan tanpa intervensi manual."
+    description: "Hemat waktu dengan automated actions berdasarkan user actions. Assign learning otomatis saat karyawan bergabung, ganti departemen, atau capai milestone tertentu. Pelatihan berjalan tanpa intervensi manual."
   }
 ];
 
 const hrFeatures = [
   {
     title: "Analytics & Reporting",
-    description: "Generate laporan pelatihan dan lacak completion di seluruh organisasi. Dapatkan insight tentang engagement, skill gaps, dan status compliance dengan dashboard yang bisa dikustomisasi."
+    description: "Analytics engagement, learning hours, dan efektivitas konten untuk upskilling tim — semua tersedia out of the box. Dashboard terpusat dengan visibilitas penuh. Schedule reports dan dapatkan langsung di inbox."
   },
   {
-    title: "Skills Mapping",
-    description: "Lacak kompetensi di seluruh workforce dan aktivitas pembelajaran. Petakan skills ke roles, identifikasi kebutuhan development, dan rekomendasikan pelatihan yang relevan secara otomatis."
+    title: "Learning Pathways",
+    description: "Pathway builder yang mudah digunakan untuk membangun pengalaman belajar luar biasa. Buat learning pathways untuk onboarding, upskilling, atau compliance yang akan disukai tim Anda."
   },
   {
     title: "Career Roadmaps",
-    description: "Petakan progres karir dan requirements skill untuk setiap level jabatan. Bantu karyawan memvisualisasikan jalur pertumbuhan dan learning yang dibutuhkan untuk naik level."
+    description: "Bangun dan visualisasikan career roadmaps untuk tim. Tetapkan key behaviors dan skills yang dibutuhkan untuk setiap level. Assign levels ke orang dan biarkan mereka eksplorasi pertumbuhan karir mereka."
   },
   {
-    title: "Events Management",
-    description: "Kelola pelatihan tatap muka, konferensi, dan workshop. Atur registrasi, absensi, dan integrasikan dengan sistem kalender Anda."
+    title: "Skills Matrix",
+    description: "Petakan skills ke learnings dan laporkan skills matrix untuk single view dari skill map organisasi. Identifikasi gaps, plan development, dan rekomendasikan pelatihan relevan secara otomatis."
   },
   {
-    title: "Knowledge Base",
-    description: "Sentralisasi dan bagikan pengetahuan internal perusahaan. Buat dokumentasi, kebijakan, dan prosedur yang bisa dicari kapan saja oleh karyawan."
+    title: "Certificate Management",
+    description: "Kelola sertifikat di dalam platform. Earn certificates melalui learnings dan set reminders untuk renewal. Support custom certificates dengan branding perusahaan Anda."
+  }
+];
+
+// Testimonials
+const testimonials = [
+  {
+    quote: "Kami sudah menggunakan platform ini lebih dari setahun, dan terbukti menjadi aplikasi integral untuk operasi dan pelatihan. Kami sudah customisasi program onboarding, memanfaatkan modul library untuk Scrum, Product Management, dan Developer training.",
+    author: "David Anderson",
+    role: "Director",
+    company: "Enterprise Client",
+    avatar: "DA"
+  },
+  {
+    quote: "Setup-nya cepat dan tim support sangat responsif. Dalam 2 minggu kami sudah bisa deploy program compliance ke seluruh organisasi. ROI terasa dalam bulan pertama.",
+    author: "Sarah Chen",
+    role: "HR Director",
+    company: "Tech Company",
+    avatar: "SC"
+  },
+  {
+    quote: "Fitur AI Course Builder mengubah cara kami membuat konten. Dulu butuh 2 minggu untuk satu kursus, sekarang 2 hari. Tim L&D bisa fokus ke hal yang lebih strategis.",
+    author: "Budi Santoso",
+    role: "L&D Manager",
+    company: "Indonesian Manufacturing",
+    avatar: "BS"
   }
 ];
 ---
@@ -65,8 +90,23 @@ const hrFeatures = [
     <!-- Logo Slider Section -->
     <section class="logos-section">
       <div class="logos-container">
-        <LogoSlider title="Dipercaya perusahaan terkemuka di Indonesia" direction="forward" />
+        <LogoSlider title="Dipercaya perusahaan terkemuka" direction="forward" />
         <LogoSlider direction="reverse" />
+      </div>
+    </section>
+    
+    <!-- Reinventing LMS Section -->
+    <section class="reinventing-section">
+      <div class="reinventing-container">
+        <span class="section-tag">Platform Generasi Baru</span>
+        <h2 class="reinventing-title">Mendefinisikan Ulang Pengalaman LMS</h2>
+        <p class="reinventing-description">
+          Mili Academy mentransformasi LMS menjadi intelligent learning orchestration system. 
+          Tidak lagi manual efforts dan constant oversight — platform kami mengotomatiskan 
+          seluruh learning workflow. Menyampaikan konten yang tepat di waktu yang tepat, 
+          membebaskan tim dari administrative noise, dan menciptakan pengalaman belajar 
+          yang lebih smart dan impactful untuk organisasi modern.
+        </p>
       </div>
     </section>
     
@@ -74,9 +114,9 @@ const hrFeatures = [
     <section class="track-section">
       <div class="track-container">
         <span class="section-tag">Lacak Semuanya</span>
-        <h2 class="track-title">Tidak ada pembelajaran yang terlewat.</h2>
+        <h2 class="track-title">Tidak ada momen belajar yang terlewat.</h2>
         <p class="track-description">
-          Kursus, video, dokumen, kebijakan, event, SCORM, sertifikat, podcast, webinar — 
+          Kursus, video, dokumen, kebijakan, event, SCORM, CPD, sertifikat, podcast, webinar — 
           semua jenis konten bisa dilacak dalam satu platform.
         </p>
         <div class="track-items">
@@ -89,6 +129,7 @@ const hrFeatures = [
           <div class="track-item">🎧 Podcast</div>
           <div class="track-item">💻 Webinar</div>
           <div class="track-item">📦 SCORM</div>
+          <div class="track-item">📊 CPD Points</div>
         </div>
       </div>
     </section>
@@ -96,49 +137,94 @@ const hrFeatures = [
     <!-- Feature Blocks -->
     <FeatureBlock 
       tag="Buat"
-      title="Bangun pengalaman belajar dalam hitungan menit"
-      description="AI course builder membantu Anda membuat konten pelatihan profesional tanpa kerumitan. Deskripsikan tujuan pembelajaran, dan lihat kursus Anda terbentuk dengan sendirinya."
-      ctaText="Lihat AI course builder"
-      ctaLink="/features#ai-course-builder"
+      title="Bangun konten pelatihan dalam hitungan menit"
+      description="AI course builder membantu Anda membuat konten pelatihan profesional tanpa kerumitan. Deskripsikan tujuan pembelajaran, upload dokumen, atau import dari web — dan lihat kursus Anda terbentuk dengan sendirinya. Tidak perlu instructional designer atau tim besar."
+      ctaText="Lihat AI Course Builder"
+      ctaLink="/features/ai-course-builder"
       imagePosition="right"
     />
     
     <FeatureBlock 
       tag="Deploy"
       title="Sampaikan pelatihan ke orang yang tepat, di waktu yang tepat"
-      description="Assign learning otomatis berdasarkan role, departemen, lokasi, atau aturan custom. Atur onboarding sequence, deadline compliance, dan program development yang berjalan sendiri."
-      ctaText="Lihat cara kerjanya"
-      ctaLink="/features#pathways"
+      description="Assign learning otomatis berdasarkan role, departemen, lokasi, atau aturan custom. Atur onboarding sequence, deadline compliance, dan program development yang berjalan sendiri. Distribusi ke individu atau grup hanya dengan beberapa klik."
+      ctaText="Lihat Learning Pathways"
+      ctaLink="/features/pathways"
       imagePosition="left"
+    />
+    
+    <FeatureBlock 
+      tag="Otomatiskan"
+      title="Biarkan sistem bekerja untuk Anda"
+      description="Setup automated actions untuk assign learning berdasarkan user actions. Karyawan baru? Auto-assign onboarding pathway. Pindah departemen? Update training requirements. Sertifikat hampir expired? Reminder otomatis. Tidak perlu manual tracking."
+      ctaText="Lihat Workflow Automation"
+      ctaLink="/features#automation"
+      imagePosition="right"
     />
     
     <FeatureBlock 
       tag="Lacak"
       title="Visibilitas penuh atas program pelatihan Anda"
-      description="Dashboard real-time dan laporan detail memberikan insight tentang completion rates, level engagement, dan perkembangan skill di seluruh organisasi."
-      ctaText="Lihat fitur reporting"
-      ctaLink="/features#reporting"
-      imagePosition="right"
+      description="Dashboard real-time dan laporan detail memberikan insight tentang completion rates, level engagement, dan perkembangan skill di seluruh organisasi. Export data, schedule reports, dan integrasikan dengan BI tools Anda."
+      ctaText="Lihat Analytics & Reporting"
+      ctaLink="/features/reporting"
+      imagePosition="left"
     />
     
     <!-- Features Accordion - Admins -->
     <FeaturesAccordion 
       id="admin-features"
-      sectionTitle="Dibangun untuk Tim L&D"
-      sectionDescription="Semua yang Anda butuhkan untuk membuat, mengelola, dan men-scale program pembelajaran"
+      tagText="DIBANGUN UNTUK ADMIN"
+      sectionTitle="Dirancang untuk Learners"
+      sectionDescription="Tools powerful yang membuat pembuatan dan pengelolaan konten jadi effortless"
       features={adminFeatures}
     />
     
     <!-- Features Accordion - HR -->
     <FeaturesAccordion 
       id="hr-features"
-      sectionTitle="Dibangun untuk HR Leaders"
+      tagText="DIBANGUN UNTUK HR"
+      sectionTitle="Oleh L&D Professionals"
       sectionDescription="Dorong pengembangan karyawan dan lacak skills di seluruh organisasi"
       features={hrFeatures}
+      altBackground={true}
     />
     
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <div class="testimonials-container">
+        <span class="section-tag">Bukti, Bukan Janji</span>
+        <h2 class="testimonials-title">Apa kata pengguna kami</h2>
+        
+        <div class="testimonials-grid">
+          {testimonials.map((testimonial) => (
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <svg class="quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
+                  <path d="M10 8C10 10.21 8.21 12 6 12C5.34 12 4.72 11.84 4.17 11.56C4.06 11.82 4 12.1 4 12.4C4 14.39 5.61 16 7.6 16H8V18H7.6C4.51 18 2 15.49 2 12.4V8C2 5.79 3.79 4 6 4C8.21 4 10 5.79 10 8ZM22 8C22 10.21 20.21 12 18 12C17.34 12 16.72 11.84 16.17 11.56C16.06 11.82 16 12.1 16 12.4C16 14.39 17.61 16 19.6 16H20V18H19.6C16.51 18 14 15.49 14 12.4V8C14 5.79 15.79 4 18 4C20.21 4 22 5.79 22 8Z" fill="currentColor"/>
+                </svg>
+                <p class="testimonial-quote">{testimonial.quote}</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-avatar" style={`background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);`}>
+                  {testimonial.avatar}
+                </div>
+                <div class="author-info">
+                  <span class="author-name">{testimonial.author}</span>
+                  <span class="author-role">{testimonial.role}, {testimonial.company}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
     <!-- CTA Section -->
-    <CTASection />
+    <CTASection 
+      title="Dapatkan saran khusus untuk solusi Anda."
+      description="Diskusikan dengan kami hari ini. Demo 15 menit, tanpa komitmen."
+    />
   </main>
   
   <Footer />
@@ -163,18 +249,6 @@ const hrFeatures = [
     gap: 24px;
   }
   
-  .track-section {
-    padding: 80px 0;
-    background: linear-gradient(135deg, #f8f9fb 0%, #eef1f5 100%);
-  }
-  
-  .track-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 24px;
-    text-align: center;
-  }
-  
   .section-tag {
     display: inline-block;
     padding: 6px 14px;
@@ -186,6 +260,53 @@ const hrFeatures = [
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+  }
+  
+  /* Reinventing LMS Section */
+  .reinventing-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--color-navy) 0%, #2d2875 100%);
+    text-align: center;
+  }
+  
+  .reinventing-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .reinventing-section .section-tag {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+  }
+  
+  .reinventing-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: white;
+    margin-bottom: 24px;
+  }
+  
+  .reinventing-description {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Track Everything Section */
+  .track-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fb 0%, #eef1f5 100%);
+  }
+  
+  .track-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
   }
   
   .track-title {
@@ -218,9 +339,115 @@ const hrFeatures = [
     font-weight: 500;
     color: var(--color-navy);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease;
   }
   
-  @media (max-width: 640px) {
+  .track-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Testimonials Section */
+  .testimonials-section {
+    padding: 100px 0;
+    background: white;
+  }
+  
+  .testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+  }
+  
+  .testimonials-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-navy);
+    margin-bottom: 60px;
+  }
+  
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  
+  .testimonial-card {
+    background: #FAFBFC;
+    border-radius: 20px;
+    padding: 32px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+  }
+  
+  .testimonial-card:hover {
+    background: white;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  }
+  
+  .testimonial-content {
+    margin-bottom: 24px;
+  }
+  
+  .quote-icon {
+    color: var(--color-pink);
+    opacity: 0.3;
+    margin-bottom: 16px;
+  }
+  
+  .testimonial-quote {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+  
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  
+  .author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  
+  .author-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .author-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-navy);
+  }
+  
+  .author-role {
+    font-size: 13px;
+    color: var(--color-muted);
+  }
+  
+  @media (max-width: 768px) {
+    .reinventing-section {
+      padding: 80px 0;
+    }
+    
     .track-section {
       padding: 60px 0;
     }
@@ -232,6 +459,14 @@ const hrFeatures = [
     .track-item {
       padding: 10px 16px;
       font-size: 13px;
+    }
+    
+    .testimonials-section {
+      padding: 80px 0;
+    }
+    
+    .testimonials-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
