@@ -1,0 +1,626 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+
+const challenges = [
+  {
+    problem: "Onboarding manual memakan waktu berbulan-bulan",
+    solution: "Automated pathways membuat karyawan baru produktif dalam hitungan hari"
+  },
+  {
+    problem: "Informasi tersebar di berbagai tempat",
+    solution: "Single source of truth untuk semua materi onboarding"
+  },
+  {
+    problem: "Tidak ada cara tracking progress",
+    solution: "Real-time dashboard untuk HR dan manager"
+  },
+  {
+    problem: "Pengalaman onboarding tidak konsisten",
+    solution: "Standarisasi proses untuk semua karyawan baru"
+  }
+];
+
+const timeline = [
+  { day: "Day 0", title: "Pre-boarding", tasks: ["Welcome email otomatis", "Akses platform", "Dokumen pra-kerja"] },
+  { day: "Day 1", title: "First Day", tasks: ["Company overview", "Culture & values", "Key policies"] },
+  { day: "Week 1", title: "Foundation", tasks: ["Department training", "Tools & systems", "Meet the team"] },
+  { day: "Month 1", title: "Ramp-up", tasks: ["Role-specific skills", "Project assignments", "Mentor check-ins"] }
+];
+
+const metrics = [
+  { value: "67%", label: "Faster time-to-productivity" },
+  { value: "50%", label: "Less HR admin time" },
+  { value: "89%", label: "New hire satisfaction" },
+  { value: "2x", label: "Better retention at 1 year" }
+];
+---
+
+<Layout 
+  title="Onboarding Solutions - Mili Academy" 
+  description="Percepat orientasi karyawan baru dengan automated learning pathways yang engaging dan trackable."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <span class="section-tag">Onboarding</span>
+        <h1>Karyawan baru produktif dari hari pertama</h1>
+        <p>
+          Transformasi onboarding dari proses manual yang melelahkan menjadi 
+          automated experience yang engaging dan trackable.
+        </p>
+        <a href="/contact" class="btn btn-primary btn-lg">
+          Lihat Demo Onboarding
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+    
+    <!-- Metrics Section -->
+    <section class="metrics-section">
+      <div class="metrics-container">
+        {metrics.map(metric => (
+          <div class="metric">
+            <span class="metric-value">{metric.value}</span>
+            <span class="metric-label">{metric.label}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+    
+    <!-- Challenges Section -->
+    <section class="challenges-section">
+      <div class="challenges-container">
+        <div class="challenges-header">
+          <span class="section-tag">Masalah & Solusi</span>
+          <h2>Dari chaos ke clarity</h2>
+        </div>
+        
+        <div class="challenges-grid">
+          {challenges.map(item => (
+            <div class="challenge-card">
+              <div class="challenge-problem">
+                <span class="label">❌ Sebelumnya</span>
+                <p>{item.problem}</p>
+              </div>
+              <div class="challenge-arrow">→</div>
+              <div class="challenge-solution">
+                <span class="label">✅ Dengan Mili</span>
+                <p>{item.solution}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+      <div class="timeline-container">
+        <span class="section-tag">Automated Journey</span>
+        <h2>Onboarding pathway yang sudah terbukti</h2>
+        <p>
+          Template onboarding yang bisa Anda customize sesuai kebutuhan. 
+          Dari pre-boarding hingga 90 hari pertama.
+        </p>
+        
+        <div class="timeline-grid">
+          {timeline.map((phase, index) => (
+            <div class="timeline-card">
+              <div class="timeline-badge">{phase.day}</div>
+              <h3>{phase.title}</h3>
+              <ul>
+                {phase.tasks.map(task => (
+                  <li>{task}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="features-container">
+        <div class="feature-block">
+          <div class="feature-content">
+            <span class="section-tag">Auto-assignment</span>
+            <h2>Karyawan baru langsung dapat akses</h2>
+            <p>
+              Integrasikan dengan HRIS Anda. Saat karyawan baru di-input ke sistem HR, 
+              onboarding pathway langsung ter-assign otomatis. Tidak perlu manual assignment.
+            </p>
+            <ul class="feature-list">
+              <li>Sync dengan HRIS (SAP, Workday, dll)</li>
+              <li>Rule-based assignment (by department, role, location)</li>
+              <li>Pre-boarding access sebelum day 1</li>
+              <li>Manager notification</li>
+            </ul>
+          </div>
+          <div class="feature-visual">
+            <div class="visual-mockup">
+              <div class="mockup-card">
+                <span class="mockup-icon">🔄</span>
+                <span class="mockup-text">Syncing with HRIS...</span>
+              </div>
+              <div class="mockup-card highlight">
+                <span class="mockup-icon">✅</span>
+                <span class="mockup-text">5 new employees added</span>
+              </div>
+              <div class="mockup-card">
+                <span class="mockup-icon">📚</span>
+                <span class="mockup-text">Onboarding pathway assigned</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="feature-block reverse">
+          <div class="feature-content">
+            <span class="section-tag">Progress Tracking</span>
+            <h2>Visibilitas penuh untuk HR dan manager</h2>
+            <p>
+              Dashboard real-time menampilkan progress setiap karyawan baru. 
+              Identifikasi yang butuh bantuan sebelum terlambat.
+            </p>
+            <ul class="feature-list">
+              <li>Real-time completion tracking</li>
+              <li>Manager dashboard</li>
+              <li>Automated reminders untuk overdue tasks</li>
+              <li>Comparative analytics antar batch</li>
+            </ul>
+          </div>
+          <div class="feature-visual">
+            <div class="progress-visual">
+              <div class="progress-item">
+                <span class="progress-name">Budi Santoso</span>
+                <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+                <span class="progress-pct">85%</span>
+              </div>
+              <div class="progress-item">
+                <span class="progress-name">Siti Rahayu</span>
+                <div class="progress-bar"><div class="progress-fill" style="width: 92%"></div></div>
+                <span class="progress-pct">92%</span>
+              </div>
+              <div class="progress-item warning">
+                <span class="progress-name">Andi Wijaya</span>
+                <div class="progress-bar"><div class="progress-fill" style="width: 45%"></div></div>
+                <span class="progress-pct">45%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <CTASection 
+      title="Siap transformasi onboarding Anda?"
+      description="Lihat demo onboarding pathway dan mulai dengan template gratis."
+    />
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+  
+  .section-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(234, 31, 103, 0.1);
+    color: var(--color-pink);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Hero */
+  .hero {
+    padding: 160px 0 100px;
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    text-align: center;
+  }
+  
+  .hero-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .hero .section-tag {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+  
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 24px;
+  }
+  
+  .hero p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 32px;
+  }
+  
+  /* Metrics */
+  .metrics-section {
+    padding: 60px 0;
+    background: white;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .metrics-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .metric-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #11998e;
+  }
+  
+  .metric-label {
+    font-size: 14px;
+    color: var(--color-text);
+  }
+  
+  /* Challenges */
+  .challenges-section {
+    padding: 100px 0;
+  }
+  
+  .challenges-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .challenges-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .challenges-header h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-navy);
+  }
+  
+  .challenges-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .challenge-card {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 32px;
+    align-items: center;
+    padding: 32px;
+    background: #FAFBFC;
+    border-radius: 16px;
+  }
+  
+  .challenge-problem,
+  .challenge-solution {
+    padding: 20px;
+    border-radius: 12px;
+  }
+  
+  .challenge-problem {
+    background: #fff5f5;
+  }
+  
+  .challenge-solution {
+    background: #f0fff4;
+  }
+  
+  .label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  
+  .challenge-problem .label { color: #e53e3e; }
+  .challenge-solution .label { color: #38a169; }
+  
+  .challenge-problem p,
+  .challenge-solution p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-navy);
+    margin: 0;
+  }
+  
+  .challenge-arrow {
+    font-size: 24px;
+    color: #ccc;
+  }
+  
+  /* Timeline */
+  .timeline-section {
+    padding: 100px 0;
+    background: #FAFBFC;
+    text-align: center;
+  }
+  
+  .timeline-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .timeline-section h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 16px;
+  }
+  
+  .timeline-section > .timeline-container > p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 48px;
+  }
+  
+  .timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    text-align: left;
+  }
+  
+  .timeline-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  }
+  
+  .timeline-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #11998e;
+    color: white;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  
+  .timeline-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 16px;
+  }
+  
+  .timeline-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .timeline-card li {
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--color-text);
+    border-bottom: 1px solid #eee;
+  }
+  
+  .timeline-card li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Features */
+  .features-section {
+    padding: 100px 0;
+  }
+  
+  .features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .feature-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 100px;
+  }
+  
+  .feature-block.reverse {
+    direction: rtl;
+  }
+  
+  .feature-block.reverse > * {
+    direction: ltr;
+  }
+  
+  .feature-block:last-child {
+    margin-bottom: 0;
+  }
+  
+  .feature-content h2 {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 16px;
+  }
+  
+  .feature-content > p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 24px;
+  }
+  
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .feature-list li {
+    padding: 8px 0;
+    padding-left: 28px;
+    position: relative;
+    font-size: 15px;
+    color: var(--color-navy);
+  }
+  
+  .feature-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #11998e;
+    font-weight: 700;
+  }
+  
+  .visual-mockup {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .mockup-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+  }
+  
+  .mockup-card.highlight {
+    background: #f0fff4;
+    border-color: #38a169;
+  }
+  
+  .mockup-icon {
+    font-size: 1.25rem;
+  }
+  
+  .mockup-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-navy);
+  }
+  
+  .progress-visual {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  }
+  
+  .progress-item {
+    display: grid;
+    grid-template-columns: 120px 1fr 50px;
+    gap: 16px;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .progress-item:last-child {
+    border-bottom: none;
+  }
+  
+  .progress-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+  
+  .progress-bar {
+    height: 8px;
+    background: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background: #11998e;
+    border-radius: 4px;
+  }
+  
+  .progress-item.warning .progress-fill {
+    background: #ed8936;
+  }
+  
+  .progress-pct {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-navy);
+    text-align: right;
+  }
+  
+  @media (max-width: 1024px) {
+    .feature-block,
+    .timeline-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .feature-block.reverse {
+      direction: ltr;
+    }
+    
+    .feature-visual {
+      order: -1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+      padding: 140px 0 80px;
+    }
+    
+    .metrics-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .challenge-card {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    
+    .challenge-arrow {
+      transform: rotate(90deg);
+      text-align: center;
+    }
+  }
+</style>

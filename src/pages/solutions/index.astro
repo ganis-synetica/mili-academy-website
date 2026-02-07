@@ -1,0 +1,423 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+
+const solutions = [
+  {
+    icon: "🏢",
+    name: "Enterprise",
+    description: "Untuk perusahaan 500+ karyawan dengan kebutuhan compliance ketat dan integrasi sistem HR kompleks.",
+    href: "/solutions/enterprise",
+    highlights: ["Unlimited users", "Custom branding", "Dedicated support", "SSO/SAML"]
+  },
+  {
+    icon: "🚀",
+    name: "SMB",
+    description: "Untuk bisnis 50-500 karyawan yang ingin profesionalisasi training tanpa kompleksitas enterprise.",
+    href: "/solutions/smb",
+    highlights: ["Quick setup", "Affordable pricing", "Essential features", "Self-service"]
+  },
+  {
+    icon: "👋",
+    name: "Onboarding",
+    description: "Percepat orientasi karyawan baru dengan automated learning pathways yang engaging.",
+    href: "/solutions/onboarding",
+    highlights: ["Day-1 ready", "Auto-assignment", "Progress tracking", "Manager insights"]
+  },
+  {
+    icon: "✅",
+    name: "Compliance",
+    description: "Pastikan kepatuhan regulasi dengan tracking sertifikasi dan automated reminders.",
+    href: "/solutions/compliance",
+    highlights: ["Audit trails", "Certification tracking", "Auto-reminders", "Reporting"]
+  }
+];
+
+const industries = [
+  { name: "Perbankan & Finansial", icon: "🏦" },
+  { name: "Healthcare", icon: "🏥" },
+  { name: "Manufaktur", icon: "🏭" },
+  { name: "Retail & E-commerce", icon: "🛒" },
+  { name: "Teknologi", icon: "💻" },
+  { name: "Telekomunikasi", icon: "📡" },
+  { name: "BUMN", icon: "🏛️" },
+  { name: "Pendidikan", icon: "🎓" }
+];
+---
+
+<Layout 
+  title="Solusi - Mili Academy" 
+  description="Solusi learning management untuk berbagai kebutuhan perusahaan Indonesia. Enterprise, SMB, Onboarding, dan Compliance training."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <span class="section-tag">Solusi</span>
+        <h1>Solusi tepat untuk setiap kebutuhan pelatihan</h1>
+        <p>
+          Tidak ada satu ukuran yang cocok untuk semua. Mili Academy menyediakan solusi 
+          yang disesuaikan dengan ukuran, industri, dan kebutuhan spesifik organisasi Anda.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Solutions Grid -->
+    <section class="solutions-section">
+      <div class="solutions-container">
+        <div class="solutions-grid">
+          {solutions.map(solution => (
+            <a href={solution.href} class="solution-card">
+              <div class="solution-icon">{solution.icon}</div>
+              <h3>{solution.name}</h3>
+              <p>{solution.description}</p>
+              <ul class="highlights">
+                {solution.highlights.map(h => (
+                  <li>{h}</li>
+                ))}
+              </ul>
+              <span class="learn-more">
+                Pelajari lebih lanjut →
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Industries Section -->
+    <section class="industries-section">
+      <div class="industries-container">
+        <span class="section-tag">Industri</span>
+        <h2>Dipercaya berbagai industri di Indonesia</h2>
+        <p>
+          Dari perbankan hingga manufaktur, Mili Academy membantu organisasi di berbagai 
+          sektor mentransformasi program pelatihan mereka.
+        </p>
+        
+        <div class="industries-grid">
+          {industries.map(industry => (
+            <div class="industry-card">
+              <span class="industry-icon">{industry.icon}</span>
+              <span class="industry-name">{industry.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Why Choose Section -->
+    <section class="why-section">
+      <div class="why-container">
+        <div class="why-content">
+          <span class="section-tag">Mengapa Mili Academy</span>
+          <h2>Platform yang berkembang bersama Anda</h2>
+          <p>
+            Mulai dengan yang Anda butuhkan sekarang, scale up seiring pertumbuhan organisasi. 
+            Tidak perlu migrasi platform — Mili Academy tumbuh bersama Anda.
+          </p>
+          
+          <div class="benefits">
+            <div class="benefit">
+              <div class="benefit-icon">🇮🇩</div>
+              <div>
+                <h4>Didesain untuk Indonesia</h4>
+                <p>Server lokal, bahasa Indonesia, support WIB timezone.</p>
+              </div>
+            </div>
+            <div class="benefit">
+              <div class="benefit-icon">🔒</div>
+              <div>
+                <h4>Enterprise-grade Security</h4>
+                <p>ISO 27001 compliant, data encryption, role-based access.</p>
+              </div>
+            </div>
+            <div class="benefit">
+              <div class="benefit-icon">🤝</div>
+              <div>
+                <h4>Dedicated Support</h4>
+                <p>Tim CS Indonesia yang siap membantu kapanpun.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <CTASection 
+      title="Tidak yakin solusi mana yang tepat?"
+      description="Konsultasikan kebutuhan Anda dengan tim kami. Kami bantu pilihkan solusi terbaik."
+    />
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+  
+  .section-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(234, 31, 103, 0.1);
+    color: var(--color-pink);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Hero */
+  .hero {
+    padding: 160px 0 100px;
+    background: linear-gradient(135deg, #f8f9fb 0%, #eef1f5 100%);
+    text-align: center;
+  }
+  
+  .hero-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-navy);
+    margin-bottom: 24px;
+  }
+  
+  .hero p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+  
+  /* Solutions Grid */
+  .solutions-section {
+    padding: 100px 0;
+  }
+  
+  .solutions-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  
+  .solution-card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    padding: 40px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .solution-card:hover {
+    border-color: var(--color-pink);
+    box-shadow: 0 20px 60px rgba(234, 31, 103, 0.1);
+    transform: translateY(-4px);
+  }
+  
+  .solution-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .solution-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 12px;
+  }
+  
+  .solution-card > p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin-bottom: 20px;
+  }
+  
+  .highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 24px;
+  }
+  
+  .highlights li {
+    padding: 6px 12px;
+    background: #f5f7fa;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-navy);
+  }
+  
+  .learn-more {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-pink);
+  }
+  
+  /* Industries */
+  .industries-section {
+    padding: 100px 0;
+    background: #FAFBFC;
+    text-align: center;
+  }
+  
+  .industries-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .industries-section h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 16px;
+  }
+  
+  .industries-section > .industries-container > p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 48px;
+  }
+  
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  .industry-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 24px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  }
+  
+  .industry-icon {
+    font-size: 2rem;
+  }
+  
+  .industry-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-navy);
+    text-align: center;
+  }
+  
+  /* Why Section */
+  .why-section {
+    padding: 100px 0;
+  }
+  
+  .why-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .why-content {
+    text-align: center;
+  }
+  
+  .why-content h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 16px;
+  }
+  
+  .why-content > p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 48px;
+  }
+  
+  .benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    text-align: left;
+  }
+  
+  .benefit {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .benefit-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+  
+  .benefit h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 8px;
+  }
+  
+  .benefit p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+  
+  @media (max-width: 1024px) {
+    .solutions-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .industries-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .benefits {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+      padding: 140px 0 80px;
+    }
+    
+    .solutions-section,
+    .industries-section,
+    .why-section {
+      padding: 80px 0;
+    }
+    
+    .solution-card {
+      padding: 32px;
+    }
+  }
+</style>

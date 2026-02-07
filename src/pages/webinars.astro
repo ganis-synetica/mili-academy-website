@@ -1,0 +1,553 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import CTASection from '../components/CTASection.astro';
+import Footer from '../components/Footer.astro';
+
+const upcomingWebinars = [
+  {
+    title: "AI dalam Learning & Development: Praktis vs Hype",
+    date: "15 Feb 2026",
+    time: "14:00 WIB",
+    speaker: "Dr. Andi Wijaya",
+    role: "Head of L&D, Bank Mandiri",
+    description: "Pelajari implementasi nyata AI dalam program training enterprise dan apa yang benar-benar bekerja."
+  },
+  {
+    title: "Membangun Culture of Learning di Perusahaan Indonesia",
+    date: "22 Feb 2026",
+    time: "14:00 WIB",
+    speaker: "Ratna Sari",
+    role: "CHRO, Tokopedia",
+    description: "Framework untuk menciptakan budaya belajar yang sustainable di organisasi."
+  }
+];
+
+const pastWebinars = [
+  {
+    title: "Onboarding Excellence: From Day 1 to Day 90",
+    date: "8 Jan 2026",
+    speaker: "Budi Santoso",
+    views: "1,247 views"
+  },
+  {
+    title: "Compliance Training yang Tidak Membosankan",
+    date: "18 Dec 2025",
+    speaker: "Siti Rahayu",
+    views: "892 views"
+  },
+  {
+    title: "Mengukur ROI Program Training",
+    date: "4 Dec 2025",
+    speaker: "Ahmad Fauzi",
+    views: "1,456 views"
+  },
+  {
+    title: "Microlearning: Strategi Konten untuk Generasi Baru",
+    date: "20 Nov 2025",
+    speaker: "Linda Kusuma",
+    views: "2,103 views"
+  }
+];
+---
+
+<Layout 
+  title="Webinars - Mili Academy" 
+  description="Free webinars untuk L&D professionals. Belajar dari praktisi dan expert di industri learning & development Indonesia."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <span class="section-tag">Webinars</span>
+        <h1>Belajar dari para praktisi L&D</h1>
+        <p>
+          Free webinars bulanan dengan expert dan praktisi learning & development 
+          dari perusahaan-perusahaan terkemuka di Indonesia.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Upcoming Webinars -->
+    <section class="upcoming-section">
+      <div class="upcoming-container">
+        <h2>Upcoming Webinars</h2>
+        
+        <div class="webinars-list">
+          {upcomingWebinars.map(webinar => (
+            <div class="webinar-card upcoming">
+              <div class="webinar-date">
+                <span class="date-day">{webinar.date.split(' ')[0]}</span>
+                <span class="date-month">{webinar.date.split(' ')[1]}</span>
+              </div>
+              <div class="webinar-content">
+                <span class="webinar-time">{webinar.time}</span>
+                <h3>{webinar.title}</h3>
+                <p>{webinar.description}</p>
+                <div class="speaker-info">
+                  <div class="speaker-avatar">{webinar.speaker.split(' ').map(n => n[0]).join('')}</div>
+                  <div>
+                    <span class="speaker-name">{webinar.speaker}</span>
+                    <span class="speaker-role">{webinar.role}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="webinar-action">
+                <a href="/contact" class="btn btn-primary">Register Free</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Past Webinars -->
+    <section class="past-section">
+      <div class="past-container">
+        <h2>Past Webinars</h2>
+        <p class="past-description">Tonton rekaman webinar sebelumnya kapan saja.</p>
+        
+        <div class="past-grid">
+          {pastWebinars.map(webinar => (
+            <div class="past-card">
+              <div class="past-thumbnail">
+                <div class="thumbnail-placeholder">
+                  <span>▶️</span>
+                </div>
+              </div>
+              <div class="past-content">
+                <h4>{webinar.title}</h4>
+                <div class="past-meta">
+                  <span>{webinar.speaker}</span>
+                  <span>•</span>
+                  <span>{webinar.date}</span>
+                </div>
+                <span class="past-views">{webinar.views}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div class="view-all">
+          <a href="#" class="btn btn-outline-dark">Lihat Semua Rekaman</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Host Section -->
+    <section class="host-section">
+      <div class="host-container">
+        <div class="host-content">
+          <span class="section-tag">Jadi Speaker</span>
+          <h2>Bagikan expertise Anda</h2>
+          <p>
+            Punya insights tentang L&D yang ingin dibagikan? Kami selalu mencari 
+            praktisi untuk berbagi pengalaman dan best practices mereka.
+          </p>
+          <a href="/contact" class="btn btn-primary">
+            Apply sebagai Speaker
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        <div class="host-visual">
+          <div class="visual-card">
+            <span class="visual-icon">🎤</span>
+            <div class="visual-stats">
+              <div class="visual-stat">
+                <span class="stat-value">50+</span>
+                <span class="stat-label">Webinars hosted</span>
+              </div>
+              <div class="visual-stat">
+                <span class="stat-value">10K+</span>
+                <span class="stat-label">Total attendees</span>
+              </div>
+              <div class="visual-stat">
+                <span class="stat-value">4.8</span>
+                <span class="stat-label">Average rating</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <CTASection 
+      title="Tidak mau ketinggalan webinar berikutnya?"
+      description="Subscribe untuk notifikasi webinar dan insights L&D terbaru."
+      ctaText="Subscribe Newsletter"
+    />
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+  
+  .section-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(234, 31, 103, 0.1);
+    color: var(--color-pink);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Hero */
+  .hero {
+    padding: 160px 0 80px;
+    background: linear-gradient(135deg, #f8f9fb 0%, #eef1f5 100%);
+    text-align: center;
+  }
+  
+  .hero-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-navy);
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+  
+  /* Upcoming */
+  .upcoming-section {
+    padding: 80px 0;
+  }
+  
+  .upcoming-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .upcoming-container h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 32px;
+  }
+  
+  .webinars-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .webinar-card {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: 32px;
+    padding: 32px;
+    background: white;
+    border: 2px solid var(--color-pink);
+    border-radius: 20px;
+    align-items: start;
+  }
+  
+  .webinar-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    background: var(--color-pink);
+    border-radius: 12px;
+    color: white;
+  }
+  
+  .date-day {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+  
+  .date-month {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .webinar-time {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #f5f7fa;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 12px;
+  }
+  
+  .webinar-content h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  
+  .webinar-content > p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin-bottom: 20px;
+  }
+  
+  .speaker-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .speaker-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-navy);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  
+  .speaker-name {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--color-navy);
+  }
+  
+  .speaker-role {
+    font-size: 13px;
+    color: var(--color-text);
+  }
+  
+  .webinar-action {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Past Webinars */
+  .past-section {
+    padding: 80px 0;
+    background: #FAFBFC;
+  }
+  
+  .past-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .past-container h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 8px;
+  }
+  
+  .past-description {
+    font-size: 1rem;
+    color: var(--color-text);
+    margin-bottom: 32px;
+  }
+  
+  .past-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  
+  .past-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .past-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  }
+  
+  .past-thumbnail {
+    aspect-ratio: 16/9;
+  }
+  
+  .thumbnail-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-navy) 0%, #2d2875 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .thumbnail-placeholder span {
+    font-size: 2.5rem;
+  }
+  
+  .past-content {
+    padding: 20px;
+  }
+  
+  .past-content h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  
+  .past-meta {
+    display: flex;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--color-text);
+    margin-bottom: 8px;
+  }
+  
+  .past-views {
+    font-size: 12px;
+    color: var(--color-muted);
+  }
+  
+  .view-all {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .btn-outline-dark {
+    background: transparent;
+    border: 2px solid var(--color-navy);
+    color: var(--color-navy);
+  }
+  
+  .btn-outline-dark:hover {
+    background: var(--color-navy);
+    color: white;
+  }
+  
+  /* Host Section */
+  .host-section {
+    padding: 100px 0;
+  }
+  
+  .host-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  
+  .host-content h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 16px;
+  }
+  
+  .host-content > p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 24px;
+  }
+  
+  .visual-card {
+    background: linear-gradient(135deg, var(--color-pink) 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 48px;
+    text-align: center;
+    color: white;
+  }
+  
+  .visual-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 32px;
+  }
+  
+  .visual-stats {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+  }
+  
+  .stat-label {
+    font-size: 13px;
+    opacity: 0.8;
+  }
+  
+  @media (max-width: 1024px) {
+    .past-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .host-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .host-visual {
+      order: -1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+      padding: 140px 0 60px;
+    }
+    
+    .webinar-card {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    .webinar-date {
+      flex-direction: row;
+      gap: 8px;
+      width: fit-content;
+    }
+    
+    .past-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .visual-stats {
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+</style>

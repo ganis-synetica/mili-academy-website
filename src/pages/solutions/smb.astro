@@ -1,0 +1,571 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+
+const benefits = [
+  {
+    icon: "⚡",
+    title: "Setup dalam hitungan jam",
+    description: "Tidak perlu IT team atau implementasi berbulan-bulan. Sign up, import users, mulai training."
+  },
+  {
+    icon: "💰",
+    title: "Pricing yang masuk akal",
+    description: "Per-user pricing yang predictable. Tidak ada hidden costs atau minimum commitment besar."
+  },
+  {
+    icon: "🎯",
+    title: "Fitur essential saja",
+    description: "Fokus pada fitur yang benar-benar dibutuhkan SMB. Tidak overwhelmed dengan enterprise features."
+  },
+  {
+    icon: "🤝",
+    title: "Self-service friendly",
+    description: "Documentation lengkap, video tutorials, dan community support. Bisa jalan tanpa dedicated admin."
+  }
+];
+
+const features = [
+  "Unlimited courses",
+  "Learning pathways",
+  "Basic reporting",
+  "Certificate generation",
+  "Quiz & assessments",
+  "Mobile responsive",
+  "Email notifications",
+  "User management",
+  "Content library access",
+  "Indonesian support"
+];
+
+const comparisons = [
+  { feature: "Implementation time", others: "3-6 bulan", mili: "1-2 minggu" },
+  { feature: "Minimum users", others: "500+", mili: "50" },
+  { feature: "Setup fee", others: "Rp 50-200 juta", mili: "Rp 0" },
+  { feature: "Contract length", others: "2-3 tahun", mili: "Bulanan" }
+];
+---
+
+<Layout 
+  title="SMB Solutions - Mili Academy" 
+  description="Solusi LMS untuk bisnis 50-500 karyawan. Quick setup, affordable pricing, essential features."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <span class="section-tag">SMB</span>
+        <h1>Enterprise-quality training untuk growing business</h1>
+        <p>
+          Untuk bisnis 50-500 karyawan yang ingin profesionalisasi training 
+          tanpa kompleksitas dan biaya enterprise solutions.
+        </p>
+        <div class="hero-actions">
+          <a href="/contact" class="btn btn-primary btn-lg">
+            Mulai Free Trial
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="/pricing" class="btn btn-outline btn-lg">Lihat Pricing</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+      <div class="benefits-container">
+        <div class="benefits-header">
+          <span class="section-tag">Mengapa SMB memilih kami</span>
+          <h2>Big company training, startup simplicity</h2>
+        </div>
+        
+        <div class="benefits-grid">
+          {benefits.map(benefit => (
+            <div class="benefit-card">
+              <span class="benefit-icon">{benefit.icon}</span>
+              <h3>{benefit.title}</h3>
+              <p>{benefit.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="features-container">
+        <div class="features-content">
+          <span class="section-tag">Semua yang Anda butuhkan</span>
+          <h2>Fitur lengkap, tanpa bloat</h2>
+          <p>
+            Tidak perlu bayar untuk fitur enterprise yang tidak akan Anda gunakan. 
+            SMB plan kami mencakup semua essentials untuk training yang efektif.
+          </p>
+          
+          <ul class="features-list">
+            {features.map(feature => (
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="var(--color-pink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <div class="features-visual">
+          <div class="visual-card">
+            <div class="visual-header">
+              <span class="visual-icon">📊</span>
+              <span>Dashboard Overview</span>
+            </div>
+            <div class="visual-stats">
+              <div class="mini-stat">
+                <span class="mini-value">89%</span>
+                <span class="mini-label">Completion rate</span>
+              </div>
+              <div class="mini-stat">
+                <span class="mini-value">24</span>
+                <span class="mini-label">Active courses</span>
+              </div>
+              <div class="mini-stat">
+                <span class="mini-value">156</span>
+                <span class="mini-label">Users trained</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+      <div class="comparison-container">
+        <span class="section-tag">Perbandingan</span>
+        <h2>Kenapa SMB tidak perlu Enterprise LMS</h2>
+        
+        <div class="comparison-table">
+          <div class="comparison-header">
+            <span>Feature</span>
+            <span>Enterprise LMS lain</span>
+            <span>Mili Academy SMB</span>
+          </div>
+          {comparisons.map(row => (
+            <div class="comparison-row">
+              <span class="comparison-feature">{row.feature}</span>
+              <span class="comparison-others">{row.others}</span>
+              <span class="comparison-mili">{row.mili}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+      <div class="testimonial-container">
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "Kami coba beberapa LMS enterprise, semuanya overkill untuk tim 120 orang. 
+            Mili Academy punya semua yang kami butuhkan tanpa complexity yang tidak perlu. 
+            Setup hanya 3 hari dan tim langsung bisa pakai."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">HR</div>
+            <div>
+              <span class="author-name">HR Manager</span>
+              <span class="author-company">Startup Fintech Jakarta</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <CTASection 
+      title="Siap profesionalisasi training tim Anda?"
+      description="Mulai dengan 14-hari free trial. Tidak perlu kartu kredit."
+      ctaText="Mulai Free Trial"
+    />
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+  
+  .section-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(234, 31, 103, 0.1);
+    color: var(--color-pink);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Hero */
+  .hero {
+    padding: 160px 0 100px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    text-align: center;
+  }
+  
+  .hero-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .hero .section-tag {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+  
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 24px;
+  }
+  
+  .hero p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 32px;
+  }
+  
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn-outline {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+  }
+  
+  .btn-outline:hover {
+    background: white;
+    color: #764ba2;
+  }
+  
+  /* Benefits */
+  .benefits-section {
+    padding: 100px 0;
+  }
+  
+  .benefits-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .benefits-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .benefits-header h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-navy);
+  }
+  
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  
+  .benefit-card {
+    text-align: center;
+    padding: 32px 24px;
+  }
+  
+  .benefit-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 20px;
+  }
+  
+  .benefit-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 12px;
+  }
+  
+  .benefit-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+  
+  /* Features */
+  .features-section {
+    padding: 100px 0;
+    background: #FAFBFC;
+  }
+  
+  .features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  
+  .features-content h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 16px;
+  }
+  
+  .features-content > p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 32px;
+  }
+  
+  .features-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .features-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-navy);
+  }
+  
+  .visual-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    padding: 32px;
+  }
+  
+  .visual-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .visual-icon {
+    font-size: 1.5rem;
+  }
+  
+  .visual-header span:last-child {
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+  
+  .visual-stats {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .mini-stat {
+    text-align: center;
+  }
+  
+  .mini-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-pink);
+  }
+  
+  .mini-label {
+    font-size: 13px;
+    color: var(--color-text);
+  }
+  
+  /* Comparison */
+  .comparison-section {
+    padding: 100px 0;
+    text-align: center;
+  }
+  
+  .comparison-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .comparison-section h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 48px;
+  }
+  
+  .comparison-table {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+  
+  .comparison-header,
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px;
+  }
+  
+  .comparison-header {
+    background: var(--color-navy);
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  .comparison-row {
+    border-bottom: 1px solid #eee;
+  }
+  
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+  
+  .comparison-feature {
+    font-weight: 600;
+    color: var(--color-navy);
+    text-align: left;
+  }
+  
+  .comparison-others {
+    color: #999;
+  }
+  
+  .comparison-mili {
+    color: var(--color-pink);
+    font-weight: 600;
+  }
+  
+  /* Testimonial */
+  .testimonial-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .testimonial-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .testimonial-card {
+    background: white;
+    border-radius: 20px;
+    padding: 48px;
+    text-align: center;
+  }
+  
+  .testimonial-text {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-navy);
+    margin-bottom: 32px;
+    font-style: italic;
+  }
+  
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  
+  .author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-pink);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  
+  .author-name {
+    display: block;
+    font-weight: 700;
+    color: var(--color-navy);
+  }
+  
+  .author-company {
+    font-size: 14px;
+    color: var(--color-text);
+  }
+  
+  @media (max-width: 1024px) {
+    .benefits-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .features-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .features-visual {
+      order: -1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+      padding: 140px 0 80px;
+    }
+    
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .features-list {
+      grid-template-columns: 1fr;
+    }
+    
+    .comparison-header,
+    .comparison-row {
+      font-size: 14px;
+      padding: 16px;
+    }
+    
+    .testimonial-card {
+      padding: 32px;
+    }
+  }
+</style>

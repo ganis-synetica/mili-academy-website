@@ -1,0 +1,652 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import CTASection from '../components/CTASection.astro';
+import Footer from '../components/Footer.astro';
+
+const endpoints = [
+  {
+    method: "GET",
+    path: "/api/v1/users",
+    description: "List all users in your organization"
+  },
+  {
+    method: "POST",
+    path: "/api/v1/users",
+    description: "Create a new user"
+  },
+  {
+    method: "GET",
+    path: "/api/v1/courses",
+    description: "List all courses"
+  },
+  {
+    method: "POST",
+    path: "/api/v1/enrollments",
+    description: "Enroll users to courses"
+  },
+  {
+    method: "GET",
+    path: "/api/v1/progress",
+    description: "Get learning progress data"
+  },
+  {
+    method: "POST",
+    path: "/api/v1/webhooks",
+    description: "Configure event webhooks"
+  }
+];
+
+const features = [
+  {
+    icon: "🔐",
+    title: "OAuth 2.0 Authentication",
+    description: "Industry-standard authentication dengan API keys dan bearer tokens."
+  },
+  {
+    icon: "📊",
+    title: "RESTful Design",
+    description: "API yang konsisten dan mudah dipahami, mengikuti REST best practices."
+  },
+  {
+    icon: "⚡",
+    title: "Rate Limiting",
+    description: "Fair usage dengan rate limits yang generous untuk production use."
+  },
+  {
+    icon: "🔔",
+    title: "Webhooks",
+    description: "Real-time event notifications untuk course completions, enrollments, dan lainnya."
+  }
+];
+
+const useCases = [
+  {
+    title: "HRIS Integration",
+    description: "Sync user data dari SAP, Workday, atau sistem HR Anda. Auto-create users saat onboarding."
+  },
+  {
+    title: "SSO Integration",
+    description: "Implement single sign-on dengan identity provider existing Anda."
+  },
+  {
+    title: "Custom Reporting",
+    description: "Pull learning data ke BI tools atau custom dashboards Anda."
+  },
+  {
+    title: "Workflow Automation",
+    description: "Trigger enrollments atau notifications berdasarkan events dari sistem lain."
+  }
+];
+---
+
+<Layout 
+  title="API Documentation - Mili Academy" 
+  description="REST API documentation untuk developers. Integrasikan Mili Academy dengan sistem HR, SSO, dan tools Anda."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <span class="section-tag">API</span>
+        <h1>Build with Mili Academy API</h1>
+        <p>
+          REST API yang powerful untuk mengintegrasikan Mili Academy dengan 
+          sistem HR, SSO, dan workflow automation tools Anda.
+        </p>
+        <div class="hero-actions">
+          <a href="https://docs.mili.academy/api" class="btn btn-primary btn-lg">
+            View API Docs
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="/contact" class="btn btn-outline btn-lg">Request API Access</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Quick Start -->
+    <section class="quickstart-section">
+      <div class="quickstart-container">
+        <h2>Quick Start</h2>
+        
+        <div class="code-block">
+          <div class="code-header">
+            <span>cURL</span>
+          </div>
+          <pre><code># Authenticate and get user list
+curl -X GET "https://api.mili.academy/v1/users" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json"</code></pre>
+        </div>
+        
+        <div class="code-block">
+          <div class="code-header">
+            <span>Response</span>
+          </div>
+          <pre><code>{`{
+  "data": [
+    {
+      "id": "usr_abc123",
+      "email": "john@company.com",
+      "name": "John Doe",
+      "department": "Engineering",
+      "enrolled_courses": 5,
+      "completed_courses": 3
+    }
+  ],
+  "meta": {
+    "total": 150,
+    "page": 1,
+    "per_page": 20
+  }
+}`}</code></pre>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Features -->
+    <section class="features-section">
+      <div class="features-container">
+        <div class="features-header">
+          <span class="section-tag">Capabilities</span>
+          <h2>API yang developer-friendly</h2>
+        </div>
+        
+        <div class="features-grid">
+          {features.map(feature => (
+            <div class="feature-card">
+              <span class="feature-icon">{feature.icon}</span>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Endpoints Preview -->
+    <section class="endpoints-section">
+      <div class="endpoints-container">
+        <div class="endpoints-header">
+          <span class="section-tag">Endpoints</span>
+          <h2>Available API Endpoints</h2>
+          <p>Beberapa endpoints utama yang tersedia. Lihat dokumentasi lengkap untuk semua endpoints.</p>
+        </div>
+        
+        <div class="endpoints-list">
+          {endpoints.map(endpoint => (
+            <div class="endpoint-row">
+              <span class={`method method-${endpoint.method.toLowerCase()}`}>{endpoint.method}</span>
+              <code class="endpoint-path">{endpoint.path}</code>
+              <span class="endpoint-desc">{endpoint.description}</span>
+            </div>
+          ))}
+        </div>
+        
+        <a href="https://docs.mili.academy/api" class="btn btn-outline-dark">
+          View Full API Reference →
+        </a>
+      </div>
+    </section>
+    
+    <!-- Use Cases -->
+    <section class="usecases-section">
+      <div class="usecases-container">
+        <div class="usecases-header">
+          <span class="section-tag">Use Cases</span>
+          <h2>Apa yang bisa Anda build?</h2>
+        </div>
+        
+        <div class="usecases-grid">
+          {useCases.map(useCase => (
+            <div class="usecase-card">
+              <h3>{useCase.title}</h3>
+              <p>{useCase.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- SDKs -->
+    <section class="sdks-section">
+      <div class="sdks-container">
+        <span class="section-tag">SDKs</span>
+        <h2>Client Libraries</h2>
+        <p>Official SDKs untuk memudahkan integrasi.</p>
+        
+        <div class="sdks-grid">
+          <div class="sdk-card">
+            <span class="sdk-icon">🟨</span>
+            <h4>JavaScript/Node.js</h4>
+            <code>npm install @mili/sdk</code>
+          </div>
+          <div class="sdk-card">
+            <span class="sdk-icon">🐍</span>
+            <h4>Python</h4>
+            <code>pip install mili-sdk</code>
+          </div>
+          <div class="sdk-card">
+            <span class="sdk-icon">💎</span>
+            <h4>Ruby</h4>
+            <code>gem install mili</code>
+          </div>
+          <div class="sdk-card">
+            <span class="sdk-icon">🐘</span>
+            <h4>PHP</h4>
+            <code>composer require mili/sdk</code>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <CTASection 
+      title="Butuh bantuan dengan integrasi?"
+      description="Tim technical kami siap membantu dengan implementasi API."
+      ctaText="Hubungi Technical Team"
+    />
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+  
+  .section-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(234, 31, 103, 0.1);
+    color: var(--color-pink);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Hero */
+  .hero {
+    padding: 160px 0 100px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    text-align: center;
+  }
+  
+  .hero-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .hero .section-tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: #00d9ff;
+  }
+  
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 24px;
+  }
+  
+  .hero p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 32px;
+  }
+  
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn-outline {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+  }
+  
+  .btn-outline:hover {
+    background: white;
+    color: #1a1a2e;
+  }
+  
+  /* Quick Start */
+  .quickstart-section {
+    padding: 80px 0;
+    background: #f8f9fb;
+  }
+  
+  .quickstart-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .quickstart-container h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 24px;
+  }
+  
+  .code-block {
+    background: #1a1a2e;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  
+  .code-header {
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .code-header span {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .code-block pre {
+    padding: 20px;
+    margin: 0;
+    overflow-x: auto;
+  }
+  
+  .code-block code {
+    font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #e0e0e0;
+  }
+  
+  /* Features */
+  .features-section {
+    padding: 100px 0;
+  }
+  
+  .features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .features-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .features-header h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-navy);
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  
+  .feature-card {
+    text-align: center;
+    padding: 32px 24px;
+  }
+  
+  .feature-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 16px;
+  }
+  
+  .feature-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 8px;
+  }
+  
+  .feature-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+  
+  /* Endpoints */
+  .endpoints-section {
+    padding: 100px 0;
+    background: #FAFBFC;
+  }
+  
+  .endpoints-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .endpoints-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  
+  .endpoints-header h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 12px;
+  }
+  
+  .endpoints-header p {
+    font-size: 1rem;
+    color: var(--color-text);
+  }
+  
+  .endpoints-list {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    margin-bottom: 32px;
+  }
+  
+  .endpoint-row {
+    display: grid;
+    grid-template-columns: 80px 200px 1fr;
+    gap: 20px;
+    padding: 16px 24px;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+  }
+  
+  .endpoint-row:last-child {
+    border-bottom: none;
+  }
+  
+  .method {
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+  }
+  
+  .method-get { background: #d4edda; color: #155724; }
+  .method-post { background: #cce5ff; color: #004085; }
+  
+  .endpoint-path {
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 14px;
+    color: var(--color-navy);
+  }
+  
+  .endpoint-desc {
+    font-size: 14px;
+    color: var(--color-text);
+  }
+  
+  .btn-outline-dark {
+    background: transparent;
+    border: 2px solid var(--color-navy);
+    color: var(--color-navy);
+  }
+  
+  .btn-outline-dark:hover {
+    background: var(--color-navy);
+    color: white;
+  }
+  
+  /* Use Cases */
+  .usecases-section {
+    padding: 100px 0;
+  }
+  
+  .usecases-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .usecases-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .usecases-header h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-navy);
+  }
+  
+  .usecases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  
+  .usecase-card {
+    padding: 32px;
+    background: #FAFBFC;
+    border-radius: 16px;
+  }
+  
+  .usecase-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 12px;
+  }
+  
+  .usecase-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+  
+  /* SDKs */
+  .sdks-section {
+    padding: 100px 0;
+    background: #1a1a2e;
+    text-align: center;
+  }
+  
+  .sdks-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .sdks-section .section-tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: #00d9ff;
+  }
+  
+  .sdks-section h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: white;
+    margin-bottom: 12px;
+  }
+  
+  .sdks-section > .sdks-container > p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 48px;
+  }
+  
+  .sdks-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  
+  .sdk-card {
+    padding: 32px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .sdk-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 16px;
+  }
+  
+  .sdk-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 12px;
+  }
+  
+  .sdk-card code {
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 12px;
+    color: #00d9ff;
+    background: rgba(0, 217, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  
+  @media (max-width: 1024px) {
+    .features-grid,
+    .sdks-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+      padding: 140px 0 80px;
+    }
+    
+    .features-grid,
+    .usecases-grid,
+    .sdks-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .endpoint-row {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    
+    .method {
+      width: fit-content;
+    }
+  }
+</style>

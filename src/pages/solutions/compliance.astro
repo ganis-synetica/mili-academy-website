@@ -1,0 +1,707 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+
+const complianceTypes = [
+  {
+    icon: "🏦",
+    name: "Financial Services",
+    examples: "AML, KYC, POJK compliance, risk management"
+  },
+  {
+    icon: "🏥",
+    name: "Healthcare",
+    examples: "Patient privacy, medical protocols, safety standards"
+  },
+  {
+    icon: "🏭",
+    name: "Manufacturing",
+    examples: "HSE, ISO standards, quality management"
+  },
+  {
+    icon: "🔒",
+    name: "Data Privacy",
+    examples: "GDPR, UU PDP, cybersecurity awareness"
+  },
+  {
+    icon: "👥",
+    name: "HR & Workplace",
+    examples: "Anti-harassment, diversity, code of conduct"
+  },
+  {
+    icon: "🌱",
+    name: "Environmental",
+    examples: "Sustainability, waste management, ESG"
+  }
+];
+
+const features = [
+  {
+    icon: "📋",
+    title: "Training Matrix Management",
+    description: "Definisikan requirement training per role, departemen, atau lokasi. Sistem otomatis track siapa yang compliant dan siapa yang perlu training."
+  },
+  {
+    icon: "🔔",
+    title: "Automated Reminders",
+    description: "Email dan notifikasi otomatis untuk training yang mendekati deadline atau sudah overdue. Escalation ke manager jika diperlukan."
+  },
+  {
+    icon: "📜",
+    title: "Certificate Management",
+    description: "Generate sertifikat otomatis setelah training selesai. Track expiry dates dan trigger renewal training tepat waktu."
+  },
+  {
+    icon: "📊",
+    title: "Audit-Ready Reports",
+    description: "Laporan compliance yang siap audit. Export kapan saja untuk regulator, auditor, atau management review."
+  }
+];
+
+const benefits = [
+  { value: "100%", label: "Audit trail visibility" },
+  { value: "0", label: "Compliance gaps" },
+  { value: "5x", label: "Faster report generation" },
+  { value: "24/7", label: "Monitoring automation" }
+];
+---
+
+<Layout 
+  title="Compliance Training Solutions - Mili Academy" 
+  description="Pastikan kepatuhan regulasi dengan tracking sertifikasi otomatis, audit trails, dan automated reminders."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <span class="section-tag">Compliance</span>
+        <h1>Compliance training yang tidak menyusahkan</h1>
+        <p>
+          Pastikan 100% karyawan compliant dengan regulasi industri. 
+          Automated tracking, reminders, dan reporting siap audit.
+        </p>
+        <a href="/contact" class="btn btn-primary btn-lg">
+          Lihat Demo Compliance
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+    
+    <!-- Benefits -->
+    <section class="benefits-section">
+      <div class="benefits-container">
+        {benefits.map(item => (
+          <div class="benefit">
+            <span class="benefit-value">{item.value}</span>
+            <span class="benefit-label">{item.label}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+    
+    <!-- Compliance Types -->
+    <section class="types-section">
+      <div class="types-container">
+        <div class="types-header">
+          <span class="section-tag">Use Cases</span>
+          <h2>Compliance untuk berbagai industri dan kebutuhan</h2>
+          <p>
+            Dari regulasi finansial hingga keselamatan kerja, Mili Academy 
+            mendukung berbagai jenis compliance training.
+          </p>
+        </div>
+        
+        <div class="types-grid">
+          {complianceTypes.map(type => (
+            <div class="type-card">
+              <span class="type-icon">{type.icon}</span>
+              <h3>{type.name}</h3>
+              <p>{type.examples}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Features -->
+    <section class="features-section">
+      <div class="features-container">
+        <div class="features-header">
+          <span class="section-tag">Fitur Compliance</span>
+          <h2>Tools yang Anda butuhkan untuk compliance sempurna</h2>
+        </div>
+        
+        <div class="features-grid">
+          {features.map(feature => (
+            <div class="feature-card">
+              <span class="feature-icon">{feature.icon}</span>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Dashboard Preview -->
+    <section class="dashboard-section">
+      <div class="dashboard-container">
+        <div class="dashboard-content">
+          <span class="section-tag">Compliance Dashboard</span>
+          <h2>Visibilitas penuh dalam satu layar</h2>
+          <p>
+            Dashboard compliance menampilkan status real-time semua training requirements. 
+            Identifikasi gaps sebelum menjadi masalah.
+          </p>
+          
+          <div class="dashboard-features">
+            <div class="dashboard-feature">
+              <span>🟢</span>
+              <div>
+                <strong>Compliant</strong>
+                <p>Karyawan yang sudah memenuhi semua requirement</p>
+              </div>
+            </div>
+            <div class="dashboard-feature">
+              <span>🟡</span>
+              <div>
+                <strong>Expiring Soon</strong>
+                <p>Sertifikat yang akan expire dalam 30 hari</p>
+              </div>
+            </div>
+            <div class="dashboard-feature">
+              <span>🔴</span>
+              <div>
+                <strong>Non-Compliant</strong>
+                <p>Karyawan yang belum menyelesaikan mandatory training</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="dashboard-visual">
+          <div class="dashboard-mockup">
+            <div class="mockup-header">
+              <span>Compliance Overview</span>
+            </div>
+            <div class="mockup-body">
+              <div class="stat-row">
+                <div class="stat-card green">
+                  <span class="stat-num">847</span>
+                  <span class="stat-text">Compliant</span>
+                </div>
+                <div class="stat-card yellow">
+                  <span class="stat-num">23</span>
+                  <span class="stat-text">Expiring</span>
+                </div>
+                <div class="stat-card red">
+                  <span class="stat-num">5</span>
+                  <span class="stat-text">Overdue</span>
+                </div>
+              </div>
+              <div class="progress-section">
+                <span class="progress-label">Overall Compliance Rate</span>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 97%"></div>
+                </div>
+                <span class="progress-pct">97%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Audit Section -->
+    <section class="audit-section">
+      <div class="audit-container">
+        <span class="section-tag">Audit Ready</span>
+        <h2>Siap kapanpun auditor datang</h2>
+        <p>
+          Semua data compliance tersimpan dengan audit trail lengkap. 
+          Generate report dalam hitungan detik, bukan jam.
+        </p>
+        
+        <div class="audit-features">
+          <div class="audit-feature">
+            <span class="audit-icon">📁</span>
+            <h4>Complete Audit Trail</h4>
+            <p>Setiap aktivitas tercatat — siapa, kapan, apa yang dilakukan</p>
+          </div>
+          <div class="audit-feature">
+            <span class="audit-icon">📊</span>
+            <h4>One-Click Reports</h4>
+            <p>Export report compliance per departemen, training, atau periode</p>
+          </div>
+          <div class="audit-feature">
+            <span class="audit-icon">🔐</span>
+            <h4>Data Integrity</h4>
+            <p>Records tidak bisa diubah setelah disimpan — compliance guaranteed</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <CTASection 
+      title="Siap capai 100% compliance?"
+      description="Demo personalized untuk kebutuhan compliance spesifik industri Anda."
+    />
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+  
+  .section-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(234, 31, 103, 0.1);
+    color: var(--color-pink);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Hero */
+  .hero {
+    padding: 160px 0 100px;
+    background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+    text-align: center;
+  }
+  
+  .hero-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .hero .section-tag {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+  
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 24px;
+  }
+  
+  .hero p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 32px;
+  }
+  
+  /* Benefits */
+  .benefits-section {
+    padding: 60px 0;
+    background: white;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .benefits-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .benefit-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #e53e3e;
+  }
+  
+  .benefit-label {
+    font-size: 14px;
+    color: var(--color-text);
+  }
+  
+  /* Compliance Types */
+  .types-section {
+    padding: 100px 0;
+  }
+  
+  .types-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .types-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 60px;
+  }
+  
+  .types-header h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 16px;
+  }
+  
+  .types-header p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+  
+  .types-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  
+  .type-card {
+    padding: 32px;
+    background: #FAFBFC;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .type-card:hover {
+    background: white;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  }
+  
+  .type-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 16px;
+  }
+  
+  .type-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 8px;
+  }
+  
+  .type-card p {
+    font-size: 14px;
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+  
+  /* Features */
+  .features-section {
+    padding: 100px 0;
+    background: #FAFBFC;
+  }
+  
+  .features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .features-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .features-header h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-navy);
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  
+  .feature-card {
+    padding: 32px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  }
+  
+  .feature-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 16px;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 12px;
+  }
+  
+  .feature-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+  
+  /* Dashboard */
+  .dashboard-section {
+    padding: 100px 0;
+  }
+  
+  .dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  
+  .dashboard-content h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 16px;
+  }
+  
+  .dashboard-content > p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 32px;
+  }
+  
+  .dashboard-features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .dashboard-feature {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .dashboard-feature span {
+    font-size: 1.5rem;
+  }
+  
+  .dashboard-feature strong {
+    display: block;
+    font-size: 15px;
+    color: var(--color-navy);
+    margin-bottom: 4px;
+  }
+  
+  .dashboard-feature p {
+    font-size: 14px;
+    color: var(--color-text);
+    margin: 0;
+  }
+  
+  .dashboard-mockup {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .mockup-header {
+    padding: 16px 20px;
+    background: var(--color-navy);
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  .mockup-body {
+    padding: 24px;
+  }
+  
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .stat-card {
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+  }
+  
+  .stat-card.green { background: #f0fff4; }
+  .stat-card.yellow { background: #fffaf0; }
+  .stat-card.red { background: #fff5f5; }
+  
+  .stat-num {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 800;
+  }
+  
+  .stat-card.green .stat-num { color: #38a169; }
+  .stat-card.yellow .stat-num { color: #dd6b20; }
+  .stat-card.red .stat-num { color: #e53e3e; }
+  
+  .stat-text {
+    font-size: 12px;
+    color: var(--color-text);
+  }
+  
+  .progress-section {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 16px;
+    align-items: center;
+  }
+  
+  .progress-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+  
+  .progress-bar {
+    height: 12px;
+    background: #eee;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #38a169 0%, #68d391 100%);
+    border-radius: 6px;
+  }
+  
+  .progress-pct {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #38a169;
+  }
+  
+  /* Audit */
+  .audit-section {
+    padding: 100px 0;
+    background: var(--color-navy);
+    text-align: center;
+  }
+  
+  .audit-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .audit-section .section-tag {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+  }
+  
+  .audit-section h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: white;
+    margin-bottom: 16px;
+  }
+  
+  .audit-section > .audit-container > p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 48px;
+  }
+  
+  .audit-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    text-align: left;
+  }
+  
+  .audit-feature {
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+  }
+  
+  .audit-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 16px;
+  }
+  
+  .audit-feature h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+  }
+  
+  .audit-feature p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  @media (max-width: 1024px) {
+    .dashboard-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .dashboard-visual {
+      order: -1;
+    }
+    
+    .types-grid,
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+      padding: 140px 0 80px;
+    }
+    
+    .benefits-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .types-grid,
+    .features-grid,
+    .audit-features {
+      grid-template-columns: 1fr;
+    }
+    
+    .stat-row {
+      grid-template-columns: 1fr;
+    }
+    
+    .progress-section {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+</style>

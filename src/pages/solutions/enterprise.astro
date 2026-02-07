@@ -1,0 +1,555 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+
+const features = [
+  {
+    icon: "🔐",
+    title: "SSO & SAML Integration",
+    description: "Integrasikan dengan identity provider existing (Okta, Azure AD, Google Workspace) untuk seamless authentication."
+  },
+  {
+    icon: "🏢",
+    title: "Multi-tenant Architecture",
+    description: "Kelola multiple business units atau subsidiaries dalam satu platform dengan data isolation sempurna."
+  },
+  {
+    icon: "📊",
+    title: "Advanced Analytics",
+    description: "Dashboard executive dengan insights mendalam, custom reports, dan integrasi BI tools."
+  },
+  {
+    icon: "🔗",
+    title: "HR System Integration",
+    description: "Connect dengan SAP SuccessFactors, Workday, Oracle HCM, atau sistem HR lokal Anda."
+  },
+  {
+    icon: "🎨",
+    title: "White-label Branding",
+    description: "Custom domain, logo, warna, dan complete branding sesuai identitas perusahaan."
+  },
+  {
+    icon: "👥",
+    title: "Dedicated Success Team",
+    description: "Customer success manager, implementation specialist, dan technical support dedicated."
+  }
+];
+
+const stats = [
+  { number: "500+", label: "Enterprise clients" },
+  { number: "2M+", label: "Active learners" },
+  { number: "99.9%", label: "Uptime SLA" },
+  { number: "24/7", label: "Support coverage" }
+];
+
+const logos = ["Bank Mandiri", "Telkom", "Pertamina", "Astra", "BCA", "Indofood"];
+---
+
+<Layout 
+  title="Enterprise Solutions - Mili Academy" 
+  description="Solusi LMS enterprise untuk perusahaan 500+ karyawan. SSO integration, multi-tenant, advanced analytics, dan dedicated support."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <span class="section-tag">Enterprise</span>
+        <h1>Learning platform untuk organisasi skala besar</h1>
+        <p>
+          Untuk perusahaan dengan 500+ karyawan yang membutuhkan compliance ketat, 
+          integrasi sistem kompleks, dan enterprise-grade security.
+        </p>
+        <div class="hero-actions">
+          <a href="/contact" class="btn btn-primary btn-lg">
+            Request Demo
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="/pricing" class="btn btn-secondary btn-lg">Lihat Pricing</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="stats-container">
+        {stats.map(stat => (
+          <div class="stat">
+            <span class="stat-number">{stat.number}</span>
+            <span class="stat-label">{stat.label}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+    
+    <!-- Trusted By Section -->
+    <section class="trusted-section">
+      <div class="trusted-container">
+        <p>Dipercaya oleh enterprise terkemuka di Indonesia</p>
+        <div class="logos">
+          {logos.map(logo => (
+            <span class="logo-placeholder">{logo}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="features-container">
+        <div class="features-header">
+          <span class="section-tag">Fitur Enterprise</span>
+          <h2>Built for scale, designed for security</h2>
+          <p>
+            Semua yang Anda butuhkan untuk mengelola learning & development 
+            di organisasi besar dengan ribuan karyawan.
+          </p>
+        </div>
+        
+        <div class="features-grid">
+          {features.map(feature => (
+            <div class="feature-card">
+              <span class="feature-icon">{feature.icon}</span>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Implementation Section -->
+    <section class="implementation-section">
+      <div class="implementation-container">
+        <div class="implementation-content">
+          <span class="section-tag">Implementation</span>
+          <h2>White-glove implementation experience</h2>
+          <p>
+            Tim implementation kami akan mendampingi setiap langkah — dari discovery, 
+            setup, data migration, hingga training admin dan go-live.
+          </p>
+          
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-marker">1</div>
+              <div class="timeline-content">
+                <h4>Discovery & Planning</h4>
+                <p>Requirement gathering, stakeholder interviews, implementation roadmap</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-marker">2</div>
+              <div class="timeline-content">
+                <h4>Setup & Integration</h4>
+                <p>Platform configuration, SSO setup, HR system integration</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-marker">3</div>
+              <div class="timeline-content">
+                <h4>Data Migration</h4>
+                <p>Content migration, user import, historical data transfer</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-marker">4</div>
+              <div class="timeline-content">
+                <h4>Training & Go-Live</h4>
+                <p>Admin training, pilot rollout, full deployment</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Security Section -->
+    <section class="security-section">
+      <div class="security-container">
+        <span class="section-tag">Security & Compliance</span>
+        <h2>Enterprise-grade security you can trust</h2>
+        
+        <div class="security-grid">
+          <div class="security-item">
+            <span>🛡️</span>
+            <h4>ISO 27001 Certified</h4>
+          </div>
+          <div class="security-item">
+            <span>🔒</span>
+            <h4>End-to-end Encryption</h4>
+          </div>
+          <div class="security-item">
+            <span>🇮🇩</span>
+            <h4>Data Residency Indonesia</h4>
+          </div>
+          <div class="security-item">
+            <span>📋</span>
+            <h4>SOC 2 Type II</h4>
+          </div>
+          <div class="security-item">
+            <span>🔐</span>
+            <h4>RBAC & Audit Logs</h4>
+          </div>
+          <div class="security-item">
+            <span>✅</span>
+            <h4>GDPR Compliant</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <CTASection 
+      title="Siap tingkatkan L&D enterprise Anda?"
+      description="Jadwalkan discovery call dengan enterprise team kami."
+    />
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+  
+  .section-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(234, 31, 103, 0.1);
+    color: var(--color-pink);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Hero */
+  .hero {
+    padding: 160px 0 100px;
+    background: linear-gradient(135deg, var(--color-navy) 0%, #2d2875 100%);
+    text-align: center;
+  }
+  
+  .hero-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .hero .section-tag {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+  }
+  
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 24px;
+  }
+  
+  .hero p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 32px;
+  }
+  
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn-secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+  }
+  
+  .btn-secondary:hover {
+    background: white;
+    color: var(--color-navy);
+  }
+  
+  /* Stats */
+  .stats-section {
+    padding: 60px 0;
+    background: white;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .stats-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-navy);
+  }
+  
+  .stat-label {
+    font-size: 14px;
+    color: var(--color-text);
+  }
+  
+  /* Trusted */
+  .trusted-section {
+    padding: 60px 0;
+    background: #FAFBFC;
+  }
+  
+  .trusted-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+  }
+  
+  .trusted-container > p {
+    font-size: 14px;
+    color: var(--color-text);
+    margin-bottom: 32px;
+  }
+  
+  .logos {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  
+  .logo-placeholder {
+    font-size: 14px;
+    font-weight: 600;
+    color: #999;
+    padding: 12px 24px;
+    background: white;
+    border-radius: 8px;
+  }
+  
+  /* Features */
+  .features-section {
+    padding: 100px 0;
+  }
+  
+  .features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .features-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 60px;
+  }
+  
+  .features-header h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 16px;
+  }
+  
+  .features-header p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  
+  .feature-card {
+    padding: 32px;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .feature-card:hover {
+    border-color: var(--color-pink);
+    box-shadow: 0 10px 40px rgba(234, 31, 103, 0.08);
+  }
+  
+  .feature-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 20px;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 12px;
+  }
+  
+  .feature-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+  
+  /* Implementation */
+  .implementation-section {
+    padding: 100px 0;
+    background: #FAFBFC;
+  }
+  
+  .implementation-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .implementation-content {
+    text-align: center;
+  }
+  
+  .implementation-content h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 16px;
+  }
+  
+  .implementation-content > p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 48px;
+  }
+  
+  .timeline {
+    text-align: left;
+  }
+  
+  .timeline-item {
+    display: flex;
+    gap: 24px;
+    padding-bottom: 32px;
+    position: relative;
+  }
+  
+  .timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 48px;
+    bottom: 0;
+    width: 2px;
+    background: #eee;
+  }
+  
+  .timeline-marker {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-pink);
+    color: white;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .timeline-content h4 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 8px;
+  }
+  
+  .timeline-content p {
+    font-size: 15px;
+    color: var(--color-text);
+  }
+  
+  /* Security */
+  .security-section {
+    padding: 100px 0;
+    text-align: center;
+  }
+  
+  .security-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .security-section h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 48px;
+  }
+  
+  .security-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  
+  .security-item {
+    padding: 24px;
+    background: #FAFBFC;
+    border-radius: 12px;
+  }
+  
+  .security-item span {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 12px;
+  }
+  
+  .security-item h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+  
+  @media (max-width: 1024px) {
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+      padding: 140px 0 80px;
+    }
+    
+    .stats-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .features-grid,
+    .security-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
