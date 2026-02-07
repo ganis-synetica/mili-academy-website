@@ -1,25 +1,119 @@
 ---
-// Header component with navigation and mobile menu
+// Header component with mega menus and mobile navigation
+const features = [
+  { name: "AI Course Builder", desc: "Buat kursus dalam hitungan menit", href: "/features/ai-course-builder", icon: "✨" },
+  { name: "Content Library", desc: "Kelola semua materi pelatihan", href: "/features/content", icon: "📚" },
+  { name: "Learning Pathways", desc: "Jalur pembelajaran terstruktur", href: "/features/pathways", icon: "🛤️" },
+  { name: "Reporting & Analytics", desc: "Pantau progress tim real-time", href: "/features/reporting", icon: "📊" },
+  { name: "Forms & Surveys", desc: "Kumpulkan feedback dengan mudah", href: "/features/forms", icon: "📝" },
+  { name: "Roadmaps", desc: "Visualisasi career development", href: "/features/roadmaps", icon: "🗺️" },
+];
+
+const solutions = [
+  { name: "Enterprise", desc: "Untuk perusahaan 500+ karyawan", href: "/solutions/enterprise" },
+  { name: "SMB", desc: "Untuk bisnis 50-500 karyawan", href: "/solutions/smb" },
+  { name: "Onboarding", desc: "Percepat orientasi karyawan baru", href: "/solutions/onboarding" },
+  { name: "Compliance", desc: "Pastikan kepatuhan regulasi", href: "/solutions/compliance" },
+];
+
+const resources = [
+  { name: "Pusat Bantuan", desc: "FAQ & dokumentasi", href: "https://help.mili.academy" },
+  { name: "Blog", desc: "Tips & insights L&D", href: "/blog" },
+  { name: "Webinars", desc: "Belajar dari para ahli", href: "/webinars" },
+  { name: "API Docs", desc: "Dokumentasi developer", href: "/api" },
+];
 ---
 
 <header class="header">
   <div class="container">
     <a href="/" class="logo-link" aria-label="Mili Academy Home">
-      <svg width="140" height="32" viewBox="0 0 140 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Mili Academy logo placeholder -->
-        <text x="0" y="24" font-family="Plus Jakarta Sans" font-weight="800" font-size="22" fill="#1E1A5C">Mili Academy</text>
-      </svg>
+      <div class="logo">
+        <div class="logo-icon">M</div>
+        <span class="logo-text">Mili Academy</span>
+      </div>
     </a>
     
     <nav class="nav-desktop">
-      <div class="nav-item">
-        <a href="/features" class="nav-link">Fitur</a>
+      <!-- Features Dropdown -->
+      <div class="nav-item has-dropdown">
+        <button class="nav-link" aria-expanded="false">
+          Fitur
+          <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="dropdown mega-menu">
+          <div class="dropdown-content">
+            <div class="dropdown-section">
+              <h4>Platform</h4>
+              <div class="dropdown-grid">
+                {features.map(item => (
+                  <a href={item.href} class="dropdown-item">
+                    <span class="item-icon">{item.icon}</span>
+                    <div>
+                      <span class="item-name">{item.name}</span>
+                      <span class="item-desc">{item.desc}</span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div class="dropdown-footer">
+            <a href="/features" class="dropdown-cta">
+              Lihat semua fitur →
+            </a>
+          </div>
+        </div>
       </div>
+      
+      <!-- Solutions Dropdown -->
+      <div class="nav-item has-dropdown">
+        <button class="nav-link" aria-expanded="false">
+          Solusi
+          <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="dropdown">
+          <div class="dropdown-content">
+            {solutions.map(item => (
+              <a href={item.href} class="dropdown-item">
+                <div>
+                  <span class="item-name">{item.name}</span>
+                  <span class="item-desc">{item.desc}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+      
+      <!-- Resources Dropdown -->
+      <div class="nav-item has-dropdown">
+        <button class="nav-link" aria-expanded="false">
+          Resources
+          <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="dropdown">
+          <div class="dropdown-content">
+            {resources.map(item => (
+              <a href={item.href} class="dropdown-item">
+                <div>
+                  <span class="item-name">{item.name}</span>
+                  <span class="item-desc">{item.desc}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+      
+      <!-- Direct Links -->
       <div class="nav-item">
         <a href="/pricing" class="nav-link">Harga</a>
-      </div>
-      <div class="nav-item">
-        <a href="/contact" class="nav-link">Kontak</a>
       </div>
     </nav>
     
@@ -27,7 +121,7 @@
       <a href="https://app.mili.academy" class="signin-link">Masuk</a>
       <a href="/contact" class="btn btn-primary btn-sm">
         Jadwalkan Demo
-        <svg width="20" height="20" viewBox="0 0 49 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="20" height="20" viewBox="0 0 49 44" fill="none">
           <path d="M29.9175 3.10659C28.2041 1.39326 25.4214 1.3895 23.7043 3.10659L20.609 6.20189L35.6976 21.2905C35.9537 21.5466 35.9574 21.9646 35.6976 22.2244L20.609 37.313L23.7043 40.4083C25.4176 42.1217 28.2004 42.1254 29.9137 40.4121L47.0131 23.3126C47.8717 22.4541 47.8679 21.0646 47.0131 20.2098L29.9137 3.11036L29.9175 3.10659Z" fill="currentColor"/>
           <path d="M17.4911 10.4795C15.7777 8.76618 12.995 8.76242 11.2779 10.4795L9.00724 12.7502L17.5475 21.2905C17.8036 21.5465 17.8074 21.9645 17.5475 22.2243L9.00724 30.7646L11.2779 33.0353C12.9912 34.7486 15.774 34.7524 17.4911 33.0353L27.2138 23.3126C28.0723 22.454 28.0685 21.0645 27.2138 20.2097L17.4911 10.4871V10.4795Z" fill="currentColor"/>
         </svg>
@@ -41,23 +135,69 @@
   
   <!-- Mobile Navigation -->
   <nav class="nav-mobile" id="mobile-menu" aria-hidden="true">
-    <div class="nav-item-mobile">
-      <a href="/features" class="nav-link-mobile">Fitur</a>
+    <div class="mobile-menu-content">
+      <!-- Features -->
+      <div class="mobile-nav-item has-submenu">
+        <button class="mobile-nav-link" aria-expanded="false">
+          <span>Fitur</span>
+          <svg class="chevron" width="16" height="16" viewBox="0 0 12 12" fill="none">
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="mobile-submenu">
+          {features.map(item => (
+            <a href={item.href} class="mobile-submenu-item">
+              <span class="item-icon">{item.icon}</span>
+              <span>{item.name}</span>
+            </a>
+          ))}
+          <a href="/features" class="mobile-submenu-cta">Lihat semua fitur →</a>
+        </div>
+      </div>
+      
+      <!-- Solutions -->
+      <div class="mobile-nav-item">
+        <a href="/solutions" class="mobile-nav-link">Solusi</a>
+      </div>
+      
+      <!-- Resources -->
+      <div class="mobile-nav-item has-submenu">
+        <button class="mobile-nav-link" aria-expanded="false">
+          <span>Resources</span>
+          <svg class="chevron" width="16" height="16" viewBox="0 0 12 12" fill="none">
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="mobile-submenu">
+          {resources.map(item => (
+            <a href={item.href} class="mobile-submenu-item">
+              <span>{item.name}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Pricing -->
+      <div class="mobile-nav-item">
+        <a href="/pricing" class="mobile-nav-link">Harga</a>
+      </div>
     </div>
-    <div class="nav-item-mobile">
-      <a href="/pricing" class="nav-link-mobile">Harga</a>
-    </div>
-    <div class="nav-item-mobile">
-      <a href="/contact" class="nav-link-mobile">Kontak</a>
-    </div>
-    <div class="nav-actions-mobile">
-      <a href="https://app.mili.academy" class="signin-link-mobile">Masuk</a>
-      <a href="/contact" class="btn btn-primary">Jadwalkan Demo</a>
+    
+    <div class="mobile-nav-actions">
+      <a href="https://app.mili.academy" class="mobile-signin">Masuk</a>
+      <a href="/contact" class="btn btn-primary btn-block">
+        Jadwalkan Demo
+        <svg width="20" height="20" viewBox="0 0 49 44" fill="none">
+          <path d="M29.9175 3.10659C28.2041 1.39326 25.4214 1.3895 23.7043 3.10659L20.609 6.20189L35.6976 21.2905C35.9537 21.5466 35.9574 21.9646 35.6976 22.2244L20.609 37.313L23.7043 40.4083C25.4176 42.1217 28.2004 42.1254 29.9137 40.4121L47.0131 23.3126C47.8717 22.4541 47.8679 21.0646 47.0131 20.2098L29.9137 3.11036L29.9175 3.10659Z" fill="currentColor"/>
+          <path d="M17.4911 10.4795C15.7777 8.76618 12.995 8.76242 11.2779 10.4795L9.00724 12.7502L17.5475 21.2905C17.8036 21.5465 17.8074 21.9645 17.5475 22.2243L9.00724 30.7646L11.2779 33.0353C12.9912 34.7486 15.774 34.7524 17.4911 33.0353L27.2138 23.3126C28.0723 22.454 28.0685 21.0645 27.2138 20.2097L17.4911 10.4871V10.4795Z" fill="currentColor"/>
+        </svg>
+      </a>
     </div>
   </nav>
 </header>
 
 <script>
+  // Mobile menu toggle
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   
@@ -66,6 +206,31 @@
     mobileMenuBtn.setAttribute('aria-expanded', (!isExpanded).toString());
     mobileMenu?.setAttribute('aria-hidden', isExpanded.toString());
     document.body.style.overflow = isExpanded ? '' : 'hidden';
+  });
+  
+  // Mobile submenu toggles
+  document.querySelectorAll('.mobile-nav-item.has-submenu > button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', (!isExpanded).toString());
+      btn.parentElement?.classList.toggle('open');
+    });
+  });
+  
+  // Desktop dropdowns
+  document.querySelectorAll('.nav-item.has-dropdown').forEach(item => {
+    const btn = item.querySelector('button');
+    btn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.nav-item.has-dropdown').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+  
+  // Close dropdowns on outside click
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.nav-item.has-dropdown').forEach(i => i.classList.remove('open'));
   });
 </script>
 
@@ -88,20 +253,41 @@
     max-width: 1400px;
   }
   
-  .logo-link {
+  .logo-link { text-decoration: none; }
+  
+  .logo {
     display: flex;
     align-items: center;
+    gap: 10px;
   }
   
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #EA1F67, #ff6b9d);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+    font-size: 18px;
+  }
+  
+  .logo-text {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--color-navy);
+  }
+  
+  /* Desktop Navigation */
   .nav-desktop {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
   }
   
-  .nav-item {
-    position: relative;
-  }
+  .nav-item { position: relative; }
   
   .nav-link {
     display: flex;
@@ -114,13 +300,114 @@
     background: none;
     border: none;
     cursor: pointer;
-    transition: opacity var(--transition-fast);
+    transition: opacity 0.15s;
+    text-decoration: none;
   }
   
-  .nav-link:hover {
-    opacity: 0.7;
+  .nav-link:hover { opacity: 0.7; }
+  
+  .chevron {
+    transition: transform 0.2s;
   }
   
+  .nav-item.open .chevron {
+    transform: rotate(180deg);
+  }
+  
+  /* Dropdown */
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+    min-width: 280px;
+    overflow: hidden;
+  }
+  
+  .nav-item.open .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  
+  .mega-menu {
+    min-width: 600px;
+  }
+  
+  .dropdown-content {
+    padding: 20px;
+  }
+  
+  .dropdown-section h4 {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+  }
+  
+  .dropdown-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .dropdown-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    transition: background 0.15s;
+    text-decoration: none;
+  }
+  
+  .dropdown-item:hover {
+    background: #f8fafc;
+  }
+  
+  .item-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  
+  .item-name {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-navy);
+    margin-bottom: 2px;
+  }
+  
+  .item-desc {
+    display: block;
+    font-size: 13px;
+    color: var(--color-text);
+  }
+  
+  .dropdown-footer {
+    padding: 16px 20px;
+    background: #f8fafc;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .dropdown-cta {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-pink);
+    text-decoration: none;
+  }
+  
+  .dropdown-cta:hover { text-decoration: underline; }
+  
+  /* Actions */
   .actions {
     display: flex;
     align-items: center;
@@ -131,13 +418,13 @@
     font-size: 15px;
     font-weight: 500;
     color: var(--color-navy);
-    transition: opacity var(--transition-fast);
+    text-decoration: none;
+    transition: opacity 0.15s;
   }
   
-  .signin-link:hover {
-    opacity: 0.7;
-  }
+  .signin-link:hover { opacity: 0.7; }
   
+  /* Mobile Menu Button */
   .mobile-menu-btn {
     display: none;
     width: 40px;
@@ -154,7 +441,7 @@
     width: 24px;
     height: 2px;
     background: var(--color-navy);
-    transition: background var(--transition-fast);
+    transition: background 0.15s;
   }
   
   .hamburger::before,
@@ -165,16 +452,11 @@
     width: 24px;
     height: 2px;
     background: var(--color-navy);
-    transition: transform var(--transition-fast);
+    transition: transform 0.15s;
   }
   
-  .hamburger::before {
-    top: -8px;
-  }
-  
-  .hamburger::after {
-    top: 8px;
-  }
+  .hamburger::before { top: -8px; }
+  .hamburger::after { top: 8px; }
   
   .mobile-menu-btn[aria-expanded="true"] .hamburger {
     background: transparent;
@@ -188,6 +470,7 @@
     transform: translateY(-8px) rotate(-45deg);
   }
   
+  /* Mobile Navigation */
   .nav-mobile {
     display: none;
     position: fixed;
@@ -196,9 +479,7 @@
     right: 0;
     bottom: 0;
     background: var(--color-white);
-    padding: 24px;
     flex-direction: column;
-    gap: 8px;
     overflow-y: auto;
   }
   
@@ -206,43 +487,96 @@
     display: flex;
   }
   
-  .nav-link-mobile {
-    display: block;
-    padding: 16px 0;
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--color-navy);
+  .mobile-menu-content {
+    flex: 1;
+    padding: 8px 24px;
+  }
+  
+  .mobile-nav-item {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
   
-  .nav-actions-mobile {
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-navy);
+    background: none;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .mobile-nav-item.has-submenu .chevron {
+    transition: transform 0.2s;
+  }
+  
+  .mobile-nav-item.has-submenu.open .chevron {
+    transform: rotate(180deg);
+  }
+  
+  .mobile-submenu {
+    display: none;
+    padding-bottom: 16px;
+  }
+  
+  .mobile-nav-item.open .mobile-submenu {
+    display: block;
+  }
+  
+  .mobile-submenu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    font-size: 16px;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  
+  .mobile-submenu-item:hover {
+    color: var(--color-pink);
+  }
+  
+  .mobile-submenu-cta {
+    display: block;
+    padding: 12px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-pink);
+    text-decoration: none;
+  }
+  
+  .mobile-nav-actions {
+    padding: 24px;
+    background: #f8fafc;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin-top: auto;
-    padding-top: 24px;
   }
   
-  .signin-link-mobile {
+  .mobile-signin {
     display: block;
     text-align: center;
-    padding: 12px;
+    padding: 14px;
     font-size: 16px;
     font-weight: 500;
     color: var(--color-navy);
+    text-decoration: none;
+  }
+  
+  .btn-block {
+    width: 100%;
+    justify-content: center;
   }
   
   @media (max-width: 1024px) {
-    .nav-desktop {
-      display: none;
-    }
-    
-    .actions {
-      display: none;
-    }
-    
-    .mobile-menu-btn {
-      display: flex;
-    }
+    .nav-desktop { display: none; }
+    .actions { display: none; }
+    .mobile-menu-btn { display: flex; }
   }
 </style>
