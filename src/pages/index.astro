@@ -55,30 +55,7 @@ const hrFeatures = [
   }
 ];
 
-// Testimonials
-const testimonials = [
-  {
-    quote: "Kami sudah menggunakan platform ini lebih dari setahun, dan terbukti menjadi aplikasi integral untuk operasi dan pelatihan. Kami sudah customisasi program onboarding, memanfaatkan modul library untuk Scrum, Product Management, dan Developer training.",
-    author: "David Anderson",
-    role: "Director",
-    company: "Enterprise Client",
-    avatar: "DA"
-  },
-  {
-    quote: "Setup-nya cepat dan tim support sangat responsif. Dalam 2 minggu kami sudah bisa deploy program compliance ke seluruh organisasi. ROI terasa dalam bulan pertama.",
-    author: "Sarah Chen",
-    role: "HR Director",
-    company: "Tech Company",
-    avatar: "SC"
-  },
-  {
-    quote: "Fitur AI Course Builder mengubah cara kami membuat konten. Dulu butuh 2 minggu untuk satu kursus, sekarang 2 hari. Tim L&D bisa fokus ke hal yang lebih strategis.",
-    author: "Budi Santoso",
-    role: "L&D Manager",
-    company: "Indonesian Manufacturing",
-    avatar: "BS"
-  }
-];
+// Testimonials - removed (placeholder data)
 ---
 
 <Layout title="Mili Academy - Platform Pelatihan Enterprise untuk Indonesia">
@@ -190,35 +167,7 @@ const testimonials = [
       altBackground={true}
     />
     
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
-      <div class="testimonials-container">
-        <span class="section-tag">Bukti, Bukan Janji</span>
-        <h2 class="testimonials-title">Apa kata pengguna kami</h2>
-        
-        <div class="testimonials-grid">
-          {testimonials.map((testimonial) => (
-            <div class="testimonial-card">
-              <div class="testimonial-content">
-                <svg class="quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
-                  <path d="M10 8C10 10.21 8.21 12 6 12C5.34 12 4.72 11.84 4.17 11.56C4.06 11.82 4 12.1 4 12.4C4 14.39 5.61 16 7.6 16H8V18H7.6C4.51 18 2 15.49 2 12.4V8C2 5.79 3.79 4 6 4C8.21 4 10 5.79 10 8ZM22 8C22 10.21 20.21 12 18 12C17.34 12 16.72 11.84 16.17 11.56C16.06 11.82 16 12.1 16 12.4C16 14.39 17.61 16 19.6 16H20V18H19.6C16.51 18 14 15.49 14 12.4V8C14 5.79 15.79 4 18 4C20.21 4 22 5.79 22 8Z" fill="currentColor"/>
-                </svg>
-                <p class="testimonial-quote">{testimonial.quote}</p>
-              </div>
-              <div class="testimonial-author">
-                <div class="author-avatar" style={`background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);`}>
-                  {testimonial.avatar}
-                </div>
-                <div class="author-info">
-                  <span class="author-name">{testimonial.author}</span>
-                  <span class="author-role">{testimonial.role}, {testimonial.company}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <!-- Testimonials Section - removed (awaiting real testimonials) -->
     
     <!-- CTA Section -->
     <CTASection 
