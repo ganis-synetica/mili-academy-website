@@ -1,5 +1,5 @@
 ---
-// Feature block with text and animation/image
+// Feature block with text and image/video
 interface Props {
   title: string;
   description: string;
@@ -7,6 +7,10 @@ interface Props {
   ctaLink?: string;
   imagePosition?: 'left' | 'right';
   tag?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  videoSrc?: string;
+  videoWebm?: string;
 }
 
 const { 
@@ -15,8 +19,15 @@ const {
   ctaText = "Learn more",
   ctaLink = "#",
   imagePosition = 'right',
-  tag
+  tag,
+  imageSrc,
+  imageAlt = title,
+  videoSrc,
+  videoWebm
 } = Astro.props;
+
+const hasVideo = videoSrc || videoWebm;
+const hasImage = imageSrc;
 ---
 
 <section class={`feature-block ${imagePosition === 'left' ? 'image-left' : 'image-right'}`}>
@@ -35,17 +46,29 @@ const {
     </div>
     
     <div class="feature-media">
-      <div class="lottie-placeholder">
-        <!-- Placeholder for Lottie animation -->
-        <div class="animation-placeholder">
-          <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-            <rect width="120" height="120" rx="16" fill="#F5F7FA"/>
-            <circle cx="60" cy="60" r="30" stroke="#E0E4E8" stroke-width="4" stroke-dasharray="8 8"/>
-            <circle cx="60" cy="60" r="8" fill="#E0E4E8"/>
-          </svg>
-          <span>Animation</span>
+      {hasVideo ? (
+        <div class="video-container">
+          <video autoplay loop muted playsinline>
+            {videoWebm && <source src={videoWebm} type="video/webm" />}
+            {videoSrc && <source src={videoSrc} type="video/mp4" />}
+          </video>
         </div>
-      </div>
+      ) : hasImage ? (
+        <div class="image-container">
+          <img src={imageSrc} alt={imageAlt} loading="lazy" />
+        </div>
+      ) : (
+        <div class="placeholder-container">
+          <div class="animation-placeholder">
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+              <rect width="120" height="120" rx="16" fill="#F5F7FA"/>
+              <circle cx="60" cy="60" r="30" stroke="#E0E4E8" stroke-width="4" stroke-dasharray="8 8"/>
+              <circle cx="60" cy="60" r="8" fill="#E0E4E8"/>
+            </svg>
+            <span>Animation</span>
+          </div>
+        </div>
+      )}
     </div>
   </div>
 </section>
@@ -131,7 +154,23 @@ const {
     align-items: center;
   }
   
-  .lottie-placeholder {
+  .video-container,
+  .image-container {
+    width: 100%;
+    max-width: 560px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(30, 26, 92, 0.15);
+  }
+  
+  .video-container video,
+  .image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .placeholder-container {
     width: 100%;
     max-width: 480px;
     aspect-ratio: 1;
@@ -174,7 +213,9 @@ const {
       order: -1;
     }
     
-    .lottie-placeholder {
+    .video-container,
+    .image-container,
+    .placeholder-container {
       max-width: 400px;
     }
   }

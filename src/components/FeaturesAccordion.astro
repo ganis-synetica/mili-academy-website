@@ -14,6 +14,10 @@ interface Props {
   id?: string;
   tagText?: string;
   altBackground?: boolean;
+  imageSrc?: string;
+  imageAlt?: string;
+  videoSrc?: string;
+  videoWebm?: string;
 }
 
 const { 
@@ -22,8 +26,15 @@ const {
   features, 
   id = 'features',
   tagText = 'FITUR',
-  altBackground = false
+  altBackground = false,
+  imageSrc,
+  imageAlt = sectionTitle,
+  videoSrc,
+  videoWebm
 } = Astro.props;
+
+const hasVideo = videoSrc || videoWebm;
+const hasImage = imageSrc;
 ---
 
 <section class={`features-accordion ${altBackground ? 'alt-bg' : ''}`} id={id}>
@@ -76,32 +87,45 @@ const {
       </div>
       
       <div class="accordion-media">
-        <div class="media-placeholder">
-          <div class="media-inner">
-            <div class="media-mockup">
-              <div class="mockup-header">
-                <div class="mockup-dots">
-                  <span></span>
-                  <span></span>
-                  <span></span>
+        {hasVideo ? (
+          <div class="media-video">
+            <video autoplay loop muted playsinline>
+              {videoWebm && <source src={videoWebm} type="video/webm" />}
+              {videoSrc && <source src={videoSrc} type="video/mp4" />}
+            </video>
+          </div>
+        ) : hasImage ? (
+          <div class="media-image">
+            <img src={imageSrc} alt={imageAlt} loading="lazy" />
+          </div>
+        ) : (
+          <div class="media-placeholder">
+            <div class="media-inner">
+              <div class="media-mockup">
+                <div class="mockup-header">
+                  <div class="mockup-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
                 </div>
-              </div>
-              <div class="mockup-content">
-                <div class="mockup-sidebar">
-                  <div class="mockup-nav-item active"></div>
-                  <div class="mockup-nav-item"></div>
-                  <div class="mockup-nav-item"></div>
-                  <div class="mockup-nav-item"></div>
-                </div>
-                <div class="mockup-main">
-                  <div class="mockup-card"></div>
-                  <div class="mockup-card small"></div>
-                  <div class="mockup-card small"></div>
+                <div class="mockup-content">
+                  <div class="mockup-sidebar">
+                    <div class="mockup-nav-item active"></div>
+                    <div class="mockup-nav-item"></div>
+                    <div class="mockup-nav-item"></div>
+                    <div class="mockup-nav-item"></div>
+                  </div>
+                  <div class="mockup-main">
+                    <div class="mockup-card"></div>
+                    <div class="mockup-card small"></div>
+                    <div class="mockup-card small"></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   </div>
@@ -321,6 +345,22 @@ const {
     align-items: flex-start;
   }
   
+  .media-video,
+  .media-image {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(102, 126, 234, 0.3);
+  }
+  
+  .media-video video,
+  .media-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
   .media-placeholder {
     width: 100%;
     max-width: 500px;
@@ -435,7 +475,9 @@ const {
       order: -1;
     }
     
-    .media-placeholder {
+    .media-placeholder,
+    .media-video,
+    .media-image {
       max-width: 400px;
       margin: 0 auto;
     }
