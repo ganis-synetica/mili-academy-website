@@ -7,18 +7,29 @@ interface Props {
 
 const { title, direction = 'forward' } = Astro.props;
 
-// Placeholder company logos (Indonesian companies)
+// Client logos from Superpath
 const logos = [
-  { name: "Bank Mandiri", width: 110 },
-  { name: "Telkom", width: 90 },
-  { name: "Pertamina", width: 100 },
-  { name: "Astra", width: 80 },
-  { name: "BCA", width: 70 },
-  { name: "Indofood", width: 95 },
-  { name: "Unilever ID", width: 100 },
-  { name: "Gojek", width: 80 },
-  { name: "Tokopedia", width: 100 },
-  { name: "Bank BRI", width: 90 },
+  { name: "SIAA", src: "/images/logos/siaa-1.webp" },
+  { name: "Keystone Engineering", src: "/images/logos/keystone-1.webp" },
+  { name: "SkinKandy", src: "/images/logos/skinkandy-1.webp" },
+  { name: "Siemens", src: "/images/logos/siemens-2.webp" },
+  { name: "Funraisin", src: "/images/logos/funraisin-1.webp" },
+  { name: "Energy Queensland", src: "/images/logos/energy-qld-1.webp" },
+  { name: "Veridapt", src: "/images/logos/veridapt-1.svg" },
+  { name: "Carbon", src: "/images/logos/carbon-1.webp" },
+  { name: "Keypath", src: "/images/logos/keypath-1.webp" },
+  { name: "Francom", src: "/images/logos/francom.png" },
+  { name: "GBST", src: "/images/logos/gbst.png" },
+  { name: "Cotton Seed Distributors", src: "/images/logos/CSD.webp" },
+  { name: "NAWIC", src: "/images/logos/nawic.png" },
+  { name: "Heartland Bank", src: "/images/logos/heartland.png" },
+  { name: "Who Gives A Crap", src: "/images/logos/wgac.png" },
+  { name: "Richard Crookes Construction", src: "/images/logos/rcc.png" },
+  { name: "Live Life Alarms", src: "/images/logos/livelife.png" },
+  { name: "Roof Racks Galore", src: "/images/logos/roofracks.png" },
+  { name: "Pantry", src: "/images/logos/pantry.webp" },
+  { name: "Altus Traffic", src: "/images/logos/altus.png" },
+  { name: "Advocacy Law Alliance", src: "/images/logos/advocacy.png" },
 ];
 ---
 
@@ -31,9 +42,7 @@ const logos = [
       {/* Duplicate logos for seamless loop */}
       {[...logos, ...logos].map((logo) => (
         <div class="logo-item">
-          <div class="logo-placeholder" style={`width: ${logo.width}px;`}>
-            <span>{logo.name}</span>
-          </div>
+          <img src={logo.src} alt={logo.name} loading="lazy" />
         </div>
       ))}
     </div>
@@ -67,17 +76,17 @@ const logos = [
   
   .slider-track {
     display: flex;
-    gap: 47px;
+    gap: 60px;
     align-items: center;
     will-change: transform;
   }
   
   .slider-track-forward {
-    animation: scrollForward 30s linear infinite;
+    animation: scrollForward 40s linear infinite;
   }
   
   .slider-track-reverse {
-    animation: scrollReverse 30s linear infinite;
+    animation: scrollReverse 40s linear infinite;
   }
   
   @keyframes scrollForward {
@@ -110,25 +119,17 @@ const logos = [
     justify-content: center;
   }
   
-  .logo-placeholder {
-    height: 40px;
-    background: #f0f0f0;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    filter: grayscale(100%) opacity(0.6);
+  .logo-item img {
+    max-height: 45px;
+    max-width: 140px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.5);
     transition: filter 0.3s ease;
-    padding: 0 16px;
   }
   
-  .logo-placeholder span {
-    font-size: 11px;
-    color: #888;
-    white-space: nowrap;
-  }
-  
-  .logo-item:hover .logo-placeholder {
+  .logo-item:hover img {
     filter: grayscale(0%) opacity(1);
   }
   
@@ -157,17 +158,18 @@ const logos = [
       height: 60px;
     }
     
-    .logo-placeholder {
-      height: 32px;
+    .logo-item img {
+      max-height: 35px;
+      max-width: 100px;
     }
     
     .slider-track {
-      gap: 30px;
+      gap: 40px;
     }
     
     .slider-track-forward,
     .slider-track-reverse {
-      animation-duration: 20s;
+      animation-duration: 30s;
     }
   }
 </style>
