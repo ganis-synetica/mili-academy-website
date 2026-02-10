@@ -66,58 +66,7 @@ const capabilities = [
               <p>{cap.description}</p>
             </div>
             <div class="capability-visual">
-              <div class="visual-placeholder">
-                <div class="roadmap-mockup">
-                  <div class="roadmap-title">
-                    <div class="title-bar"></div>
-                  </div>
-                  <div class="roadmap-levels">
-                    <div class="level level-1">
-                      <div class="level-header">
-                        <span class="level-badge">L1</span>
-                        <div class="level-name"></div>
-                      </div>
-                      <div class="level-skills">
-                        <div class="skill"></div>
-                        <div class="skill"></div>
-                      </div>
-                    </div>
-                    <div class="level-connector">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="#ddd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
-                    <div class="level level-2 current">
-                      <div class="level-header">
-                        <span class="level-badge">L2</span>
-                        <div class="level-name"></div>
-                      </div>
-                      <div class="level-skills">
-                        <div class="skill"></div>
-                        <div class="skill"></div>
-                        <div class="skill"></div>
-                      </div>
-                    </div>
-                    <div class="level-connector">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="#ddd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
-                    <div class="level level-3">
-                      <div class="level-header">
-                        <span class="level-badge">L3</span>
-                        <div class="level-name"></div>
-                      </div>
-                      <div class="level-skills">
-                        <div class="skill"></div>
-                        <div class="skill"></div>
-                        <div class="skill"></div>
-                        <div class="skill"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <img src="/images/features/support-frame.svg" alt="Career Roadmaps Interface" class="feature-image" loading="lazy" />
             </div>
           </div>
         </div>
@@ -283,99 +232,12 @@ const capabilities = [
     justify-content: center;
   }
   
-  .visual-placeholder {
+  .feature-image {
     width: 100%;
-    max-width: 420px;
-    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-    border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 30px 60px rgba(67, 233, 123, 0.3);
-  }
-  
-  .roadmap-mockup {
-    background: white;
-    border-radius: 12px;
-    padding: 24px;
-  }
-  
-  .roadmap-title {
-    margin-bottom: 24px;
-  }
-  
-  .title-bar {
-    height: 20px;
-    width: 60%;
-    background: #eee;
-    border-radius: 4px;
-  }
-  
-  .roadmap-levels {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .level {
-    width: 100%;
-    background: #FAFBFC;
-    border-radius: 12px;
-    padding: 16px;
-    border: 2px solid transparent;
-  }
-  
-  .level.current {
-    border-color: var(--color-pink);
-    background: rgba(234, 31, 103, 0.05);
-  }
-  
-  .level-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-  }
-  
-  .level-badge {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: var(--color-navy);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 700;
-  }
-  
-  .level.current .level-badge {
-    background: var(--color-pink);
-  }
-  
-  .level-name {
-    height: 14px;
-    flex: 1;
-    background: #ddd;
-    border-radius: 4px;
-  }
-  
-  .level-skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  
-  .skill {
-    height: 24px;
-    width: 60px;
-    background: #e5e5e5;
-    border-radius: 12px;
-  }
-  
-  .level-connector {
-    padding: 4px 0;
-    color: #ddd;
+    max-width: 500px;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
   }
   
   /* Benefits Section */

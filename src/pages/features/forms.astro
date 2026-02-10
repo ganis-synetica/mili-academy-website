@@ -65,25 +65,7 @@ const capabilities = [
               <p>{cap.description}</p>
             </div>
             <div class="capability-visual">
-              <div class="visual-placeholder">
-                <div class="form-mockup">
-                  <div class="form-header">
-                    <div class="form-title-bar"></div>
-                    <div class="form-subtitle-bar"></div>
-                  </div>
-                  <div class="form-body">
-                    <div class="form-question">
-                      <div class="question-text"></div>
-                      <div class="question-options">
-                        <div class="option"><span class="radio"></span><div class="option-text"></div></div>
-                        <div class="option"><span class="radio"></span><div class="option-text"></div></div>
-                        <div class="option"><span class="radio active"></span><div class="option-text"></div></div>
-                        <div class="option"><span class="radio"></span><div class="option-text"></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <img src="/images/features/support-frame.svg" alt="Forms & Quizzes Interface" class="feature-image" loading="lazy" />
             </div>
           </div>
         </div>
@@ -259,88 +241,12 @@ const capabilities = [
     justify-content: center;
   }
   
-  .visual-placeholder {
+  .feature-image {
     width: 100%;
-    max-width: 480px;
-    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-    border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 30px 60px rgba(67, 233, 123, 0.3);
-  }
-  
-  .form-mockup {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  
-  .form-header {
-    padding: 24px;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .form-title-bar {
-    height: 20px;
-    width: 60%;
-    background: #eee;
-    border-radius: 4px;
-    margin-bottom: 8px;
-  }
-  
-  .form-subtitle-bar {
-    height: 12px;
-    width: 40%;
-    background: #f5f5f5;
-    border-radius: 4px;
-  }
-  
-  .form-body {
-    padding: 24px;
-  }
-  
-  .form-question {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .question-text {
-    height: 16px;
-    width: 80%;
-    background: #eee;
-    border-radius: 4px;
-  }
-  
-  .question-options {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .option {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  
-  .radio {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid #ddd;
-    flex-shrink: 0;
-  }
-  
-  .radio.active {
-    border-color: var(--color-pink);
-    background: var(--color-pink);
-  }
-  
-  .option-text {
-    height: 12px;
-    width: 60%;
-    background: #f5f5f5;
-    border-radius: 4px;
+    max-width: 500px;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
   }
   
   /* Types Section */

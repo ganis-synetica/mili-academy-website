@@ -75,42 +75,7 @@ const capabilities = [
               <p>{cap.description}</p>
             </div>
             <div class="capability-visual">
-              <div class="visual-placeholder">
-                <div class="dashboard-mockup">
-                  <div class="dashboard-header">
-                    <div class="dashboard-title"></div>
-                    <div class="dashboard-filters">
-                      <div class="filter"></div>
-                      <div class="filter"></div>
-                    </div>
-                  </div>
-                  <div class="dashboard-body">
-                    <div class="stat-cards">
-                      <div class="stat-card">
-                        <div class="stat-value"></div>
-                        <div class="stat-label"></div>
-                      </div>
-                      <div class="stat-card">
-                        <div class="stat-value"></div>
-                        <div class="stat-label"></div>
-                      </div>
-                      <div class="stat-card">
-                        <div class="stat-value"></div>
-                        <div class="stat-label"></div>
-                      </div>
-                    </div>
-                    <div class="chart-area">
-                      <div class="chart-bars">
-                        <div class="bar" style="height: 60%"></div>
-                        <div class="bar" style="height: 80%"></div>
-                        <div class="bar" style="height: 45%"></div>
-                        <div class="bar" style="height: 90%"></div>
-                        <div class="bar" style="height: 70%"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <img src="/images/features/secure-frame.svg" alt="Analytics Dashboard Interface" class="feature-image" loading="lazy" />
             </div>
           </div>
         </div>
@@ -286,101 +251,12 @@ const capabilities = [
     justify-content: center;
   }
   
-  .visual-placeholder {
+  .feature-image {
     width: 100%;
     max-width: 500px;
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 30px 60px rgba(79, 172, 254, 0.3);
-  }
-  
-  .dashboard-mockup {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  
-  .dashboard-header {
-    padding: 16px 20px;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .dashboard-title {
-    height: 16px;
-    width: 120px;
-    background: #eee;
-    border-radius: 4px;
-  }
-  
-  .dashboard-filters {
-    display: flex;
-    gap: 8px;
-  }
-  
-  .filter {
-    height: 28px;
-    width: 80px;
-    background: #f5f5f5;
-    border-radius: 6px;
-  }
-  
-  .dashboard-body {
-    padding: 20px;
-  }
-  
-  .stat-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 20px;
-  }
-  
-  .stat-card {
-    background: #FAFBFC;
-    padding: 16px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .stat-value {
-    height: 24px;
-    width: 60%;
-    background: #ddd;
-    border-radius: 4px;
-  }
-  
-  .stat-label {
-    height: 12px;
-    width: 80%;
-    background: #eee;
-    border-radius: 4px;
-  }
-  
-  .chart-area {
-    background: #FAFBFC;
-    border-radius: 10px;
-    padding: 20px;
-    height: 120px;
-  }
-  
-  .chart-bars {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-around;
-    height: 100%;
-    gap: 16px;
-  }
-  
-  .bar {
-    flex: 1;
-    background: linear-gradient(180deg, var(--color-pink) 0%, #764ba2 100%);
-    border-radius: 4px 4px 0 0;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
   }
   
   /* Reports Section */
